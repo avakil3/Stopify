@@ -38,20 +38,29 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Stopify!
+      <div className="session-form-container">
+         <div className="logo-wrapper">
+          <img src={window.blackLogoURL} alt="logo-black" id='logo-black'/>
+         </div>
+        <h1>{this.props.formType==='signup'? "To continue, sign up for Stopify.": "To continue, log in to Spotify."}</h1>
+
+        <button className='demo-btn' onClick={ () => demoLogin(demoUser) }>CONTINUE WITH DEMO</button>
+
+        <div className='divider'>
+              <strong className='divider-title'>OR</strong>
+        </div>
+
+        <form onSubmit={this.handleSubmit} className="form-box">
           <br/>
-          Please {this.props.formType} or {this.props.otherForm}
-          <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
           <div className="login-form">
             <br/>
-            <label>Username:
+            <label id="username-input">Username:
               <input type="text"
+               placeholder="Enter your username."
                 value={this.state.username}
                 onChange={this.update('username')}
-                className="login-input"
+                className="form-input"
               />
             </label>
             <br/>
@@ -59,9 +68,10 @@ class SessionForm extends React.Component {
              this.props.formType ==='signup' ?   
              <label>Email:
                     <input type="text"
+                        placeholder="Enter your email."
                         value={this.state.email}
                         onChange={this.update('email')}
-                        className="login-input"
+                        className="form-input"
                     />
              </label> 
              : ""
@@ -72,7 +82,7 @@ class SessionForm extends React.Component {
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                className="login-input"
+                className="form-input"
               />
             </label>
             <br/>

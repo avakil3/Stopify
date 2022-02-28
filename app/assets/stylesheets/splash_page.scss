@@ -62,7 +62,7 @@ body {
 }
 
 
-.links:hover, a:hover {
+.links:hover{
     color: rgb(30,215,96);
 }
 
@@ -94,6 +94,7 @@ body {
     font-size: 2vw;
     padding: 1.5em;
     font-size: 1em;
+    margin-bottom: 1em;
 }
 
 .splash-btn{
@@ -108,3 +109,6 @@ body {
     border: none;
 }
 
+.splash-btn:hover {
+    background-color: rgb(141, 219, 169);
+  }
