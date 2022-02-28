@@ -648,7 +648,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header/header */ "./frontend/components/splash_page/header/header.jsx");
 
 
-
+ // import Background from '../../../app/assets/images/splash_page_background.png';
 
 var SplashPage = function SplashPage(_ref) {
   var currentUser = _ref.currentUser,
@@ -687,17 +687,17 @@ var SplashPage = function SplashPage(_ref) {
     to: "/login",
     className: "links"
   }, "Log In")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "splash-content"
+    className: "main-splash-text"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "content-listening-is"
   }, "Listening is"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "content-everything"
-  }, "everything"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    id: "splash-content-center"
-  }, "Millions of songs and podcasts. No credit card needed."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+  }, "everything"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    id: "splash-centered_content"
+  }, "Millions of songs and podcasts. No credit card needed."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "button",
     value: "GET STOPIFY FREE",
-    className: "splash-get-btn"
+    className: "splash-btn"
   }))));
 };
 

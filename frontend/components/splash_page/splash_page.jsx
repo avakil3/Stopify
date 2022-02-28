@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from './header/header'
+import Header from './header/header';
+// import Background from '../../../app/assets/images/splash_page_background.png';
 
 const SplashPage = ({currentUser, logout}) => {
     return (
@@ -21,15 +22,15 @@ const SplashPage = ({currentUser, logout}) => {
                 <li><Link to={ "/login" } className="links">Log In</Link></li>
               </ul>
             </div>
-            <div className="splash-content">
+            <div className="main-splash-text">
               <p id="content-listening-is">Listening is</p>
               <p id="content-everything">everything</p>
-              <p id="splash-content-center">Millions of songs and podcasts. No credit card needed.</p>
               <div >
+              <p id="splash-centered_content">Millions of songs and podcasts. No credit card needed.</p>
                 <input 
                   type="button"
                   value="GET STOPIFY FREE"
-                  className="splash-get-btn"
+                  className="splash-btn"
                   /> 
               </div>
             </div>

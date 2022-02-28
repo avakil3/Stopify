@@ -2,12 +2,17 @@
 .splash-background {
     display: flexbox;
     width: 100%;
+
 }
 
+body {
+    background-color: rgb(41,66,171);
+}
 .splash-container {
-    background-image: url("/images/splash_page_background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    // background-image: url("../images/splash_page_background.png");
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    background-color: rgb(41,66,171);
 }
 
 .splash-header {
@@ -61,37 +66,39 @@
     color: rgb(30,215,96);
 }
 
-.splash-content {
-    height: 80vh;
+.main-splash-text {
     display: flex;
     flex-direction: column;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
+    font-family: sans-serif;
+    font-weight: 900;
     color: rgb(30,215,96);
+    margin: 10em;
+    padding: 1em;
     text-align: center;
     justify-content: center;
-    margin: 1em;
-    padding: 1em;
 }
 
 #content-listening-is {
-    font-size: 5em;
     position: relative;
+    font-size: 8em;
     right: 1em;
+    padding-bottom: .2em;
 }
 #content-everything {
-    font-size: 5em;
     position: relative;
+    font-size: 8em;
     left: 1em;
+    padding-bottom: .4em;
 }
-#splash-content-center  {
+#splash-centered_content  {
     font-size: 2vw;
     padding: 1.5em;
+    font-size: 1em;
 }
 
-.splash-get-btn{
+.splash-btn{
     background-color: rgb(30,215,96);
-    color: rgb(0, 43, 184);
+    color:  rgb(41,66,171);
     cursor: pointer;
     border-radius: 2em;
     padding: 1em;
@@ -101,23 +108,3 @@
     border: none;
 }
 
-.splash-footer{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: rgb(25,20,20);
-    font-family: 'Raleway', sans-serif;
-    color: white;
-}
-
-.splash-footer h1 {
-    display: flex;
-    align-items: center;
-    margin-left: 0.5em;
-    
-}
-
-.fa-github:hover, .fa-linkedin:hover {
-    cursor: pointer;
-    background-color: rgb(30,215,96);
-}
