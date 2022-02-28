@@ -4,10 +4,11 @@
     width: 100%;
 }
 
-/* .splash-container {
-    display: block;
-    height: 100%;
-} */
+.splash-container {
+    background-image: url("/images/splash_page_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .splash-header {
     display: flex;
@@ -25,11 +26,6 @@
 
 #logo{
     width: 10em;
-}
-.header-link h1 {
-    display: flex;
-    text-decoration: none;
-    color: aqua;
 }
 
 .splash-nav-bar {
@@ -78,13 +74,13 @@
     padding: 1em;
 }
 
-#splash-content-left  {
-    font-size: 8vw;
+#content-listening-is {
+    font-size: 5em;
     position: relative;
     right: 1em;
 }
-#splash-content-right  {
-    font-size: 8vw;  
+#content-everything {
+    font-size: 5em;
     position: relative;
     left: 1em;
 }

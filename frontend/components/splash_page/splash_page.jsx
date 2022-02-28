@@ -8,7 +8,7 @@ const SplashPage = ({currentUser, logout}) => {
             <div className="splash-header">
               <div className="splash-logo-container">
                 <Link to="/" className="header-link">
-                  <img id="logo" src="/assets/spotify_logo" alt="logo" />
+                  <img id="logo" src={window.spotifyLogoURL} alt="logo" />
                 </Link>
               </div>
               <ul className="splash-nav-bar">
@@ -21,18 +21,18 @@ const SplashPage = ({currentUser, logout}) => {
                 <li><Link to={ "/login" } className="links">Log In</Link></li>
               </ul>
             </div>
-            {/* <div className="splash-content">
-              <p id="splash-content-left">Listening is</p>
-              <p id="splash-content-right">everything</p>
-              <p id="splash-content-center">Handfulls of songs. No credit card needed.</p>
+            <div className="splash-content">
+              <p id="content-listening-is">Listening is</p>
+              <p id="content-everything">everything</p>
+              <p id="splash-content-center">Millions of songs and podcasts. No credit card needed.</p>
               <div >
                 <input 
                   type="button"
-                  value="GET EARSHOT FREE"
+                  value="GET STOPIFY FREE"
                   className="splash-get-btn"
                   /> 
               </div>
-            </div> */}
+            </div>
             {/* <footer className="splash-footer">
               <div className="splash-logo-container">
                 <i class="fa-solid fa-ear-listen fa-xl"></i>
