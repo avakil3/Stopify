@@ -1,0 +1,127 @@
+
+.splash-background {
+    display: flexbox;
+    width: 100%;
+}
+
+/* .splash-container {
+    display: block;
+    height: 100%;
+} */
+
+.splash-header {
+    display: flex;
+    font-family: sans-serif;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(25,20,20);
+}
+
+.splash-logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+}
+
+#logo{
+    width: 10em;
+}
+.header-link h1 {
+    display: flex;
+    text-decoration: none;
+    color: aqua;
+}
+
+.splash-nav-bar {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    margin-right: 1rem;
+
+}
+
+.splash-nav-bar li{
+    display: flex;
+    padding-inline-end: 2em;
+    font-size: .9em;
+}
+.splash-nav-bar, a {
+    color: white;
+    text-decoration: none;
+}
+
+.splash-nav-bar li:hover {
+    color: rgb(30,215,96);
+    cursor: pointer;
+}
+
+.hidden {
+    color: white;
+    pointer-events: none; 
+}
+
+
+.links:hover, a:hover {
+    color: rgb(30,215,96);
+}
+
+.splash-content {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: rgb(30,215,96);
+    text-align: center;
+    justify-content: center;
+    margin: 1em;
+    padding: 1em;
+}
+
+#splash-content-left  {
+    font-size: 8vw;
+    position: relative;
+    right: 1em;
+}
+#splash-content-right  {
+    font-size: 8vw;  
+    position: relative;
+    left: 1em;
+}
+#splash-content-center  {
+    font-size: 2vw;
+    padding: 1.5em;
+}
+
+.splash-get-btn{
+    background-color: rgb(30,215,96);
+    color: rgb(0, 43, 184);
+    cursor: pointer;
+    border-radius: 2em;
+    padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-weight: 700;
+    border: none;
+}
+
+.splash-footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(25,20,20);
+    font-family: 'Raleway', sans-serif;
+    color: white;
+}
+
+.splash-footer h1 {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5em;
+    
+}
+
+.fa-github:hover, .fa-linkedin:hover {
+    cursor: pointer;
+    background-color: rgb(30,215,96);
+}

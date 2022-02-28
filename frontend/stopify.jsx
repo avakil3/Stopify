@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import * as Actions from "./actions/session_actions"
-
+import * as ModalActions from "./actions/modal_actions"
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,3 +27,5 @@ document.addEventListener('DOMContentLoaded', () => {
 window.login = Actions.login;
 window.signup = Actions.signup;
 window.logout = Actions.logout;
+
+window.openModal = ModalActions.openModal;
