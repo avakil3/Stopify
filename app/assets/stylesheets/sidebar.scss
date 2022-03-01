@@ -1,0 +1,35 @@
+.sidebar {
+    height: 100vh;
+    border: 1px solid black;
+    flex: 0.15;
+    background-color: black;
+    min-width: 12em;
+    padding: 10px;
+    color: white;
+}
+
+.sidebar-logo{
+    width: 100px;
+    padding: 9px;
+}
+.sidebar-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-options a {
+    color: rgb(177,177,177);
+    padding: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-options a:hover {
+    color: white;
+}
+
+.sidebar-options span {
+    padding-left: 10px;
+    font-size: 10px;
+    font-weight: 600;
+}

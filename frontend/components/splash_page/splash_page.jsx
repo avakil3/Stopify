@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Player from '../player/player';
 // import Background from '../../../app/assets/images/splash_page_background.png';
 
 const SplashPage = ({currentUser, logout}) => {
@@ -37,7 +38,7 @@ const SplashPage = ({currentUser, logout}) => {
       );
 
       const LoggedInHomePage = (
-        null
+        <Player />
       );
 
       return currentUser ? LoggedInHomePage : loggedOutSplashPage;
