@@ -33,7 +33,7 @@
 
   .demo-btn{
     background-color: rgb(30,215,96);
-    color:  black;
+    color:  white;
     cursor: pointer;
     border-radius: 2em;
     padding: 1em;
@@ -43,9 +43,10 @@
     font-weight: 700;
     border: none;
     width: 500px;
+    height: 40px;
   }
 
-  .demo-btn:hover {
+  .demo-btn:hover, .session-submit:hover {
     background-color: rgb(141, 219, 169);
   }
 
@@ -71,4 +72,65 @@
     font-size: 12px;
     letter-spacing: 1px;
     font-weight: bolder;
+  }
+
+  .form-input-titles {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 12px;
+    width: 500px;
+    margin-left: 0;
+  }
+
+  .form-input {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+
+  .form-elements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // width: 50%; 
+  }
+
+  .session-form-container h3 {
+    margin-top: .6em;
+      font-weight: 700;
+  }
+
+  .session-submit{
+    background-color: rgb(30,215,96);
+    color: white;
+    cursor: pointer;
+    width: 10em;
+    border-radius: 1.8em;
+    padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-weight: 700;
+    border: none;
+    margin: 2em;
+  }
+
+  .terms-and-conditions {
+    font-size: 12px;
+    width: 400px;
+    text-align: center;
+  }
+
+  .sign-up-errors{
+    padding-bottom: 1em;
+    color: red;
+  }
+
+  .form-redirect{
+    margin-bottom: 2em;
+  }
+
+  .form-redirect > a{
+    color: rgb(30,215,96);
+    text-decoration: underline;
   }

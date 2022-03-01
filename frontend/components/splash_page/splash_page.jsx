@@ -14,7 +14,7 @@ const SplashPage = ({currentUser, logout}) => {
               <ul className="splash-nav-bar">
                 <li className="links"><a className="links" href='https://github.com/avakil3' target="_blank" >GitHub</a></li>
                 <li className="links"> <a className="links" href='https://www.linkedin.com/in/aagamvakil/' target="_blank" >LinkedIn</a> </li>
-                <li className="hidden">|</li>
+                <li className="hidden">│</li>
                 <li>
                   <Link to={ "/signup" } className="links">Sign Up</Link>
                 </li>

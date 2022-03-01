@@ -19,8 +19,8 @@ body {
     display: flex;
     font-family: sans-serif;
     justify-content: space-between;
-    padding: 10px;
-    background-color: rgb(25,20,20);
+    padding: 16px;
+    background-color:black;
 }
 
 .splash-logo-container {
@@ -30,14 +30,15 @@ body {
 }
 
 #logo{
-    width: 10em;
+    width: 8em;
+    margin-left: 8em;;
 }
 
 .splash-nav-bar {
     display: flex;
     align-items: center;
     font-weight: bolder;
-    margin-right: 1rem;
+    margin-right: 8em;
 
 }
 
