@@ -541,8 +541,8 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       }, "By clicking on sign-up, you agree to Stopify's Terms and Conditions of Use."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "terms-and-conditions"
       }, "To learn more about how Stopify collects, uses, shares and protects your personal data, please see Stopify's Privacy Policy.")) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        className: "session-submit",
         type: "submit",
+        className: "session-submit",
         value: this.props.formType === 'signup' ? "Sign Up" : "Log In"
       }))), this.props.formType === 'signup' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "form-redirect"
@@ -632,7 +632,7 @@ __webpack_require__.r(__webpack_exports__);
 var SplashPage = function SplashPage(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  var loggedOutSplashPage = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "splash-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "splash-header"
@@ -679,6 +679,8 @@ var SplashPage = function SplashPage(_ref) {
     to: "/signup",
     className: "splash-btn"
   }, "GET STOPIFY FREE"))));
+  var LoggedInHomePage = null;
+  return currentUser ? LoggedInHomePage : loggedOutSplashPage;
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SplashPage);
@@ -707,7 +709,7 @@ var mapStateToProps = function mapStateToProps(_ref) {
   var session = _ref.session,
       users = _ref.entities.users;
   return {
-    currentUser: users[session.id]
+    currentUser: session.currentUser ? users[session.currentUser.id] : null
   };
 };
 
@@ -940,9 +942,15 @@ __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+var preloadedState = {
+  6: {
+    id: 6,
+    username: "Demo"
+  }
+};
 
 var usersReducer = function usersReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : preloadedState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
 

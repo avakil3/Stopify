@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 // import Background from '../../../app/assets/images/splash_page_background.png';
 
 const SplashPage = ({currentUser, logout}) => {
-    return (
+
+    const loggedOutSplashPage =  (
           <div className="splash-container">
             <div className="splash-header">
               <div className="splash-logo-container">
@@ -29,16 +30,18 @@ const SplashPage = ({currentUser, logout}) => {
               <Link to={ "/signup" } className="splash-btn">
                   GET STOPIFY FREE
               </Link>
-                {/* <input 
-                  type="button"
-                  value="GET STOPIFY FREE"
-                  className="splash-btn"
-                  />  */}
               </div>
             </div>
  
           </div>
-      )
+      );
+
+      const LoggedInHomePage = (
+        null
+      );
+
+      return currentUser ? LoggedInHomePage : loggedOutSplashPage;
+
     }
     
     export default SplashPage;
