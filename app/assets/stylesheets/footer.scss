@@ -1,8 +1,69 @@
+
+
 .footer {
     position: fixed;
     bottom: 0;
-    height: 1em;
-    width: 100vw;
+    height: 3em;
+    width: 96vw;
     background-color: rgb(24,24,24);
     padding: 25px;
+    display: flex;
+    justify-content: space-between;
 }
+
+.song-details{
+    flex:.3;
+    border: 1px solid aqua;
+}
+
+.player-controls{
+    flex: .4;
+    border: 1px solid magenta;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 180px;
+    color: var(--textgrey);
+
+}
+
+.volume-controls{
+    flex:.3;
+    display: flex;
+    border: 1px solid burlywood;
+    justify-content: center;
+    align-items: center;
+}
+
+.vol-slider {
+    -webkit-appearance: none;
+    background: linear-gradient(to right, var(--textgrey) 0%, var(--textgrey) 50%, #3f3e3e 50%, #3f3e3e 100%);
+    border-radius: 30px;
+    outline: none;
+    width: 150px;
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        height: 5px;
+        width: 5px;
+    }
+  }
+
+  .vol-slider:hover::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid rgb(226, 226, 226);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+  }
+
+ 
+
+  .mute-btn{
+      color: var(--textgrey);
+      padding-right:10px;
+  }

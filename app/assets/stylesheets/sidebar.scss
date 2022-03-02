@@ -19,7 +19,7 @@
 
 .sidebar-options a {
     color: rgb(177,177,177);
-    padding: 7px;
+    padding: 10px;
     display: flex;
     align-items: center;
 }
@@ -30,6 +30,18 @@
 
 .sidebar-options span {
     padding-left: 10px;
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 600;
+}
+
+.sidebar-divider {
+    border: .1px solid rgba(177, 177, 177, 0.712);;
+}
+
+.sidebar p {
+    padding: 10px;
+    margin-top: 10px;
+    color: rgb(177,177,177);
+    font-size: 13px;
+
 }
