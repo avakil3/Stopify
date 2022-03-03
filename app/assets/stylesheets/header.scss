@@ -1,0 +1,52 @@
+
+.header{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+    // border: 1px solid white;
+}
+
+.header-user-info{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-width: 100px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 30px;
+    #avatar{
+        padding-right: 10px;
+    }
+    h4{
+        padding-right: 10px;
+    }
+}
+
+.dropdown {
+    width: 100px;
+    position: absolute;
+    top: 70px;
+    list-style: none;
+    text-align: start;
+}
+
+.dropdown li {
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropdown.clicked {
+    display: none;
+}
+
+.logout {
+    display: block;
+    text-decoration: none;
+    color: var(--textgrey);
+    padding: 8px;
+    font-size: small;
+    &:hover{
+        color: white;
+    }
+}
+
