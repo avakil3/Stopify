@@ -46,13 +46,13 @@ class SessionForm extends React.Component {
   }
 
   render() {
-
+    debugger
     return (
       <div className="session-form-container">
          <div className="logo-wrapper">
           <img src={window.blackLogoURL} alt="logo-black" id='logo-black'/>
          </div>
-        <h1>{this.props.formType==='signup'? "Sign up for free to start listening.": "To continue, log in to Spotify."}</h1>
+        <h1>{this.props.formType==='signup'? "Sign up for free to start listening.": "To continue, log in to Stopify."}</h1>
 
         <button className='demo-btn' onClick={ () => this.demoLogin() }>Continue with demo</button>
 

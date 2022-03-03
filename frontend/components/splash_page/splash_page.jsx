@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Player from '../player/player';
+import Player from '../home_page/player';
 // import Background from '../../../app/assets/images/splash_page_background.png';
 
 const SplashPage = ({currentUser, logout}) => {
 
-    const loggedOutSplashPage =  (
+    return (
           <div className="splash-container">
             <div className="splash-header">
               <div className="splash-logo-container">
@@ -35,13 +35,7 @@ const SplashPage = ({currentUser, logout}) => {
             </div>
  
           </div>
-      );
-
-      const LoggedInHomePage = (
-        <Player />
-      );
-
-      return currentUser ? LoggedInHomePage : loggedOutSplashPage;
+      )
 
     }
     

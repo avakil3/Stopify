@@ -11,7 +11,7 @@ function Sidebar() {
         </Link>
 
         <div className='sidebar-options'>
-        <Link to={'/'}>
+        <Link to={'/home'}>
         <FontAwesomeIcon icon={faHome} />
             <span>Home</span>
         </Link>

@@ -5,14 +5,15 @@
 }
 
 body {
-    background-color: rgb(41,66,171);
+    // background-color: rgb(41,66,171);
     font-family: sans-serif;
 }
 .splash-container {
-    // background-image: url("../images/splash_page_background.png");
-    // background-size: cover;
+    background-image: url("splash_page_background.jpeg");
+    background-size: cover;
+    height: 100vh;
     // background-repeat: no-repeat;
-    background-color: rgb(41,66,171);
+    // background-color: rgb(41,66,171);
 }
 
 .splash-header {
@@ -45,7 +46,7 @@ body {
 .splash-nav-bar li{
     display: flex;
     padding-inline-end: 2em;
-    font-size: .9em;
+    font-size: 1em;
 }
 .splash-nav-bar, a {
     color: white;
@@ -111,5 +112,5 @@ body {
 }
 
 .splash-btn:hover {
-    background-color: rgb(141, 219, 169);
+    background-color: rgb(45, 201, 102);
   }
