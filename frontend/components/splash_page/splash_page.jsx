@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Player from '../home_page/player';
-// import Background from '../../../app/assets/images/splash_page_background.png';
 
-const SplashPage = ({currentUser, logout}) => {
+const SplashPage = () => {
 
     return (
           <div className="splash-container">

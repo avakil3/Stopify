@@ -6,7 +6,7 @@ import {faHome, faSearch, faBookOpen,faHeart} from "@fortawesome/free-solid-svg-
 function Sidebar() {
   return (
     <div className='sidebar'>
-        <Link to="/">
+        <Link to="/home">
             <img className='sidebar-logo' src={window.whiteLogoURL} alt="Stopify" />
         </Link>
 

@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import * as Actions from "./actions/session_actions"
+import * as SongActions from "./actions/song_actions"
+import * as AlbumActions from './actions/album_actions'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,3 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 window.login = Actions.login;
 window.signup = Actions.signup;
 window.logout = Actions.logout;
+
+window.fetchSongs = SongActions.fetchSongs;
+
+window.fetchAlbums = AlbumActions.fetchAlbums;
+window.fetchAlbum = AlbumActions.fetchAlbum;

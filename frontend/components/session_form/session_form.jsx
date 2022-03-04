@@ -38,7 +38,6 @@ class SessionForm extends React.Component {
 
   demoLogin(){
     const demoUser = {
-      email: 'demo@demo.com',
       username: "Demo",
       password: 'password'
     }
@@ -46,7 +45,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    debugger
     return (
       <div className="session-form-container">
          <div className="logo-wrapper">

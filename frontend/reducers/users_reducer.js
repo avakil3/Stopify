@@ -1,7 +1,8 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_USERS } from "../actions/user_actions";
 
-const preloadedState = {6: {
-  id: 6,
+const preloadedState = {15: {
+  id: 15,
   username: "Demo",
 }}
 
@@ -12,6 +13,8 @@ const usersReducer = (state = preloadedState, action) => {
       if (action.currentUser) {
         return Object.assign({}, state, { [action.currentUser.id]: action.currentUser })
       }
+    case RECEIVE_USERS:
+      return Object.assign({},state, action.users);
     default:
       return state;
   }

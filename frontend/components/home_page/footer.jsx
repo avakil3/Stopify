@@ -3,6 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlayCircle,faPauseCircle, faForwardStep, faBackwardStep,
 faShuffle, faRepeat, faVolumeHigh,faHeart} from "@fortawesome/free-solid-svg-icons";
 
+// handlePlayClick(){
+
+// }
+
 function Footer() {
   return (
     <div className='footer'>
@@ -18,7 +22,7 @@ function Footer() {
        <div className="player-controls">
        <FontAwesomeIcon icon={faShuffle} id="shuffle-btn" />
        <FontAwesomeIcon icon={faBackwardStep} className="back-and-forward-btns" size="lg"/>
-       <FontAwesomeIcon icon={faPlayCircle} id="play-btn" size="2xl"/>
+       <FontAwesomeIcon icon={faPlayCircle} id="play-btn" size="2xl" />
        <FontAwesomeIcon icon={faForwardStep} className="back-and-forward-btns" size="lg"/>
        <FontAwesomeIcon icon={faRepeat} id="repeat-btn" />
 

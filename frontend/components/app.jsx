@@ -10,7 +10,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SplashPageContainer from './splash_page/splash_page_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
-import HomePage from './home_page/home_page';
+import HomePageContainer from './home_page/home_page_container';
+import AlbumShowPageContainer from './albums/album_show_page_container';
 
 const App = () => (
   <div>
@@ -19,7 +20,8 @@ const App = () => (
       {/* <GreetingContainer /> */}
     </header>
     <Switch>
-      <ProtectedRoute exact path="/home" component={HomePage} />z
+      <ProtectedRoute exact path="/home" component={HomePageContainer} />
+      <Route path="/albums/:albumId" component={AlbumShowPageContainer}/>
       <Route exact path="/" component={SplashPageContainer}/>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

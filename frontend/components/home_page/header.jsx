@@ -5,15 +5,16 @@ import {Link} from "react-router-dom";
 
 
 
-function Header({logout}) {
+function Header({currentUser,logout}) {
+
+
     const [click,setClick] = useState(true);
     const handleClick = () => setClick(!click);
-
   return (
     <div className='header'>
         <div className="header-user-info" onClick={handleClick}>
        <FontAwesomeIcon icon={faUserCircle} id="avatar" />
-        <h4>avakil3</h4>
+        <h4>{currentUser.username}</h4>
        <FontAwesomeIcon icon={faAngleDown} id="dropdown" />
         <ul className={click ? "dropdown clicked" : "dropdown"}>
             <li>
