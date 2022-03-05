@@ -1,10 +1,9 @@
 import React from 'react';
-import HeaderContainer from './header_container';
+// import HeaderContainer from './header_container';
 
 function Body() {
   return (
     <div className='body'>
-       <HeaderContainer />
        <h1>Welcome to Stopify</h1>
        <div className="body-section-1-container">
          <div className='body-section-1-row-1'>

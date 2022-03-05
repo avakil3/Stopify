@@ -2,13 +2,20 @@
 .header{
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 50px;
-    // border: 1px solid white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-left: 200px;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    margin-right: 40px;
+    color: white;
+    // border: 1px solid black;
 }
 
-.header-user-info{
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.5);
+.header-dropdown{
+    // border: 1px solid red;
+    background-color: rgba(0, 0, 0, 0.7);
     min-width: 100px;
     cursor: pointer;
     padding: 10px;
@@ -21,16 +28,20 @@
     }
 }
 
+.header-user-info{
+    display: flex;
+}
+
 .dropdown {
     width: 100px;
     position: absolute;
-    top: 70px;
+    top: 40px;
     list-style: none;
     text-align: start;
 }
 
 .dropdown li {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     cursor: pointer;
     border-radius: 5px;
 }

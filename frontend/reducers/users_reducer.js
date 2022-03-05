@@ -1,8 +1,8 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_USERS } from "../actions/user_actions";
 
-const preloadedState = {15: {
-  id: 15,
+const preloadedState = {18: {
+  id: 18,
   username: "Demo",
 }}
 
@@ -20,4 +20,4 @@ const usersReducer = (state = preloadedState, action) => {
   }
 }
 
-export default usersReducer;
+export default usersReducer;  

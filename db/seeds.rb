@@ -18,7 +18,12 @@ demoUser = User.create!(username:"Demo",email: 'demo@demo.com', password: 'passw
 
 drake = Artist.create!(name:"Drake")
 certifiedLoverBoy = Album.create!(album_name:"Certified Lover Boy", artist_id:drake.id, release_date: 2021 )
-song1 = Song.create!(song_name: "Girls Want Girls", album_id: certifiedLoverBoy.id, duration:"3:41")
-
-song1.song_file.attach(io: open("https://slapify-prod.s3-us-west-1.amazonaws.com/hsm/Were_all_in_this_together.mp3"), filename: 'Were_all_in_this_together.mp3')
 certifiedLoverBoy.photo.attach(io: open("https://media.pitchfork.com/photos/613214a114458bf5df99f2a9/1:1/w_320,c_limit/Drake-Certified-Lover-Boy.png"), filename: 'Drake-Certified-Lover-Boy.png')
+song1 = Song.create!(song_name: "Champagne Poetry", album_id: certifiedLoverBoy.id, duration:"5:36")
+song2 = Song.create!(song_name: "Papi's Home", album_id: certifiedLoverBoy.id, duration:"2:58")
+song3 = Song.create!(song_name: "Girls Want Girls (feat. Lil Baby)", album_id: certifiedLoverBoy.id, duration:"3:41")
+
+
+song1.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Certified+Lover+Boy/01+Champagne+Poetry.mp3"), filename: '01+Champagne+Poetry.mp3')
+song2.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Certified+Lover+Boy/02+Papi_s+Home.mp3"), filename: '02+Papi_s+Home.mp3')
+song3.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Certified+Lover+Boy/03+Girls+Want+Girls+(feat.+Lil+Baby).mp3"), filename: '03+Girls+Want+Girls+(feat.+Lil+Baby).mp3')

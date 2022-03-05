@@ -9,6 +9,7 @@ function Sidebar() {
         <Link to="/home">
             <img className='sidebar-logo' src={window.whiteLogoURL} alt="Stopify" />
         </Link>
+        <Link to='/home/albums/10'><button>Link to Album 10</button></Link>
 
         <div className='sidebar-options'>
         <Link to={'/home'}>

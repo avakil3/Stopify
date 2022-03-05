@@ -1,0 +1,21 @@
+
+
+.song-item{
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.song-idx-num{
+    // flex: .1;
+    padding-right:15px;
+}
+
+.song-container-right{
+    display: flex;
+    margin-left: auto;
+    .song-row-like, p {
+        padding-right: 15px;
+    }
+}

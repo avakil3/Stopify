@@ -1,0 +1,58 @@
+.album-show-container{
+display: flex;
+}
+
+.album-show-body{
+    background: linear-gradient(rgb(43,12,60), rgb(18,18,18));
+    border: 1px solid aqua;
+    width: 100%;
+    // height: 100%;
+    color: white;
+    padding: 30px;
+    margin-left: 200px;
+    padding-bottom: 150px;
+}
+
+.album-header {
+    display: flex;
+    border: 1px solid aqua;
+}
+
+.album-cover-img{
+    width: 200px;
+    align-self: flex-end;
+
+}
+
+.detail-content{
+    border: 1px solid red;
+    align-self: flex-end;
+    *{
+        padding-bottom: 10px;
+    }
+    h1{
+        font-size: 50px;
+        font-weight: 600;
+    }
+    
+}
+
+.album-content{
+    // border: 1px solid aqua;
+    margin-top: 30px;
+}
+
+
+.songs-header{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--textgrey);
+    p{
+        padding-right: 15px;
+    }
+}
+
+.header-text-labels{
+    display: flex;
+    
+}

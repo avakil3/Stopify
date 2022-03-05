@@ -12,10 +12,12 @@ function Header({currentUser,logout}) {
     const handleClick = () => setClick(!click);
   return (
     <div className='header'>
-        <div className="header-user-info" onClick={handleClick}>
-       <FontAwesomeIcon icon={faUserCircle} id="avatar" />
-        <h4>{currentUser.username}</h4>
-       <FontAwesomeIcon icon={faAngleDown} id="dropdown" />
+        <div className="header-dropdown" onClick={handleClick}>
+          <div className='header-user-info'>
+            <FontAwesomeIcon icon={faUserCircle} id="avatar" />
+              <h4>{currentUser.username}</h4>
+            <FontAwesomeIcon icon={faAngleDown} id="dropdown" />
+          </div>
         <ul className={click ? "dropdown clicked" : "dropdown"}>
             <li>
                 <Link className="logout" to={'/'} onClick={()=> logout()}>Log out</Link>
