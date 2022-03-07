@@ -6,12 +6,12 @@ import {faHome, faSearch, faBookOpen,faHeart} from "@fortawesome/free-solid-svg-
 function Sidebar() {
   return (
     <div className='sidebar'>
-        <Link to="/home">
+        <Link to="/home/us">
             <img className='sidebar-logo' src={window.whiteLogoURL} alt="Stopify" />
         </Link>
 
         <div className='sidebar-options'>
-        <Link to={'/home'}>
+        <Link to={'/home/us'}>
         <FontAwesomeIcon icon={faHome} />
             <span>Home</span>
         </Link>

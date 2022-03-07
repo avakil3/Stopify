@@ -10,14 +10,14 @@ class Body extends React.Component {
   
 render(){
   const {albums,artists} = this.props;
-  return ( Object.keys(albums).length !== 0 ? 
-    (<div className='body'>
+  if(Object.keys(albums).length === 0 || Object.keys(artists).length === 0) return null;
+  return ( 
+    <div className='body'>
        <h1>Welcome to Stopify</h1>
        <div className="body-section-1-container">
          <div className='body-section-1-row-1'>
            <Link to='/home/albums/10'>
             <div className="body-section-1">
-                {/* <div className='body-section-1-img'>img</div> */}
                 <img src={albums[10].imageUrl} className='body-section-1-img'/>
                 <p>{albums[10].album_name}</p>
             </div>
@@ -113,7 +113,7 @@ render(){
 
       </div>
 
-    </div>) : ""
+    </div>
   )
 }
 }

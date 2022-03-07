@@ -13,8 +13,7 @@ class AlbumShowPage extends React.Component {
 
   componentDidMount() {
     this.props.fetchAlbums();
-    // debugger
-    // this.props.fetchArtists()
+    this.props.fetchArtists()
   }
   calculateAlbumTimeLength(){ 
     let totalSeconds = 0;   
@@ -31,12 +30,12 @@ class AlbumShowPage extends React.Component {
   }
 
   render(){
-    const {album,artist,album_songs} = this.props;
-    let render = false;
-    // debugger
-    if (album.album_name) render = true;
+    const {album,artists,album_songs} = this.props;
 
-    return render ? (
+    if (!album || !artists) return null;  
+     const artist = artists[album.artist_id];
+     if (!artist) return null;
+    return  (
       <div className="album-show-container">
         <div className="album-show-body">
           <div className="album-header">
@@ -69,7 +68,7 @@ class AlbumShowPage extends React.Component {
           </div>
         </div>
       </div>
-    ) : ""
+    ) 
 
   }
 }

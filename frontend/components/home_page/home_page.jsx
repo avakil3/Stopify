@@ -18,7 +18,6 @@ class HomePage extends React.Component {
     this.props.fetchUsers();
     this.props.fetchAlbums();
     this.props.fetchArtists();
-    // debugger
   }
 
 
@@ -30,7 +29,7 @@ class HomePage extends React.Component {
               <Sidebar />
               <Switch>
                 <Route exact path="/home/albums/:albumId" component={AlbumShowPageContainer}/>
-                <Route exact path="/home" component={BodyContainer}/>
+                <Route exact path="/home/us" component={BodyContainer}/>
               </Switch>
              <HeaderContainer />
           </div>

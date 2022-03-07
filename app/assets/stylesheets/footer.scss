@@ -20,16 +20,24 @@
 }
 
 .player-controls{
-    flex: .4;
     // border: 1px solid magenta;
     padding: 0 100px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     max-width: 180px;
     color: var(--textgrey);
 }
-.player-controls *:hover{
+
+.player-center-btns{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    // border: 1px solid aqua;
+    margin-bottom: 10px;
+}
+.player-center-btns *:hover{
     color: white;
 }
 
@@ -42,6 +50,15 @@
     transform: scale(1.1);
 }
 
+.scroll-bar-container{
+    display: flex;
+    align-items: center;
+    p{
+        font-size: 12px;
+        color: var(--textgrey);
+    }
+}
+
 .volume-controls{
     flex:.3;
     display: flex;
@@ -52,46 +69,58 @@
 
 .vol-slider {
     -webkit-appearance: none;
-    background: linear-gradient(to right, var(--textgrey) 0%, var(--textgrey) 50%, #3f3e3e 50%, #3f3e3e 100%);
+    background: var(--textgrey);
     border-radius: 30px;
     outline: none;
     width: 150px;
+    height: 6px;
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         -moz-appearance: none;
-        height: 5px;
-        width: 5px;
+        height: 14px;
+        width: 14px;
+        background: var(--spotifygreen);
+        border: 1px solid rgb(226, 226, 226);
+        border-radius: 50%;
     }
-  }
+}
 
-  .vol-slider:hover::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: white;
-    border: 1px solid rgb(226, 226, 226);
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
-  }
+#music-duration-slider{
+    background: var(--textgrey);
+    border-radius: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    outline: none;;
+    height: 6px;
+    width: 500px;
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        height: 14px;
+        width: 14px;
+        background: var(--spotifygreen);
+        border: 1px solid rgb(226, 226, 226);
+        border-radius: 50%;
+    }
+}
 
  
 
-  .mute-btn{
-      color: var(--textgrey);
-      padding-right:10px;
-  }
+.mute-btn{
+    color: var(--textgrey);
+    padding-right:10px;
+}
 
-  .song-details *{
-    margin-right: 10px;
-  }
+.song-details *{
+margin-right: 10px;
+}
 
-  #album-img{
-    //   border: 1px solid white;
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-  }
+#album-img{
+//   border: 1px solid white;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
 
   #footer-like-btn{
       color: var(--textgrey);

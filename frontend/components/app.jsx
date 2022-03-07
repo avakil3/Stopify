@@ -11,9 +11,12 @@ import SplashPageContainer from './splash_page/splash_page_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import HomePageContainer from './home_page/home_page_container';
+// import Sidebar from './home_page/sidebar';
+
 
 const App = () => (
   <div>
+      {/* <ProtectedRoute path="/" component={Sidebar} /> */}
     <Switch>
       <ProtectedRoute path="/home" component={HomePageContainer} />
       <Route exact path="/" component={SplashPageContainer}/>
