@@ -5,10 +5,9 @@ import { fetchUsers } from '../../actions/user_actions';
 import { fetchAlbums } from '../../actions/album_actions';
 import { fetchArtists } from '../../actions/artist_actions';
 
-const mapStateToProps = ({ session, entities: { users, songs } }) => {
+const mapStateToProps = ({ session, entities: { users } }) => {
   return {
     currentUser: (session.currentUser ? users[session.currentUser.id]: null),
-    test_song: songs[7]
   };
 };
 

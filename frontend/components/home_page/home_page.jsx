@@ -1,25 +1,27 @@
 import React from 'react'
 import Sidebar from './sidebar';
-import Body from './body';
+import BodyContainer from "./body_container"
 import Footer from './footer';
 import AlbumShowPageContainer from '../albums/album_show_page_container'
 import {Switch,Route,Link} from 'react-router-dom';
 import HeaderContainer from "./header_container"
+import FooterContainer from './footer_container';
 
 class HomePage extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {};
+  }
 
   componentDidMount(){
     this.props.fetchSongs();
     this.props.fetchUsers();
     this.props.fetchAlbums();
     this.props.fetchArtists();
+    // debugger
   }
 
-handlePlay(){
-  const player = document.getElementById("music-player");
-  player.src = this.props.test_song.url;
-  player.play();
-}
+
 
   render(){
     return (
@@ -28,14 +30,11 @@ handlePlay(){
               <Sidebar />
               <Switch>
                 <Route exact path="/home/albums/:albumId" component={AlbumShowPageContainer}/>
-                <Route exact path="/home" component={Body}/>
+                <Route exact path="/home" component={BodyContainer}/>
               </Switch>
              <HeaderContainer />
-           {/* {
-             this.props.test_song ? <button onClick={this.handlePlay.bind(this)}>Play music</button> : ""
-           } */}
           </div>
-          <Footer />
+          <FooterContainer />
       </div>
     )
   }

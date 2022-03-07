@@ -1,16 +1,19 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faClock} from "@fortawesome/free-solid-svg-icons";
-import SongItem from '../songs/song_item';
+import SongItemContainer from '../songs/song_item_container';
 
 
 
 class AlbumShowPage extends React.Component {
-  // constructor(props){
-  //   super(props)
-  // }
+  constructor(props){
+    super(props)
+    this.state = {};
+  }
+
   componentDidMount() {
     this.props.fetchAlbums();
+    // debugger
     // this.props.fetchArtists()
   }
   calculateAlbumTimeLength(){ 
@@ -29,7 +32,11 @@ class AlbumShowPage extends React.Component {
 
   render(){
     const {album,artist,album_songs} = this.props;
-    return (
+    let render = false;
+    // debugger
+    if (album.album_name) render = true;
+
+    return render ? (
       <div className="album-show-container">
         <div className="album-show-body">
           <div className="album-header">
@@ -54,15 +61,15 @@ class AlbumShowPage extends React.Component {
                   <p>#</p>
                   <p>TITLE</p>
                </div>
-               <FontAwesomeIcon icon={faClock} />
+               <FontAwesomeIcon className='clock-icon' icon={faClock} />
              </div>
              <ul className='album-song-list'>
-                {album_songs.map((song,idx)=> <SongItem key ={song.id }song={song} idx={idx+1} /> )}
+                {album_songs.map((song,idx)=> <SongItemContainer key ={song.id }song={song} idx={idx+1} /> )}
              </ul>
           </div>
         </div>
       </div>
-    )
+    ) : ""
 
   }
 }

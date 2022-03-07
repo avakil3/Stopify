@@ -13,7 +13,7 @@
 
 .song-details{
     flex:.3;
-    border: 1px solid aqua;
+    // border: 1px solid aqua;
     display: flex;
     align-items: center;
     color: white;
@@ -21,7 +21,7 @@
 
 .player-controls{
     flex: .4;
-    border: 1px solid magenta;
+    // border: 1px solid magenta;
     padding: 0 100px;
     display: flex;
     justify-content: space-between;
@@ -33,6 +33,10 @@
     color: white;
 }
 
+#play-btn{
+    color: white;
+}
+
 #play-btn:hover{
     transition: transform 200ms ease-in-out;
     transform: scale(1.1);
@@ -41,7 +45,7 @@
 .volume-controls{
     flex:.3;
     display: flex;
-    border: 1px solid burlywood;
+    // border: 1px solid burlywood;
     justify-content: center;
     align-items: center;
 }
@@ -82,8 +86,8 @@
     margin-right: 10px;
   }
 
-  .album-img{
-      border: 1px solid white;
+  #album-img{
+    //   border: 1px solid white;
       width: 60px;
       height: 60px;
       object-fit: contain;

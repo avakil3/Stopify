@@ -1,10 +1,15 @@
 
 
 .song-item{
-    border: 1px solid red;
+    // border: 1px solid red;
     display: flex;
     align-items: center;
     padding-top: 10px;
+    padding-bottom: 10px;
+    &:hover{
+        background-color: rgba(0, 0, 0, 0.336);
+        cursor: pointer;
+    }
 }
 
 .song-idx-num{
@@ -18,4 +23,6 @@
     .song-row-like, p {
         padding-right: 15px;
     }
+    margin-right: 50px;
+
 }

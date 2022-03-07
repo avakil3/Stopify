@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AlbumShowPage from './album_show_page';
 import {fetchAlbums} from '../../actions/album_actions'
-import {AlbumSongsSelector} from '../../util/selectors'
+import {AlbumSongsSelector} from '../../util/selectors';
 
 
 const mapStateToProps = ({entities: {songs,albums,artists}},ownProps) => {
