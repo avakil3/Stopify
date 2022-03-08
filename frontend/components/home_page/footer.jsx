@@ -33,7 +33,7 @@ class Footer extends React.Component {
 		setInterval(() => { // start playback timer
 			playbackTimeBar.value = (musicPlayer.currentTime/musicPlayer.duration) * 100;
 			this.forceUpdate();
-			}, 1000)
+			}, 100)
     }else{
         musicPlayer.pause();
         this.playing = false;
@@ -91,14 +91,14 @@ class Footer extends React.Component {
 			<audio id="music-player" src=""  />
 			<p>{currentSong ? this.FormattedCurrentTime(): ""}</p>
 			<input type="range" min="0" max="100" 
-			onChange={e=> this.scrubMusicPlayback(e)} defaultValue="0" id="music-duration-slider"/>
+			onChange={e=> this.scrubMusicPlayback(e)} defaultValue="0" id="music-duration-slider" className="slider"/>
 			<p>{currentSong ? currentSong.duration: ""}</p>
 		 </div>
 		</div>
 
         <div className="volume-controls">
          	<FontAwesomeIcon icon={faVolumeHigh} className="mute-btn" />
-        	<input type="range" min="0" max="1" step=".01" onChange={e=> this.changeVolume(e)} defaultValue="0.5" className="vol-slider" ></input>
+        	<input type="range" min="0" max="1" step=".01" onChange={e=> this.changeVolume(e)} defaultValue="0.5" className="slider" ></input>
         </div>
       
       </div>

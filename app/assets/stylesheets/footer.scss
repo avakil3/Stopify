@@ -67,7 +67,7 @@
     align-items: center;
 }
 
-.vol-slider {
+.slider {
     -webkit-appearance: none;
     background: var(--textgrey);
     border-radius: 30px;
@@ -86,22 +86,12 @@
 }
 
 #music-duration-slider{
-    background: var(--textgrey);
     border-radius: 30px;
     margin-left: 10px;
     margin-right: 10px;
     outline: none;;
     height: 6px;
     width: 500px;
-    &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        height: 14px;
-        width: 14px;
-        background: var(--spotifygreen);
-        border: 1px solid rgb(226, 226, 226);
-        border-radius: 50%;
-    }
 }
 
  

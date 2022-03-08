@@ -13765,7 +13765,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
           playbackTimeBar.value = musicPlayer.currentTime / musicPlayer.duration * 100;
 
           _this.forceUpdate();
-        }, 1000);
+        }, 100);
       } else {
         musicPlayer.pause();
         this.playing = false;
@@ -13863,7 +13863,8 @@ var Footer = /*#__PURE__*/function (_React$Component) {
           return _this2.scrubMusicPlayback(e);
         },
         defaultValue: "0",
-        id: "music-duration-slider"
+        id: "music-duration-slider",
+        className: "slider"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, currentSong ? currentSong.duration : ""))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "volume-controls"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
@@ -13878,7 +13879,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
           return _this2.changeVolume(e);
         },
         defaultValue: "0.5",
-        className: "vol-slider"
+        className: "slider"
       })));
     }
   }]);
@@ -14555,6 +14556,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -14591,29 +14604,28 @@ var SongItem = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(SongItem, [{
-    key: "playSong",
-    value: function playSong() {
-      this.props.setCurrentSong(this.props.song); // if (this.musicPlayer.src.slice(this.musicPlayer.src.length - 10) !== this.props.song.url.slice(this.props.song.url.length - 10) ){
-      //     this.musicPlayer.src = this.props.song.url;
-      // } 
-      // if (!this.playing){
-      //     this.musicPlayer.play();
-      //     this.playing = true;
-      // }else{
-      //     this.musicPlayer.pause();
-      //     this.playing = false;
-      // }
-    }
-  }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       var _this$props = this.props,
           song = _this$props.song,
-          idx = _this$props.idx; // debugger 
+          idx = _this$props.idx;
+
+      var _useState = useState(true),
+          _useState2 = _slicedToArray(_useState, 2),
+          click = _useState2[0],
+          setClick = _useState2[1];
+
+      var handleClick = function handleClick() {
+        return setClick(!click);
+      };
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         className: "song-item",
-        onDoubleClick: this.playSong.bind(this)
+        onDoubleClick: function onDoubleClick() {
+          return _this.props.setCurrentSong(_this.props.song);
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "song-idx-num"
       }, idx), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
