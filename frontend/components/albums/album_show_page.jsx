@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faClock} from "@fortawesome/free-solid-svg-icons";
 import SongItemContainer from '../songs/song_item_container';
+import {faPlayCircle,faPauseCircle} from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -13,7 +14,7 @@ class AlbumShowPage extends React.Component {
 
   componentDidMount() {
     this.props.fetchAlbums();
-    this.props.fetchArtists()
+    this.props.fetchArtists();
   }
   calculateAlbumTimeLength(){ 
     let totalSeconds = 0;   
@@ -30,7 +31,7 @@ class AlbumShowPage extends React.Component {
   }
 
   render(){
-    const {album,artists,album_songs} = this.props;
+    const {album,artists,album_songs,player} = this.props;
 
     if (!album || !artists) return null;  
      const artist = artists[album.artist_id];
@@ -55,6 +56,9 @@ class AlbumShowPage extends React.Component {
 
           </div>
           <div className="album-content">
+          <FontAwesomeIcon icon={this.props.player.playing ? faPauseCircle : faPlayCircle} 
+                              className="album play-btn" size="2xl"
+                              onClick={()=> this.props.togglePlayback(player.currentSong,album_songs[0])} />
            <div className="songs-header">
              <div className='header-text-labels'>
                   <p>#</p>
@@ -63,7 +67,7 @@ class AlbumShowPage extends React.Component {
                <FontAwesomeIcon className='clock-icon' icon={faClock} />
              </div>
              <ul className='album-song-list'>
-                {album_songs.map((song,idx)=> <SongItemContainer key ={song.id }song={song} idx={idx+1} /> )}
+                {album_songs.map((song,idx)=> <SongItemContainer key ={song.id} song={song} queue={album_songs} idx={idx+1} /> )}
              </ul>
           </div>
         </div>

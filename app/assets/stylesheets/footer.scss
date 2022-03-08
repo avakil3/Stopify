@@ -41,11 +41,11 @@
     color: white;
 }
 
-#play-btn{
+.play-btn{
     color: white;
 }
 
-#play-btn:hover{
+.play-btn:hover{
     transition: transform 200ms ease-in-out;
     transform: scale(1.1);
 }
@@ -130,6 +130,6 @@ margin-right: 10px;
     font-size: 11px;
 }
 
-.loop-btn.clicked{
+.clicked{
     color: var(--spotifygreen);
 }

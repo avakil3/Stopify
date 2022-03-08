@@ -7,14 +7,17 @@ class SongItem extends React.Component{
     constructor(props){
         super(props);
     }
-  
+  handleDoubleClick(){
+    this.props.setQueue(this.props.queue);
+    this.props.setCurrentSong(this.props.song);
+  }
   
     render(){
         const {song,idx} = this.props;
         // const [click,setClick] = useState(true);
         // const handleClick = () => setClick(!click);
       return(
-          <li className='song-item' onDoubleClick={()=> this.props.setCurrentSong(this.props.song)}> 
+          <li className='song-item' onDoubleClick={()=> this.handleDoubleClick()}> 
                     <p className="song-idx-num">{idx}</p>
                     <div className="song-container-left">
                         <h2>{song.song_name}</h2>

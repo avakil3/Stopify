@@ -10,6 +10,7 @@ class Footer extends React.Component {
   }
 
 
+
   componentDidUpdate(prevProps){
     const {musicPlayer} = this.props;
     if (prevProps.player.currentSong !== this.props.player.currentSong) this.playSong();
@@ -27,9 +28,11 @@ class Footer extends React.Component {
     if (musicPlayer.src.slice(musicPlayer.src.length - 10) !== currentSong.url.slice(currentSong.url.length - 10) ){
         musicPlayer.src = currentSong.url;
 		musicPlayer.play();
+
 		const playerAlbumImage = document.getElementById("album-img");
 		playerAlbumImage.src = currentSong.albumUrl;
-		const timer = setInterval(() => { // start playback timer
+
+		const timer = setInterval(() => { // start playback timer for music playback control bar
 			playbackTimeBar.value = (musicPlayer.currentTime/musicPlayer.duration) * 1000;
 			if (playbackTimeBar.value < 1000 || this.state.loop) {
 				this.forceUpdate();
@@ -63,11 +66,11 @@ class Footer extends React.Component {
 		}
 		return `${minutes}:${seconds}`;
 	}
-
  
   
   render(){
     const currentSong = this.props.player.currentSong;
+	const {prevSong,nextSong,togglePlayback,shufflePlayback,player} = this.props;
      return (
       <div className='footer'>
          { currentSong ? (<div className="song-details">
@@ -81,12 +84,12 @@ class Footer extends React.Component {
         
         <div className="player-controls">
            <div className='player-center-btns'>
-            <FontAwesomeIcon icon={faShuffle} id="shuffle-btn" />
-            <FontAwesomeIcon icon={faBackwardStep} className="back-and-forward-btns" size="lg"/>
+            <FontAwesomeIcon icon={faShuffle} onClick={()=> currentSong ? shufflePlayback() : null} className={player.shuffle ? "shuffle-btn clicked":"shuffle-btn"}/>
+            <FontAwesomeIcon icon={faBackwardStep} className="back-and-forward-btns" onClick={()=> currentSong ? prevSong() : null} size="lg"/>
             <FontAwesomeIcon icon={this.props.player.playing ? faPauseCircle : faPlayCircle} 
-                              id="play-btn" size="2xl"
-                              onClick={()=> this.props.togglePlayback()} />
-            <FontAwesomeIcon icon={faForwardStep} className="back-and-forward-btns" size="lg"/>
+                              className="play-btn" size="2xl"
+                              onClick={()=> togglePlayback()} />
+            <FontAwesomeIcon icon={faForwardStep} className="back-and-forward-btns" onClick={()=> currentSong ? nextSong() : null} size="lg"/>
             <FontAwesomeIcon icon={faRepeat} className={this.state.loop ? "loop-btn clicked":"loop-btn"} onClick={()=> this.toggleLoop()}/>
          </div>
          <div className='scroll-bar-container'>
