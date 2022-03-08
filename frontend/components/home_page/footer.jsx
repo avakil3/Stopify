@@ -6,13 +6,14 @@ faShuffle, faRepeat, faVolumeHigh,faHeart} from "@fortawesome/free-solid-svg-ico
 class Footer extends React.Component {
   constructor(props){
     super(props)
+	this.state ={loop:false, playbackQueue:[]};
   }
 
 
   componentDidUpdate(prevProps){
     const {musicPlayer} = this.props;
-    prevProps.player.currentSong !== this.props.player.currentSong ? this.playSong() : null;
-    if(this.props.player.playing){
+    if (prevProps.player.currentSong !== this.props.player.currentSong) this.playSong();
+	if(this.props.player.playing){
       musicPlayer.play()
     }else{
       musicPlayer.pause()
@@ -21,33 +22,34 @@ class Footer extends React.Component {
 
   playSong(){
     const currentSong = this.props.player.currentSong;
+	const playbackTimeBar = document.getElementById("music-duration-slider");
     const {musicPlayer} = this.props;
-	musicPlayer.loop = false;
     if (musicPlayer.src.slice(musicPlayer.src.length - 10) !== currentSong.url.slice(currentSong.url.length - 10) ){
         musicPlayer.src = currentSong.url;
-    } 
-    if (!this.playing){
-        musicPlayer.play();
-        this.playing = true;
-		const playbackTimeBar = document.getElementById("music-duration-slider");
-		setInterval(() => { // start playback timer
-			playbackTimeBar.value = (musicPlayer.currentTime/musicPlayer.duration) * 100;
-			this.forceUpdate();
+		musicPlayer.play();
+		const playerAlbumImage = document.getElementById("album-img");
+		playerAlbumImage.src = currentSong.albumUrl;
+		const timer = setInterval(() => { // start playback timer
+			playbackTimeBar.value = (musicPlayer.currentTime/musicPlayer.duration) * 1000;
+			if (playbackTimeBar.value < 1000 || this.state.loop) {
+				this.forceUpdate();
+			}else{
+				clearInterval(timer);
+				this.props.togglePlayback();
+			}
 			}, 100)
-    }else{
-        musicPlayer.pause();
-        this.playing = false;
-    }
+    } 
+    !this.props.player.playing ?  musicPlayer.play() : musicPlayer.pause();
 
-    const playerAlbumImage = document.getElementById("album-img");
-    playerAlbumImage.src = currentSong.albumUrl;
   }
 
 	changeVolume(e){ this.props.musicPlayer.volume = e.target.value;}
 
+	toggleLoop(){this.state.loop = !this.state.loop;}
+
 	scrubMusicPlayback(e){ 
 		const {musicPlayer} = this.props;
-		musicPlayer.currentTime = e.target.value/100.0 * musicPlayer.duration;
+		musicPlayer.currentTime = e.target.value/1000.0 * musicPlayer.duration;
 	}
 
 	FormattedCurrentTime(){
@@ -85,12 +87,12 @@ class Footer extends React.Component {
                               id="play-btn" size="2xl"
                               onClick={()=> this.props.togglePlayback()} />
             <FontAwesomeIcon icon={faForwardStep} className="back-and-forward-btns" size="lg"/>
-            <FontAwesomeIcon icon={faRepeat} id="repeat-btn" />
+            <FontAwesomeIcon icon={faRepeat} className={this.state.loop ? "loop-btn clicked":"loop-btn"} onClick={()=> this.toggleLoop()}/>
          </div>
          <div className='scroll-bar-container'>
 			<audio id="music-player" src=""  />
 			<p>{currentSong ? this.FormattedCurrentTime(): ""}</p>
-			<input type="range" min="0" max="100" 
+			<input type="range" min="0" max="1000" 
 			onChange={e=> this.scrubMusicPlayback(e)} defaultValue="0" id="music-duration-slider" className="slider"/>
 			<p>{currentSong ? currentSong.duration: ""}</p>
 		 </div>

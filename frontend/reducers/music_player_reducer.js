@@ -5,8 +5,6 @@ const preloadedState={
     playing: null,
     shuffle: null,
     playQueue: [],
-    loop: null,
-    muted: null
 };
 
 

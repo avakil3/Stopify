@@ -95,7 +95,6 @@
 }
 
  
-
 .mute-btn{
     color: var(--textgrey);
     padding-right:10px;
@@ -131,3 +130,6 @@ margin-right: 10px;
     font-size: 11px;
 }
 
+.loop-btn.clicked{
+    color: var(--spotifygreen);
+}

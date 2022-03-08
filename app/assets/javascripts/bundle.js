@@ -13726,16 +13726,23 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Footer);
 
   function Footer(props) {
+    var _this;
+
     _classCallCheck(this, Footer);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      loop: false,
+      playbackQueue: []
+    };
+    return _this;
   }
 
   _createClass(Footer, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
       var musicPlayer = this.props.musicPlayer;
-      prevProps.player.currentSong !== this.props.player.currentSong ? this.playSong() : null;
+      if (prevProps.player.currentSong !== this.props.player.currentSong) this.playSong();
 
       if (this.props.player.playing) {
         musicPlayer.play();
@@ -13746,33 +13753,32 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "playSong",
     value: function playSong() {
-      var _this = this;
+      var _this2 = this;
 
       var currentSong = this.props.player.currentSong;
+      var playbackTimeBar = document.getElementById("music-duration-slider");
       var musicPlayer = this.props.musicPlayer;
-      musicPlayer.loop = false;
 
       if (musicPlayer.src.slice(musicPlayer.src.length - 10) !== currentSong.url.slice(currentSong.url.length - 10)) {
         musicPlayer.src = currentSong.url;
-      }
-
-      if (!this.playing) {
         musicPlayer.play();
-        this.playing = true;
-        var playbackTimeBar = document.getElementById("music-duration-slider");
-        setInterval(function () {
+        var playerAlbumImage = document.getElementById("album-img");
+        playerAlbumImage.src = currentSong.albumUrl;
+        var timer = setInterval(function () {
           // start playback timer
-          playbackTimeBar.value = musicPlayer.currentTime / musicPlayer.duration * 100;
+          playbackTimeBar.value = musicPlayer.currentTime / musicPlayer.duration * 1000;
 
-          _this.forceUpdate();
+          if (playbackTimeBar.value < 1000 || _this2.state.loop) {
+            _this2.forceUpdate();
+          } else {
+            clearInterval(timer);
+
+            _this2.props.togglePlayback();
+          }
         }, 100);
-      } else {
-        musicPlayer.pause();
-        this.playing = false;
       }
 
-      var playerAlbumImage = document.getElementById("album-img");
-      playerAlbumImage.src = currentSong.albumUrl;
+      !this.props.player.playing ? musicPlayer.play() : musicPlayer.pause();
     }
   }, {
     key: "changeVolume",
@@ -13780,10 +13786,15 @@ var Footer = /*#__PURE__*/function (_React$Component) {
       this.props.musicPlayer.volume = e.target.value;
     }
   }, {
+    key: "toggleLoop",
+    value: function toggleLoop() {
+      this.state.loop = !this.state.loop;
+    }
+  }, {
     key: "scrubMusicPlayback",
     value: function scrubMusicPlayback(e) {
       var musicPlayer = this.props.musicPlayer;
-      musicPlayer.currentTime = e.target.value / 100.0 * musicPlayer.duration;
+      musicPlayer.currentTime = e.target.value / 1000.0 * musicPlayer.duration;
     }
   }, {
     key: "FormattedCurrentTime",
@@ -13804,7 +13815,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var currentSong = this.props.player.currentSong;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -13841,7 +13852,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         id: "play-btn",
         size: "2xl",
         onClick: function onClick() {
-          return _this2.props.togglePlayback();
+          return _this3.props.togglePlayback();
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faForwardStep,
@@ -13849,7 +13860,10 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         size: "lg"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faRepeat,
-        id: "repeat-btn"
+        className: this.state.loop ? "loop-btn clicked" : "loop-btn",
+        onClick: function onClick() {
+          return _this3.toggleLoop();
+        }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "scroll-bar-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("audio", {
@@ -13858,9 +13872,9 @@ var Footer = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, currentSong ? this.FormattedCurrentTime() : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "range",
         min: "0",
-        max: "100",
+        max: "1000",
         onChange: function onChange(e) {
-          return _this2.scrubMusicPlayback(e);
+          return _this3.scrubMusicPlayback(e);
         },
         defaultValue: "0",
         id: "music-duration-slider",
@@ -13876,7 +13890,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         max: "1",
         step: ".01",
         onChange: function onChange(e) {
-          return _this2.changeVolume(e);
+          return _this3.changeVolume(e);
         },
         defaultValue: "0.5",
         className: "slider"
@@ -14556,18 +14570,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -14610,16 +14612,8 @@ var SongItem = /*#__PURE__*/function (_React$Component) {
 
       var _this$props = this.props,
           song = _this$props.song,
-          idx = _this$props.idx;
-
-      var _useState = useState(true),
-          _useState2 = _slicedToArray(_useState, 2),
-          click = _useState2[0],
-          setClick = _useState2[1];
-
-      var handleClick = function handleClick() {
-        return setClick(!click);
-      };
+          idx = _this$props.idx; // const [click,setClick] = useState(true);
+      // const handleClick = () => setClick(!click);
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         className: "song-item",
@@ -14942,9 +14936,7 @@ var preloadedState = {
   currentSong: null,
   playing: null,
   shuffle: null,
-  playQueue: [],
-  loop: null,
-  muted: null
+  playQueue: []
 };
 
 var MusicPlayerReducer = function MusicPlayerReducer() {

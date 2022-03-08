@@ -11,8 +11,8 @@ class SongItem extends React.Component{
   
     render(){
         const {song,idx} = this.props;
-        const [click,setClick] = useState(true);
-        const handleClick = () => setClick(!click);
+        // const [click,setClick] = useState(true);
+        // const handleClick = () => setClick(!click);
       return(
           <li className='song-item' onDoubleClick={()=> this.props.setCurrentSong(this.props.song)}> 
                     <p className="song-idx-num">{idx}</p>
