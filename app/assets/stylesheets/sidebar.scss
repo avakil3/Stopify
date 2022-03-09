@@ -18,7 +18,7 @@
     flex-direction: column;
 }
 
-.sidebar-options a {
+.sidebar-options a, .sidebar-options .create-playlist {
     color: rgb(177,177,177);
     padding: 10px;
     display: flex;
@@ -44,5 +44,7 @@
     margin-top: 10px;
     color: rgb(177,177,177);
     font-size: 13px;
-
+    &:hover{
+    color: white;
+    }
 }

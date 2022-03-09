@@ -36,3 +36,5 @@ window.fetchAlbums = AlbumActions.fetchAlbums;
 window.fetchAlbum = AlbumActions.fetchAlbum;
 
 window.fetchUserPlaylists = PlaylistActions.fetchUserPlaylists;
+window.removePlaylist = PlaylistActions.removePlaylist;
+window.createPlaylist = PlaylistActions.createPlaylist;

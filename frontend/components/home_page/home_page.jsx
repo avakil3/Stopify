@@ -1,12 +1,11 @@
 import React from 'react'
-import Sidebar from './sidebar';
 import BodyContainer from "./body_container"
-import Footer from './footer';
 import AlbumShowPageContainer from '../albums/album_show_page_container';
 import PlaylistShowPageContainer from '../playlists/playlist_show_page_container';
 import {Switch,Route,Link} from 'react-router-dom';
-import HeaderContainer from "./header_container"
-import FooterContainer from './footer_container';
+import HeaderContainer from "../header/header_container"
+import FooterContainer from '../footer/footer_container';
+import SidebarContainer from '../sidebar/sidebar_container';
 
 class HomePage extends React.Component {
   constructor(props){
@@ -28,7 +27,7 @@ class HomePage extends React.Component {
     return (
       <div className='home-page'>
           <div className='homepage_body'>
-              <Sidebar />
+              <SidebarContainer />
               <Switch>
                 <Route exact path="/home/albums/:albumId" component={AlbumShowPageContainer}/>
                 <Route exact path="/home/playlists/:playlistId" component={PlaylistShowPageContainer}/>
