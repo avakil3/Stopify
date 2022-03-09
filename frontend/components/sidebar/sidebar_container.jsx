@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import Sidebar from './sidebar';
 
 
-const mapStateToProps = ({ entities: { playlists } }) => ({
+const mapStateToProps = ({ session, entities: { playlists,users } }) => ({
     playlists,
+    currentUser: (session.currentUser ? users[session.currentUser.id]: null)
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -13,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Sidebar);
+)(Sidebar)

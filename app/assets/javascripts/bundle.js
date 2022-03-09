@@ -13903,6 +13903,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Header(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
+  if (!currentUser) return null;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState2 = _slicedToArray(_useState, 2),
@@ -14039,8 +14040,10 @@ var Body = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           albums = _this$props.albums,
           artists = _this$props.artists,
-          playlists = _this$props.playlists;
-      if (Object.keys(albums).length === 0 || Object.keys(artists).length === 0 || Object.keys(playlists).length === 0) return null;
+          playlists = _this$props.playlists,
+          currentUser = _this$props.currentUser;
+      if (!currentUser || Object.keys(albums).length === 0 || Object.keys(artists).length === 0) return null;
+      if (Object.keys(playlists).length === 0 && currentUser.username === "Demo") return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Welcome to Stopify"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -14059,16 +14062,16 @@ var Body = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: playlists[1].playlistImgUrl,
+        src: playlists[1] ? playlists[1].playlistImgUrl : "",
         className: "body-section-1-img"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists[1].playlist_name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists[1] ? playlists[1].playlist_name : ""))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/home/playlists/2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: playlists[2].playlistImgUrl,
+        src: playlists[2] ? playlists[2].playlistImgUrl : "",
         className: "body-section-1-img"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists[2].playlist_name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists[2] ? playlists[2].playlist_name : "")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1-row-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1"
@@ -14146,14 +14149,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var _ref$entities = _ref.entities,
+  var session = _ref.session,
+      _ref$entities = _ref.entities,
       albums = _ref$entities.albums,
       artists = _ref$entities.artists,
-      playlists = _ref$entities.playlists;
+      playlists = _ref$entities.playlists,
+      users = _ref$entities.users;
   return {
     albums: albums,
     artists: artists,
-    playlists: playlists
+    playlists: playlists,
+    currentUser: session.currentUser ? users[session.currentUser.id] : null
   };
 };
 
@@ -14836,7 +14842,8 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
   _createClass(Sidebar, [{
     key: "render",
     value: function render() {
-      if (Object.values(this.props.playlists).length === 0) return null;
+      if (!this.props.currentUser) return null;
+      if (Object.values(this.props.playlists).length === 0 && this.props.currentUser.username === "Demo") return null;
       var playlists = Object.values(this.props.playlists);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "sidebar"
@@ -14908,9 +14915,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var playlists = _ref.entities.playlists;
+  var session = _ref.session,
+      _ref$entities = _ref.entities,
+      playlists = _ref$entities.playlists,
+      users = _ref$entities.users;
   return {
-    playlists: playlists
+    playlists: playlists,
+    currentUser: session.currentUser ? users[session.currentUser.id] : null
   };
 };
 
@@ -15599,16 +15610,13 @@ __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-
-var preloadedState = {
-  18: {
-    id: 18,
-    username: "Demo"
-  }
-};
+ // const preloadedState = {18: {
+//   id: 18,
+//   username: "Demo",
+// }}
 
 var usersReducer = function usersReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : preloadedState;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
 

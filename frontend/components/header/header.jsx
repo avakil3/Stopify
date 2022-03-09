@@ -7,9 +7,10 @@ import {Link} from "react-router-dom";
 
 function Header({currentUser,logout}) {
 
-
-    const [click,setClick] = useState(true);
-    const handleClick = () => setClick(!click);
+  if(!currentUser) return null;
+  const [click,setClick] = useState(true);
+  const handleClick = () => setClick(!click);
+  
   return (
     <div className='header'>
         <div className="header-dropdown" onClick={handleClick}>

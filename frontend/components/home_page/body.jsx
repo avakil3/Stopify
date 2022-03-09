@@ -9,8 +9,9 @@ class Body extends React.Component {
   }
   
 render(){
-  const {albums,artists,playlists} = this.props;
-  if(Object.keys(albums).length === 0 || Object.keys(artists).length === 0 || Object.keys(playlists).length === 0) return null;
+  const {albums,artists,playlists,currentUser} = this.props;
+  if(!currentUser || Object.keys(albums).length === 0 || Object.keys(artists).length === 0 ) return null;
+  if(Object.keys(playlists).length === 0 && currentUser.username === "Demo") return null;
   return ( 
     <div className='body'>
        <h1>Welcome to Stopify</h1>
@@ -25,15 +26,15 @@ render(){
 
            <Link to='/home/playlists/1'>
               <div className="body-section-1">
-                  <img src={playlists[1].playlistImgUrl} className='body-section-1-img'/> 
-                  <p>{playlists[1].playlist_name}</p>
+                  <img src={playlists[1] ? playlists[1].playlistImgUrl : ""} className='body-section-1-img'/> 
+                  <p>{playlists[1] ? playlists[1].playlist_name : ""}</p>
               </div>
             </Link>
 
             <Link to='/home/playlists/2'>
               <div className="body-section-1">
-                  <img src={playlists[2].playlistImgUrl} className='body-section-1-img'/> 
-                  <p>{playlists[2].playlist_name}</p>
+                  <img src={playlists[2] ? playlists[2].playlistImgUrl : ""} className='body-section-1-img'/> 
+                  <p>{playlists[2] ? playlists[2].playlist_name : ""}</p>
               </div>
             </Link>
          </div>
