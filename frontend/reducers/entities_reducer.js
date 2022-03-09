@@ -4,11 +4,13 @@ import usersReducer from './users_reducer';
 import AlbumsReducer from './albums_reducer';
 import ArtistsReducer from './artists_reducer';
 import MusicPlayerReducer from './music_player_reducer';
+import PlaylistsReducer from './playlists_reducer';
 
 export default combineReducers({
   users: usersReducer,
   songs: SongsReducer,
   albums: AlbumsReducer,
   artists: ArtistsReducer,
-  player: MusicPlayerReducer
+  player: MusicPlayerReducer,
+  playlists: PlaylistsReducer
 });

@@ -13,15 +13,15 @@ class SongItem extends React.Component{
   }
   
     render(){
-        const {song,idx} = this.props;
+        const {song,currentSong,idx} = this.props;
         // const [click,setClick] = useState(true);
         // const handleClick = () => setClick(!click);
       return(
           <li className='song-item' onDoubleClick={()=> this.handleDoubleClick()}> 
-                    <p className="song-idx-num">{idx}</p>
+                    <p  className={currentSong && currentSong.id === song.id ? 'song-idx-num playing' : "song-idx-num"} >{idx}</p>
                     <div className="song-container-left">
-                        <h2>{song.song_name}</h2>
-                        <p>{song.artist_name}</p> 
+                        <h2 className={currentSong && currentSong.id === song.id ? 'playing' : ""}>{song.song_name}</h2>
+                        <p>{song.artistName}</p> 
                     </div>
                     <div className="song-container-right">
                         <FontAwesomeIcon className="song-row-like" icon={faHeart} />

@@ -12,39 +12,34 @@ class Footer extends React.Component {
 
 
   componentDidUpdate(prevProps){
-    const {musicPlayer} = this.props;
-    if (prevProps.player.currentSong !== this.props.player.currentSong) this.playSong();
-	if(this.props.player.playing){
-      musicPlayer.play()
-    }else{
-      musicPlayer.pause()
-    }
+    const {musicPlayer,player} = this.props;
+    if (prevProps.player.currentSong !== player.currentSong) this.playSong();
+	
+	player.playing ? musicPlayer.play() : musicPlayer.pause();
   }
 
-  playSong(){
-    const currentSong = this.props.player.currentSong;
-	const playbackTimeBar = document.getElementById("music-duration-slider");
-    const {musicPlayer} = this.props;
-    if (musicPlayer.src.slice(musicPlayer.src.length - 10) !== currentSong.url.slice(currentSong.url.length - 10) ){
-        musicPlayer.src = currentSong.url;
-		musicPlayer.play();
+	playSong(){
+		const currentSong = this.props.player.currentSong;
+		const playbackTimeBar = document.getElementById("music-duration-slider");
+		const {musicPlayer} = this.props;
+		if (musicPlayer.src.slice(musicPlayer.src.length - 10) !== currentSong.url.slice(currentSong.url.length - 10) ){
+			musicPlayer.src = currentSong.url;
+			musicPlayer.play();
 
-		const playerAlbumImage = document.getElementById("album-img");
-		playerAlbumImage.src = currentSong.albumUrl;
+			const playerAlbumImage = document.getElementById("album-img");
+			playerAlbumImage.src = currentSong.albumImgUrl;
 
-		const timer = setInterval(() => { // start playback timer for music playback control bar
+			const timer = setInterval(() => { // start playback timer for music playback control bar
 			playbackTimeBar.value = (musicPlayer.currentTime/musicPlayer.duration) * 1000;
 			if (playbackTimeBar.value < 1000 || this.state.loop) {
 				this.forceUpdate();
 			}else{
 				clearInterval(timer);
-				this.props.togglePlayback();
+				this.props.nextSong();
 			}
 			}, 100)
-    } 
-    !this.props.player.playing ?  musicPlayer.play() : musicPlayer.pause();
-
-  }
+		} 
+	}
 
 	changeVolume(e){ this.props.musicPlayer.volume = e.target.value;}
 
@@ -70,14 +65,14 @@ class Footer extends React.Component {
   
   render(){
     const currentSong = this.props.player.currentSong;
-	const {prevSong,nextSong,togglePlayback,shufflePlayback,player} = this.props;
+	  const {prevSong,nextSong,togglePlayback,shufflePlayback,player} = this.props;
      return (
       <div className='footer'>
          { currentSong ? (<div className="song-details">
              <img src="" id='album-img'></img>
              <div className='track-info'>
                 <p id="current-song-name">{currentSong.song_name}</p>
-                <p id="current-artist-name">{currentSong.artist_name}</p>
+                <p id="current-artist-name">{currentSong.artistName}</p>
              </div>
          <FontAwesomeIcon icon={faHeart} id="footer-like-btn" />
        </div>) : (<div className="song-details"> </div>)}
@@ -88,7 +83,7 @@ class Footer extends React.Component {
             <FontAwesomeIcon icon={faBackwardStep} className="back-and-forward-btns" onClick={()=> currentSong ? prevSong() : null} size="lg"/>
             <FontAwesomeIcon icon={this.props.player.playing ? faPauseCircle : faPlayCircle} 
                               className="play-btn" size="2xl"
-                              onClick={()=> togglePlayback()} />
+                              onClick={()=> currentSong ? togglePlayback(): null} />
             <FontAwesomeIcon icon={faForwardStep} className="back-and-forward-btns" onClick={()=> currentSong ? nextSong() : null} size="lg"/>
             <FontAwesomeIcon icon={faRepeat} className={this.state.loop ? "loop-btn clicked":"loop-btn"} onClick={()=> this.toggleLoop()}/>
          </div>
@@ -103,7 +98,7 @@ class Footer extends React.Component {
 
         <div className="volume-controls">
          	<FontAwesomeIcon icon={faVolumeHigh} className="mute-btn" />
-        	<input type="range" min="0" max="1" step=".01" onChange={e=> this.changeVolume(e)} defaultValue="0.5" className="slider" ></input>
+        	<input type="range" min="0" max="1" step=".01" onChange={e=> this.changeVolume(e)} className="slider" ></input>
         </div>
       
       </div>

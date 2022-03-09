@@ -9,8 +9,8 @@ class Body extends React.Component {
   }
   
 render(){
-  const {albums,artists} = this.props;
-  if(Object.keys(albums).length === 0 || Object.keys(artists).length === 0) return null;
+  const {albums,artists,playlists} = this.props;
+  if(Object.keys(albums).length === 0 || Object.keys(artists).length === 0 || Object.keys(playlists).length === 0) return null;
   return ( 
     <div className='body'>
        <h1>Welcome to Stopify</h1>
@@ -23,15 +23,19 @@ render(){
             </div>
            </Link>
 
-            <div className="body-section-1">
-                <div className='body-section-1-img'>img</div>
-                <p>Item #2</p>
-            </div>
+           <Link to='/home/playlists/1'>
+              <div className="body-section-1">
+                  <img src={playlists[1].playlistImgUrl} className='body-section-1-img'/> 
+                  <p>{playlists[1].playlist_name}</p>
+              </div>
+            </Link>
 
-            <div className="body-section-1">
-                <div className='body-section-1-img'>img</div>
-                <p>Item #3</p>
-            </div>
+            <Link to='/home/playlists/2'>
+              <div className="body-section-1">
+                  <img src={playlists[2].playlistImgUrl} className='body-section-1-img'/> 
+                  <p>{playlists[2].playlist_name}</p>
+              </div>
+            </Link>
          </div>
           <div className='body-section-1-row-2'>
             <div className="body-section-1">

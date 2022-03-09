@@ -20,6 +20,11 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6 }, allow_nil: true
   
     after_initialize :ensure_session_token
+
+
+    has_many :playlists,
+        foreign_key: :user_id,
+        class_name: :Playlist
   
   
     def self.find_by_credentials(username, password)

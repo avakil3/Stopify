@@ -2,7 +2,8 @@ import React from 'react'
 import Sidebar from './sidebar';
 import BodyContainer from "./body_container"
 import Footer from './footer';
-import AlbumShowPageContainer from '../albums/album_show_page_container'
+import AlbumShowPageContainer from '../albums/album_show_page_container';
+import PlaylistShowPageContainer from '../playlists/playlist_show_page_container';
 import {Switch,Route,Link} from 'react-router-dom';
 import HeaderContainer from "./header_container"
 import FooterContainer from './footer_container';
@@ -18,6 +19,7 @@ class HomePage extends React.Component {
     this.props.fetchUsers();
     this.props.fetchAlbums();
     this.props.fetchArtists();
+    this.props.fetchUserPlaylists();
   }
 
 
@@ -29,6 +31,7 @@ class HomePage extends React.Component {
               <Sidebar />
               <Switch>
                 <Route exact path="/home/albums/:albumId" component={AlbumShowPageContainer}/>
+                <Route exact path="/home/playlists/:playlistId" component={PlaylistShowPageContainer}/>
                 <Route exact path="/home/us" component={BodyContainer}/>
               </Switch>
              <HeaderContainer />

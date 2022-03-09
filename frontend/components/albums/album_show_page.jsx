@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faClock} from "@fortawesome/free-solid-svg-icons";
 import SongItemContainer from '../songs/song_item_container';
 import {faPlayCircle,faPauseCircle} from "@fortawesome/free-solid-svg-icons";
+import {calculateTotalTimeLength} from '../../util/helper_functions';
 
 
 
@@ -16,19 +17,7 @@ class AlbumShowPage extends React.Component {
     this.props.fetchAlbums();
     this.props.fetchArtists();
   }
-  calculateAlbumTimeLength(){ 
-    let totalSeconds = 0;   
-    this.props.album_songs.map(song => {
-      let minutes, seconds;
-      [minutes,seconds] = song.duration.split(":");
-      minutes = parseInt(minutes);
-      seconds = parseInt(seconds);
-      totalSeconds += seconds + minutes*60;
-    });
-    let hours = Math.floor(totalSeconds / 3600); 
-    let minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
-    return `${hours === 1 ? `${hours} hr` : hours === 0 ? "": `${hours} hrs, `}${minutes} min`;
-  }
+ 
 
   render(){
     const {album,artists,album_songs,player} = this.props;
@@ -50,7 +39,7 @@ class AlbumShowPage extends React.Component {
                     {artist.name}
                   </span>
                   {` • ${album.release_date} • ${album_songs.length}`} songs, 
-                  <span>{` ${this.calculateAlbumTimeLength()}`}</span>
+                  <span>{` ${calculateTotalTimeLength(this.props.album_songs)}`}</span>
                 </div>
             </div>
 

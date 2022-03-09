@@ -12,6 +12,10 @@
     }
 }
 
+.song-item .playing {
+    color: var(--spotifygreen);
+}
+
 .song-idx-num{
     // flex: .1;
     padding-right:15px;
@@ -24,5 +28,4 @@
         padding-right: 15px;
     }
     margin-right: 50px;
-
 }

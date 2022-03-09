@@ -6,6 +6,7 @@ import configureStore from './store/store';
 import * as Actions from "./actions/session_actions"
 import * as SongActions from "./actions/song_actions"
 import * as AlbumActions from './actions/album_actions'
+import * as PlaylistActions from './actions/playlist_actions'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -33,3 +34,5 @@ window.fetchSongs = SongActions.fetchSongs;
 
 window.fetchAlbums = AlbumActions.fetchAlbums;
 window.fetchAlbum = AlbumActions.fetchAlbum;
+
+window.fetchUserPlaylists = PlaylistActions.fetchUserPlaylists;
