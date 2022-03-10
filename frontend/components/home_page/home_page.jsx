@@ -14,6 +14,7 @@ class HomePage extends React.Component {
   }
 
   componentDidMount(){
+    // debugger
     this.props.fetchSongs();
     this.props.fetchUsers();
     this.props.fetchAlbums();
@@ -24,6 +25,7 @@ class HomePage extends React.Component {
 
 
   render(){
+    // debugger
     return (
       <div className='home-page'>
           <div className='homepage_body'>

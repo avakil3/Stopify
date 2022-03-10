@@ -66,6 +66,7 @@ class Footer extends React.Component {
  
   
   render(){
+	//   debugger
     const currentSong = this.props.player.currentSong;
 	  const {prevSong,nextSong,togglePlayback,shufflePlayback,player} = this.props;
      return (

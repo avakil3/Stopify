@@ -13548,25 +13548,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 /* harmony import */ var _splash_page_splash_page_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./splash_page/splash_page_container */ "./frontend/components/splash_page/splash_page_container.jsx");
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
 /* harmony import */ var _home_page_home_page_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home_page/home_page_container */ "./frontend/components/home_page/home_page_container.jsx");
+/* harmony import */ var _sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sidebar/sidebar_container */ "./frontend/components/sidebar/sidebar_container.jsx");
+/* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./header/header_container */ "./frontend/components/header/header_container.jsx");
 
 
 
 
 
 
- // import Sidebar from './home_page/sidebar';
+
+
+
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
     path: "/home",
     component: _home_page_home_page_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     exact: true,
     path: "/",
     component: _splash_page_splash_page_container__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -13718,6 +13722,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
+      //   debugger
       var currentSong = this.props.player.currentSong;
       var _this$props2 = this.props,
           prevSong = _this$props2.prevSong,
@@ -13904,6 +13909,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Header(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
+  // debugger
   if (!currentUser) return null;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
@@ -13964,6 +13970,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(_ref) {
   var session = _ref.session,
       users = _ref.entities.users;
+  // debugger
   return {
     currentUser: session.currentUser ? users[session.currentUser.id] : null
   };
@@ -14038,12 +14045,14 @@ var Body = /*#__PURE__*/function (_React$Component) {
   _createClass(Body, [{
     key: "render",
     value: function render() {
+      // debugger
       var _this$props = this.props,
           albums = _this$props.albums,
           artists = _this$props.artists,
           playlists = _this$props.playlists,
           currentUser = _this$props.currentUser;
-      if (!currentUser || Object.keys(albums).length === 0 || Object.keys(artists).length === 0) return null; // if(Object.keys(playlists).length === 0 && currentUser.username === "Demo") return null;
+      if (!currentUser || Object.keys(albums).length === 0 || Object.keys(artists).length === 0) return null; // debugger
+      // if(Object.keys(playlists).length === 0 && currentUser.username === "Demo") return null;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body"
@@ -14246,6 +14255,7 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
   _createClass(HomePage, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      // debugger
       this.props.fetchSongs();
       this.props.fetchUsers();
       this.props.fetchAlbums();
@@ -14255,6 +14265,7 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // debugger
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "home-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -14849,6 +14860,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
   _createClass(Sidebar, [{
     key: "render",
     value: function render() {
+      // debugger
       if (!this.props.currentUser) return null; // if(Object.values(this.props.playlists).length === 0 && this.props.currentUser.username === "Demo") return null;
 
       var playlists = Object.values(this.props.playlists);
@@ -14926,6 +14938,7 @@ var mapStateToProps = function mapStateToProps(_ref) {
       _ref$entities = _ref.entities,
       playlists = _ref$entities.playlists,
       users = _ref$entities.users;
+  // debugger
   return {
     playlists: playlists,
     currentUser: session.currentUser ? users[session.currentUser.id] : null

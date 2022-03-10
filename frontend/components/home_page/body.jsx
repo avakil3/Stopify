@@ -9,8 +9,10 @@ class Body extends React.Component {
   }
   
 render(){
+  // debugger
   const {albums,artists,playlists,currentUser} = this.props;
   if(!currentUser || Object.keys(albums).length === 0 || Object.keys(artists).length === 0 ) return null;
+  // debugger
   // if(Object.keys(playlists).length === 0 && currentUser.username === "Demo") return null;
   return ( 
     <div className='body'>

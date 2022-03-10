@@ -5,6 +5,7 @@ import {faHome, faSearch, faBookOpen,faHeart,faAdd} from "@fortawesome/free-soli
 
 class Sidebar extends React.Component {
     render(){
+        // debugger
         if (!this.props.currentUser) return null;
         // if(Object.values(this.props.playlists).length === 0 && this.props.currentUser.username === "Demo") return null;
         const playlists = Object.values(this.props.playlists);
