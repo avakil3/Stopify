@@ -11,43 +11,48 @@ class Body extends React.Component {
 render(){
   const {albums,artists,playlists,currentUser} = this.props;
   if(!currentUser || Object.keys(albums).length === 0 || Object.keys(artists).length === 0 ) return null;
-  if(Object.keys(playlists).length === 0 && currentUser.username === "Demo") return null;
+  // if(Object.keys(playlists).length === 0 && currentUser.username === "Demo") return null;
   return ( 
     <div className='body'>
        <h1>Welcome to Stopify</h1>
        <div className="body-section-1-container">
          <div className='body-section-1-row-1'>
-           <Link to='/home/albums/10'>
+           <Link to='/home/albums/14'>
             <div className="body-section-1">
-                <img src={albums[10].imageUrl} className='body-section-1-img'/>
-                <p>{albums[10].album_name}</p>
+                <img src={albums[14].imageUrl} className='body-section-1-img'/>
+                <p>{albums[14].album_name}</p>
             </div>
            </Link>
 
-           <Link to='/home/playlists/1'>
+           <Link to='/home/playlists/4'>
               <div className="body-section-1">
-                  <img src={playlists[1] ? playlists[1].playlistImgUrl : ""} className='body-section-1-img'/> 
-                  <p>{playlists[1] ? playlists[1].playlist_name : ""}</p>
+                  <img src={playlists[4] ? playlists[4].playlistImgUrl : ""} className='body-section-1-img'/> 
+                  <p>{playlists[4] ? playlists[4].playlist_name : ""}</p>
               </div>
             </Link>
 
-            <Link to='/home/playlists/2'>
+            <Link to='/home/playlists/5'>
               <div className="body-section-1">
-                  <img src={playlists[2] ? playlists[2].playlistImgUrl : ""} className='body-section-1-img'/> 
-                  <p>{playlists[2] ? playlists[2].playlist_name : ""}</p>
+                  <img src={playlists[5] ? playlists[5].playlistImgUrl : ""} className='body-section-1-img'/> 
+                  <p>{playlists[5] ? playlists[5].playlist_name : ""}</p>
               </div>
             </Link>
          </div>
           <div className='body-section-1-row-2'>
-            <div className="body-section-1">
-                <div className='body-section-1-img'>img</div>
-                <p>Item #4</p>
-            </div>
 
-            <div className="body-section-1">
-                <div className='body-section-1-img'>img</div>
-                <p>Item #5</p>
-            </div>
+            <Link to='/home/albums/15'>
+              <div className="body-section-1">
+                  <img src={albums[15].imageUrl} className='body-section-1-img'/>
+                  <p>{albums[15].album_name}</p>
+              </div>
+            </Link>
+
+            <Link to='/home/albums/16'>
+              <div className="body-section-1">
+                  <img src={albums[16].imageUrl} className='body-section-1-img'/>
+                  <p>{albums[16].album_name}</p>
+              </div>
+            </Link>
 
             <div className="body-section-1">
                 <div className='body-section-1-img'>img</div>

@@ -22,8 +22,10 @@ class Footer extends React.Component {
 		const currentSong = this.props.player.currentSong;
 		const playbackTimeBar = document.getElementById("music-duration-slider");
 		const {musicPlayer} = this.props;
-		if (musicPlayer.src.slice(musicPlayer.src.length - 10) !== currentSong.url.slice(currentSong.url.length - 10) ){
+		// debugger
+		if (musicPlayer.src.slice(musicPlayer.src.length - 50) !== currentSong.url.slice(currentSong.url.length - 50) ){
 			musicPlayer.src = currentSong.url;
+			// debugger
 			musicPlayer.play();
 
 			const playerAlbumImage = document.getElementById("album-img");
