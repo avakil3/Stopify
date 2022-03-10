@@ -27,14 +27,14 @@ render(){
            <Link to='/home/playlists/4'>
               <div className="body-section-1">
                   <img src={playlists[4] ? playlists[4].playlistImgUrl : ""} className='body-section-1-img'/> 
-                  <p>{playlists[4] ? playlists[4].playlist_name : ""}</p>
+                  <p>{playlists[4] ? playlists[4].playlist_name : "Create a Playlist first"}</p>
               </div>
             </Link>
 
             <Link to='/home/playlists/5'>
               <div className="body-section-1">
                   <img src={playlists[5] ? playlists[5].playlistImgUrl : ""} className='body-section-1-img'/> 
-                  <p>{playlists[5] ? playlists[5].playlist_name : ""}</p>
+                  <p>{playlists[5] ? playlists[5].playlist_name : "Create a Playlist first"}</p>
               </div>
             </Link>
          </div>

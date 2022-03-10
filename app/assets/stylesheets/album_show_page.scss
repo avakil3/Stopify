@@ -1,9 +1,9 @@
-.album-show-container{
+.show-container{
 display: flex;
 width: 100%;
 }
 
-.album-show-body{
+.show-body{
     background: linear-gradient(rgb(43,12,60), rgb(18,18,18));
     height: 100vh;
     width: 100vw;
@@ -19,7 +19,7 @@ width: 100%;
 }
 
 .album-cover-img{
-    width: 200px;
+    width: 220px;
     align-self: flex-end;
     padding-right: 20px;
 }
@@ -32,8 +32,8 @@ width: 100%;
         padding-bottom: 10px;
     }
     h1{
-        font-size: 60px;
-        font-weight: 600;
+        font-size: 80px;
+        font-weight: 900;
         margin-bottom: 5px;
     }
     
@@ -42,6 +42,7 @@ width: 100%;
 .album-content{
     // border: 1px solid aqua;
     margin-top: 30px;
+    margin-left: 20px;
 }
 
 
@@ -52,6 +53,7 @@ width: 100%;
     color: var(--textgrey);
     font-size: 13px;
     padding-bottom: 10px;
+    margin-bottom: 17px;
     p{
         padding-right: 15px;
     }
@@ -67,6 +69,6 @@ width: 100%;
 
 .album.play-btn{
     color:var(--spotifygreen);
-    margin-bottom: 20px;
+    margin-top: 20px;
     font-size: 3em;
 }

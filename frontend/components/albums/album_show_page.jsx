@@ -26,8 +26,8 @@ class AlbumShowPage extends React.Component {
      const artist = artists[album.artist_id];
      if (!artist) return null;
     return  (
-      <div className="album-show-container">
-        <div className="album-show-body">
+      <div className=".show-container">
+        <div className="show-body">
           <div className="album-header">
             <img className="album-cover-img" src={album.imageUrl}/>
 
@@ -44,17 +44,17 @@ class AlbumShowPage extends React.Component {
             </div>
 
           </div>
-          <div className="album-content">
           <FontAwesomeIcon icon={this.props.player.playing ? faPauseCircle : faPlayCircle} 
                               className="album play-btn" size="2xl"
                               onClick={()=> this.props.togglePlayback(player.currentSong,album_songs[0])} />
+          <div className="album-content">
            <div className="songs-header">
              <div className='header-text-labels'>
                   <p>#</p>
                   <p>TITLE</p>
-               </div>
+              </div>
                <FontAwesomeIcon className='clock-icon' icon={faClock} />
-             </div>
+            </div>
              <ul className='album-song-list'>
                 {album_songs.map((song,idx)=> <SongItemContainer key ={song.id} song={song} queue={album_songs} idx={idx+1} /> )}
              </ul>

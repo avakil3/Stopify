@@ -1,25 +1,11 @@
-.playlist-show-container{
-    display: flex;
-    width: 100%;
-    }
-    
-    .playlist-show-body{
-        background: linear-gradient(rgb(43,12,60), rgb(18,18,18));
-        height: 100vh;
-        width: 100vw;
-        color: white;
-        padding: 30px;
-        margin-left: 220px;
-        padding-bottom: 150px;
-    }
-    
+
     .playlist-header {
         display: flex;
         // border: 1px solid aqua;
     }
     
     .playlist-cover-img{
-        width: 200px;
+        width: 220px;
         align-self: flex-end;
         padding-right: 20px;
     }

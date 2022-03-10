@@ -14,8 +14,8 @@ export class PlaylistShowPage extends Component {
       if (!playlist) return null;  
       const playlist_songs = Object.values(playlist.songs);
     return  (
-        <div className="playlist-show-container">
-          <div className="playlist-show-body">
+        <div className=".show-container">
+          <div className="show-body">
             <div className="playlist-header">
               <img className="playlist-cover-img" src={playlist.playlistImgUrl}/>
   

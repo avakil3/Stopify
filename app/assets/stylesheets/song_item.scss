@@ -6,6 +6,7 @@
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    color: var(--textgrey);
     &:hover{
         background-color: rgba(48, 48, 48, 0.336);
         cursor: pointer;
@@ -20,10 +21,21 @@
     // flex: .1;
     padding-right:15px;
 }
+.song-container-left {
+    h2{ 
+        color: white;
+        margin-bottom: 5px;
+        font-size: 15px;
+    }
+    p{
+        font-size: small;
+    }
+}
 
 .song-container-right{
     display: flex;
     margin-left: auto;
+    font-size: 15px;
     .song-row-like, p {
         padding-right: 15px;
     }

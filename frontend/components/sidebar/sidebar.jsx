@@ -20,12 +20,12 @@ class Sidebar extends React.Component {
                 <span>Home</span>
             </Link>
     
-            <Link to={'/search'}>
+            <Link to={'/home/us'}>
             <FontAwesomeIcon icon={faSearch} />
                 <span>Search</span>
             </Link>
     
-            <Link to={'/library'}>
+            <Link to={'/home/us'}>
             <FontAwesomeIcon icon={faBookOpen} />
                 <span>Your Library</span>
             </Link>
@@ -35,7 +35,7 @@ class Sidebar extends React.Component {
                 <span>Create Playlist</span>
             </div>
 
-            <Link to={'/likedsongs'}>
+            <Link to={'/home/us'}>
             <FontAwesomeIcon icon={faHeart} />
                 <span>Liked Songs</span>
             </Link>
