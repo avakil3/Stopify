@@ -10,19 +10,20 @@ class Body extends React.Component {
   
 render(){
   // debugger
-  const {albums,artists,playlists,currentUser} = this.props;
-  if(!currentUser || Object.keys(albums).length === 0 || Object.keys(artists).length === 0 ) return null;
+  const {artists,playlists,currentUser} = this.props;
+  if(!currentUser || Object.keys(this.props.albums).length === 0 || Object.keys(artists).length === 0 ) return null;
   // debugger
   // if(Object.keys(playlists).length === 0 && currentUser.username === "Demo") return null;
+  const albums = Object.values(this.props.albums);
   return ( 
     <div className='body'>
        <h1>Welcome to Stopify</h1>
        <div className="body-section-1-container">
          <div className='body-section-1-row-1'>
-           <Link to='/home/albums/7'>
+           <Link to={`/home/albums/${albums[0].id}`}>
             <div className="body-section-1">
-                <img src={albums[7].imageUrl} className='body-section-1-img'/>
-                <p>{albums[7].album_name}</p>
+                <img src={albums[0].imageUrl} className='body-section-1-img'/>
+                <p>{albums[0].album_name}</p>
             </div>
            </Link>
 
@@ -42,17 +43,17 @@ render(){
          </div>
           <div className='body-section-1-row-2'>
 
-            <Link to='/home/albums/8'>
+            <Link to={`/home/albums/${albums[1].id}`}>
               <div className="body-section-1">
-                  <img src={albums[8].imageUrl} className='body-section-1-img'/>
-                  <p>{albums[8].album_name}</p>
+                  <img src={albums[1].imageUrl} className='body-section-1-img'/>
+                  <p>{albums[1].album_name}</p>
               </div>
             </Link>
 
-            <Link to='/home/albums/9'>
+            <Link to={`/home/albums/${albums[2].id}`}>
               <div className="body-section-1">
-                  <img src={albums[9].imageUrl} className='body-section-1-img'/>
-                  <p>{albums[9].album_name}</p>
+                  <img src={albums[2].imageUrl} className='body-section-1-img'/>
+                  <p>{albums[2].album_name}</p>
               </div>
             </Link>
 
