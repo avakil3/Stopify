@@ -14045,15 +14045,13 @@ var Body = /*#__PURE__*/function (_React$Component) {
   _createClass(Body, [{
     key: "render",
     value: function render() {
-      // debugger
       var _this$props = this.props,
           artists = _this$props.artists,
-          playlists = _this$props.playlists,
           currentUser = _this$props.currentUser;
-      if (!currentUser || Object.keys(this.props.albums).length === 0 || Object.keys(artists).length === 0) return null; // debugger
-      // if(Object.keys(playlists).length === 0 && currentUser.username === "Demo") return null;
-
+      if (!currentUser || Object.keys(this.props.albums).length === 0 || Object.keys(artists).length === 0) return null;
+      if (Object.keys(this.props.playlists).length === 0 && currentUser.username === "Demo") return null;
       var albums = Object.values(this.props.albums);
+      var playlists = Object.values(this.props.playlists);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Welcome to Stopify"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -14068,20 +14066,20 @@ var Body = /*#__PURE__*/function (_React$Component) {
         src: albums[0].imageUrl,
         className: "body-section-1-img"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, albums[0].album_name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-        to: "/home/playlists/4"
+        to: "/home/playlists/".concat(playlists[0].id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: playlists[4] ? playlists[4].playlistImgUrl : "",
+        src: playlists[0].playlistImgUrl,
         className: "body-section-1-img"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists[4] ? playlists[4].playlist_name : "Create a Playlist first"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-        to: "/home/playlists/5"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists[0].playlist_name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        to: "/home/playlists/".concat(playlists[1].id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: playlists[5] ? playlists[5].playlistImgUrl : "",
+        src: playlists[1].playlistImgUrl,
         className: "body-section-1-img"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists[5] ? playlists[5].playlist_name : "Create a Playlist first")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists[1].playlist_name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1-row-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/home/albums/".concat(albums[1].id)

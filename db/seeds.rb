@@ -8,6 +8,8 @@ User.delete_all
 Song.delete_all
 Album.delete_all
 Artist.delete_all
+Playlist.delete_all
+PlaylistSong.delete_all
 
 demoUser = User.create!(username:"Demo",email: 'demo@demo.com', password: 'password')
 
@@ -97,3 +99,12 @@ song22.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Ed+
 song23 = Song.create!(song_name: "Tides", album_id: equal.id, duration:"3:15")
 song23.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Ed+Sheeran+-+Equals/Ed+Sheeran+-+Tides+%5Bwww.slider.kz%5D.mp3"), filename: "Ed+Sheeran+-+Tides+%5Bwww.slider.kz%5D.mp3")
 
+# Demo Playlist #1
+playlist1 = Playlist.create!(playlist_name: "Demo Playlist #1", user_id: demoUser.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song23.id)
+
+
+
+# Demo Playlist #2
+playlist2 = Playlist.create!(playlist_name: "Demo Playlist #2", user_id: demoUser.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song23.id)

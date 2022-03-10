@@ -9,12 +9,13 @@ class Body extends React.Component {
   }
   
 render(){
-  // debugger
-  const {artists,playlists,currentUser} = this.props;
+  
+  const {artists,currentUser} = this.props;
   if(!currentUser || Object.keys(this.props.albums).length === 0 || Object.keys(artists).length === 0 ) return null;
-  // debugger
-  // if(Object.keys(playlists).length === 0 && currentUser.username === "Demo") return null;
+  if(Object.keys(this.props.playlists).length === 0 && currentUser.username === "Demo") return null;
+  
   const albums = Object.values(this.props.albums);
+  const playlists = Object.values(this.props.playlists);
   return ( 
     <div className='body'>
        <h1>Welcome to Stopify</h1>
@@ -27,17 +28,17 @@ render(){
             </div>
            </Link>
 
-           <Link to='/home/playlists/4'>
+           <Link to={`/home/playlists/${playlists[0].id}`}>
               <div className="body-section-1">
-                  <img src={playlists[4] ? playlists[4].playlistImgUrl : ""} className='body-section-1-img'/> 
-                  <p>{playlists[4] ? playlists[4].playlist_name : "Create a Playlist first"}</p>
+                  <img src={playlists[0].playlistImgUrl} className='body-section-1-img'/> 
+                  <p>{playlists[0].playlist_name}</p>
               </div>
             </Link>
 
-            <Link to='/home/playlists/5'>
+            <Link to={`/home/playlists/${playlists[1].id}`}>
               <div className="body-section-1">
-                  <img src={playlists[5] ? playlists[5].playlistImgUrl : ""} className='body-section-1-img'/> 
-                  <p>{playlists[5] ? playlists[5].playlist_name : "Create a Playlist first"}</p>
+                  <img src={playlists[1].playlistImgUrl} className='body-section-1-img'/> 
+                  <p>{playlists[1].playlist_name}</p>
               </div>
             </Link>
          </div>
