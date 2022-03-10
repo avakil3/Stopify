@@ -43,19 +43,18 @@ song7.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drak
 song8 = Song.create!(song_name: "TSU", album_id: certifiedLoverBoy.id, duration:"5:08")
 song8.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Certified+Lover+Boy/08+TSU.mp3"), filename: "08+TSU.mp3")
 
-
 song9 = Song.create!(song_name: "N 2 Deep (feat. Future)", album_id: certifiedLoverBoy.id, duration:"4:33")
 song9.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Certified+Lover+Boy/09+N+2+Deep+(feat.+Future).mp3"), filename: "09+N+2+Deep+(feat.+Future).mp3")
-
 
 song10 = Song.create!(song_name: "Pipe Down", album_id: certifiedLoverBoy.id, duration:"3:25")
 song10.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Certified+Lover+Boy/10+Pipe+Down.mp3"), filename: "10+Pipe+Down.mp3")
 
+
 #Glass Animals - Dreamland
 glass_animals = Artist.create!(name:"Glass Animals")
 glass_animals.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Artist+Pics/glass_animals.jpg"), filename: 'glass_animals.jpg')
-Dreamland = Album.create!(album_name:"Dreamland", artist_id:glass_animals.id, release_date: 2020 )
-Dreamland.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Album+Covers/Dreamland.png"), filename: 'Dreamland.png')
+dreamland = Album.create!(album_name:"Dreamland", artist_id:glass_animals.id, release_date: 2020 )
+dreamland.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Album+Covers/Dreamland.png"), filename: 'Dreamland.png')
 
 song11 = Song.create!(song_name: "Dreamland", album_id: glass_animals.id, duration:"3:23")
 song11.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Glass+Animals+-+Dreamland/Glass+Animals+-+Dreamland+%5Bwww.slider.kz%5D.mp3"), filename: "Glass+Animals+-+Dreamland+%5Bwww.slider.kz%5D.mp3")
@@ -160,7 +159,7 @@ song36.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua
 justin_bieber = Artist.create!(name:"Justin Bieber")
 justin_bieber.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Artist+Pics/justin_bieber.jpeg"), filename: 'justin_bieber.jpeg')
 
-justice = Album.create!(album_name:"Future Nostalgia", artist_id:justin_bieber.id, release_date: 2021 )
+justice = Album.create!(album_name:"Justice", artist_id:justin_bieber.id, release_date: 2021 )
 justice.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/0/08/Justin_Bieber_-_Justice.png"), filename: 'Justin_Bieber_-_Justice.png')
 
 song37 = Song.create!(song_name: "2 Much", album_id: justice.id, duration:"2:32")

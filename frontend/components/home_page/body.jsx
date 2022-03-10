@@ -81,7 +81,7 @@ render(){
 
         <Link to={`/home/artists/${artists[4].id}`}>
               <div className="body-section-2">
-                  <img src={artists[3].imageUrl} className='body-section-2-img'/>
+                  <img src={artists[4].imageUrl} className='body-section-2-img'/>
                   <h3>{artists[4].name}</h3>
               </div>
         </Link>
