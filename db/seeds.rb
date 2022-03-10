@@ -77,7 +77,6 @@ ed_sheeran = Artist.create!(name:"Ed Sheeran")
 equal = Album.create!(album_name:"=", artist_id:ed_sheeran.id, release_date: 2021 )
 equal.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/c/cd/Ed_Sheeran_-_Equals.png"), filename: 'Ed_Sheeran_-_Equals.png')
 
-
 song17 = Song.create!(song_name: "Bad Habits", album_id: equal.id, duration:"3:50")
 song17.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Ed+Sheeran+-+Equals/Ed+Sheeran+-+Bad+Habits+%5Bwww.slider.kz%5D.mp3"), filename: "Ed+Sheeran+-+Bad+Habits+%5Bwww.slider.kz%5D.mp3")
 
@@ -102,9 +101,31 @@ song23.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Ed+
 # Demo Playlist #1
 playlist1 = Playlist.create!(playlist_name: "Demo Playlist #1", user_id: demoUser.id)
 PlaylistSong.create!(playlist_id:playlist1.id, song_id: song23.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song2.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song4.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song5.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song6.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song7.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song8.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song9.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song11.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song14.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song17.id)
+PlaylistSong.create!(playlist_id:playlist1.id, song_id: song18.id)
 
 
 
 # Demo Playlist #2
 playlist2 = Playlist.create!(playlist_name: "Demo Playlist #2", user_id: demoUser.id)
-PlaylistSong.create!(playlist_id:playlist2.id, song_id: song23.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song1.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song22.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song25.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song20.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song16.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song14.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song15.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song13.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song11.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song9.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song5.id)
+PlaylistSong.create!(playlist_id:playlist2.id, song_id: song3.id)

@@ -28,23 +28,7 @@ render(){
             </div>
            </Link>
 
-           <Link to={`/home/playlists/${playlists[0].id}`}>
-              <div className="body-section-1">
-                  <img src={playlists[0].playlistImgUrl} className='body-section-1-img'/> 
-                  <p>{playlists[0].playlist_name}</p>
-              </div>
-            </Link>
-
-            <Link to={`/home/playlists/${playlists[1].id}`}>
-              <div className="body-section-1">
-                  <img src={playlists[1].playlistImgUrl} className='body-section-1-img'/> 
-                  <p>{playlists[1].playlist_name}</p>
-              </div>
-            </Link>
-         </div>
-          <div className='body-section-1-row-2'>
-
-            <Link to={`/home/albums/${albums[1].id}`}>
+           <Link to={`/home/albums/${albums[1].id}`}>
               <div className="body-section-1">
                   <img src={albums[1].imageUrl} className='body-section-1-img'/>
                   <p>{albums[1].album_name}</p>
@@ -57,6 +41,22 @@ render(){
                   <p>{albums[2].album_name}</p>
               </div>
             </Link>
+         </div>
+          <div className='body-section-1-row-2'>
+
+            <Link to={playlists.length > 0 ? `/home/playlists/${playlists[0].id}` : '/home/us'}>
+                <div className="body-section-1">
+                    <img src={playlists.length > 0 ? playlists[0].playlistImgUrl : ""} className='body-section-1-img'/> 
+                    <p>{playlists.length > 0 ? playlists[0].playlist_name: "Create a playlist first"}</p>
+                </div>
+              </Link>
+
+              <Link to={playlists.length > 1 ? `/home/playlists/${playlists[1].id}` : '/home/us'}>
+                <div className="body-section-1">
+                    <img src={playlists.length > 1 ? playlists[1].playlistImgUrl : ""} className='body-section-1-img'/> 
+                    <p>{playlists.length > 1 ? playlists[1].playlist_name : "Create a playlist first"}</p>
+                </div>
+              </Link>
 
             <div className="body-section-1">
                 <div className='body-section-1-img'>img</div>
