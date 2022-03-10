@@ -10,14 +10,13 @@ export class PlaylistShowPage extends Component {
 
   render() {
       const {playlist,currentUser,player} = this.props;
-    //   debugger
+
       if (!playlist) return null;  
       const playlist_songs = Object.values(playlist.songs);
     return  (
-        // <div className=".show-container">
           <div className="show-body">
-            <div className="playlist-header">
-              <img className="playlist-cover-img" src={playlist.playlistImgUrl}/>
+            <div className="show-page-header">
+              <img className="show-page-cover-img" src={playlist.playlistImgUrl}/>
   
               <div className="detail-content">
                   <p>PLAYLIST</p>
@@ -48,7 +47,6 @@ export class PlaylistShowPage extends Component {
                </ul>
             </div>
           </div>
-        // </div>
       ) 
   }
 }

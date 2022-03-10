@@ -15,6 +15,8 @@ demoUser = User.create!(username:"Demo",email: 'demo@demo.com', password: 'passw
 
 
 drake = Artist.create!(name:"Drake")
+drake.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Artist+Pics/drake.jpeg"), filename: 'drake.jpeg')
+
 certifiedLoverBoy = Album.create!(album_name:"Certified Lover Boy", artist_id:drake.id, release_date: 2021 )
 certifiedLoverBoy.photo.attach(io: open("https://media.pitchfork.com/photos/613214a114458bf5df99f2a9/1:1/w_320,c_limit/Drake-Certified-Lover-Boy.png"), filename: 'Drake-Certified-Lover-Boy.png')
 song1 = Song.create!(song_name: "Champagne Poetry", album_id: certifiedLoverBoy.id, duration:"5:36")
@@ -50,6 +52,7 @@ song10.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dra
 
 #Glass Animals - Dreamland
 glass_animals = Artist.create!(name:"Glass Animals")
+glass_animals.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Artist+Pics/glass_animals.jpg"), filename: 'glass_animals.jpg')
 Dreamland = Album.create!(album_name:"Dreamland", artist_id:glass_animals.id, release_date: 2020 )
 Dreamland.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Album+Covers/Dreamland.png"), filename: 'Dreamland.png')
 
@@ -74,6 +77,8 @@ song16.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Gla
 
 # Ed Sheeran - Equals
 ed_sheeran = Artist.create!(name:"Ed Sheeran")
+ed_sheeran.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Artist+Pics/ed_sheeran.jpeg"), filename: 'ed_sheeran.jpeg')
+
 equal = Album.create!(album_name:"=", artist_id:ed_sheeran.id, release_date: 2021 )
 equal.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/c/cd/Ed_Sheeran_-_Equals.png"), filename: 'Ed_Sheeran_-_Equals.png')
 

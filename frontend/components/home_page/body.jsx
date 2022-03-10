@@ -10,12 +10,13 @@ class Body extends React.Component {
   
 render(){
   
-  const {artists,currentUser} = this.props;
-  if(!currentUser || Object.keys(this.props.albums).length === 0 || Object.keys(artists).length === 0 ) return null;
+  const {currentUser} = this.props;
+  if(!currentUser || Object.keys(this.props.albums).length === 0 || Object.keys(this.props.artists).length === 0 ) return null;
   if(Object.keys(this.props.playlists).length === 0 && currentUser.username === "Demo") return null;
   
   const albums = Object.values(this.props.albums);
   const playlists = Object.values(this.props.playlists);
+  const artists = Object.values(this.props.artists);
   return ( 
     <div className='body'>
        <h1>Welcome to Stopify</h1>
@@ -58,10 +59,12 @@ render(){
                 </div>
               </Link>
 
-            <div className="body-section-1">
-                <div className='body-section-1-img'>img</div>
-                <p>Item #6</p>
-            </div>
+              <Link to={`/home/artists/${artists[0].id}`}>
+              <div className="body-section-1">
+                  <img src={artists[0].imageUrl} className='body-section-1-img'/>
+                  <p>{artists[0].name}</p>
+              </div>
+            </Link>
          </div>
        </div>
        
