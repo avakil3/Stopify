@@ -19,10 +19,10 @@ render(){
        <h1>Welcome to Stopify</h1>
        <div className="body-section-1-container">
          <div className='body-section-1-row-1'>
-           <Link to='/home/albums/14'>
+           <Link to='/home/albums/7'>
             <div className="body-section-1">
-                <img src={albums[14].imageUrl} className='body-section-1-img'/>
-                <p>{albums[14].album_name}</p>
+                <img src={albums[7].imageUrl} className='body-section-1-img'/>
+                <p>{albums[7].album_name}</p>
             </div>
            </Link>
 
@@ -42,17 +42,17 @@ render(){
          </div>
           <div className='body-section-1-row-2'>
 
-            <Link to='/home/albums/15'>
+            <Link to='/home/albums/8'>
               <div className="body-section-1">
-                  <img src={albums[15].imageUrl} className='body-section-1-img'/>
-                  <p>{albums[15].album_name}</p>
+                  <img src={albums[8].imageUrl} className='body-section-1-img'/>
+                  <p>{albums[8].album_name}</p>
               </div>
             </Link>
 
-            <Link to='/home/albums/16'>
+            <Link to='/home/albums/9'>
               <div className="body-section-1">
-                  <img src={albums[16].imageUrl} className='body-section-1-img'/>
-                  <p>{albums[16].album_name}</p>
+                  <img src={albums[9].imageUrl} className='body-section-1-img'/>
+                  <p>{albums[9].album_name}</p>
               </div>
             </Link>
 
