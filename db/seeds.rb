@@ -17,6 +17,7 @@ demoUser = User.create!(username:"Demo",email: 'demo@demo.com', password: 'passw
 drake = Artist.create!(name:"Drake")
 drake.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Artist+Pics/drake.jpeg"), filename: 'drake.jpeg')
 
+# Drake - Certified Lover Boy
 certifiedLoverBoy = Album.create!(album_name:"Certified Lover Boy", artist_id:drake.id, release_date: 2021 )
 certifiedLoverBoy.photo.attach(io: open("https://media.pitchfork.com/photos/613214a114458bf5df99f2a9/1:1/w_320,c_limit/Drake-Certified-Lover-Boy.png"), filename: 'Drake-Certified-Lover-Boy.png')
 song1 = Song.create!(song_name: "Champagne Poetry", album_id: certifiedLoverBoy.id, duration:"5:36")
@@ -102,6 +103,85 @@ song22.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Ed+
 
 song23 = Song.create!(song_name: "Tides", album_id: equal.id, duration:"3:15")
 song23.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Ed+Sheeran+-+Equals/Ed+Sheeran+-+Tides+%5Bwww.slider.kz%5D.mp3"), filename: "Ed+Sheeran+-+Tides+%5Bwww.slider.kz%5D.mp3")
+
+# Drake - Scorpion
+scorpion = Album.create!(album_name:"Scorpion", artist_id:drake.id, release_date: 2018 )
+scorpion.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/9/90/Scorpion_by_Drake.jpg"), filename: 'Scorpion_by_Drake.jpg')
+
+song24 = Song.create!(song_name: "Elevate", album_id: scorpion.id, duration:"3:04")
+song24.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Scorpion/Drake+-+Elevate+%5Bwww.slider.kz%5D.mp3"), filename: "Drake+-+Elevate+%5Bwww.slider.kz%5D.mp3")
+
+song25 = Song.create!(song_name: "Emotionless", album_id: scorpion.id, duration:"5:02")
+song25.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Scorpion/Drake+-+Emotionless+%5Bwww.slider.kz%5D.mp3"), filename: "Drake+-+Emotionless+%5Bwww.slider.kz%5D.mp3")
+
+song26 = Song.create!(song_name: "God's Plan", album_id: scorpion.id, duration:"3:18")
+song26.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Scorpion/Drake+-+God's+Plan+%5Bwww.slider.kz%5D.mp3"), filename: "Drake+-+God's+Plan+%5Bwww.slider.kz%5D.mp3")
+
+song27 = Song.create!(song_name: "I'm Upset", album_id: scorpion.id, duration:"3:34")
+song27.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Scorpion/Drake+-+I'm+Upset+%5Bwww.slider.kz%5D.mp3"), filename: "Drake+-+I'm+Upset+%5Bwww.slider.kz%5D.mp3")
+
+song28 = Song.create!(song_name: "Nonstop", album_id: scorpion.id, duration:"3:58")
+song28.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Scorpion/Drake+-+Nonstop+%5Bwww.slider.kz%5D.mp3"), filename: "Drake+-+Nonstop+%5Bwww.slider.kz%5D.mp3")
+
+song29 = Song.create!(song_name: "Survival", album_id: scorpion.id, duration:"2:16")
+song29.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Scorpion/Drake+-+Survival+%5Bwww.slider.kz%5D.mp3"), filename: "Drake+-+Survival+%5Bwww.slider.kz%5D.mp3")
+
+
+# Dua Lipa
+dua_lipa = Artist.create!(name:"Dua Lipa")
+dua_lipa.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Artist+Pics/dua_lipa.jpeg"), filename: 'dua_lipa.jpeg')
+
+future_nostalgia = Album.create!(album_name:"Future Nostalgia", artist_id:dua_lipa.id, release_date: 2021 )
+future_nostalgia.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/f/f5/Dua_Lipa_-_Future_Nostalgia_%28Official_Album_Cover%29.png"), filename: 'Dua_Lipa_-_Future_Nostalgia_%28Official_Album_Cover%29.png')
+
+song30 = Song.create!(song_name: "Break My Heart", album_id: future_nostalgia.id, duration:"3:41")
+song30.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua+Lipa+-+Future+Nostalgia/Dua+Lipa+-+Break+My+Heart+%5Bwww.slider.kz%5D.mp3"), filename: "Dua+Lipa+-+Break+My+Heart+%5Bwww.slider.kz%5D.mp3")
+
+song31 = Song.create!(song_name: "Cool", album_id: future_nostalgia.id, duration:"3:29")
+song31.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua+Lipa+-+Future+Nostalgia/Dua+Lipa+-+Cool+%5Bwww.slider.kz%5D.mp3"), filename: "Dua+Lipa+-+Cool+%5Bwww.slider.kz%5D.mp3")
+
+song32 = Song.create!(song_name: "Don't Start Now", album_id: future_nostalgia.id, duration:"3:03")
+song32.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua+Lipa+-+Future+Nostalgia/Dua+Lipa+-+Dont+Start+Now+%5Bwww.slider.kz%5D.mp3"), filename: "Dua+Lipa+-+Dont+Start+Now+%5Bwww.slider.kz%5D.mp3")
+
+song33 = Song.create!(song_name: "Future Nostalgia", album_id: future_nostalgia.id, duration:"3:04")
+song33.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua+Lipa+-+Future+Nostalgia/Dua+Lipa+-+Future+Nostalgia+%5Bwww.slider.kz%5D.mp3"), filename: "Dua+Lipa+-+Future+Nostalgia+%5Bwww.slider.kz%5D.mp3")
+
+song34 = Song.create!(song_name: "Hallucinate", album_id: future_nostalgia.id, duration:"3:28")
+song34.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua+Lipa+-+Future+Nostalgia/Dua+Lipa+-+Hallucinate+%5Bwww.slider.kz%5D.mp3"), filename: "Dua+Lipa+-+Hallucinate+%5Bwww.slider.kz%5D.mp3")
+
+song35 = Song.create!(song_name: "Levitating", album_id: future_nostalgia.id, duration:"3:23")
+song35.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua+Lipa+-+Future+Nostalgia/Dua+Lipa+-+Levitating+%5Bwww.slider.kz%5D.mp3"), filename: "Dua+Lipa+-+Levitating+%5Bwww.slider.kz%5D.mp3")
+
+song36 = Song.create!(song_name: "Physical", album_id: future_nostalgia.id, duration:"3:13")
+song36.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua+Lipa+-+Future+Nostalgia/Dua+Lipa+-+Physical+%5Bwww.slider.kz%5D.mp3"), filename: "Dua+Lipa+-+Physical+%5Bwww.slider.kz%5D.mp3")
+
+
+# Justin Bieber
+justin_bieber = Artist.create!(name:"Justin Bieber")
+justin_bieber.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Artist+Pics/justin_bieber.jpeg"), filename: 'justin_bieber.jpeg')
+
+justice = Album.create!(album_name:"Future Nostalgia", artist_id:justin_bieber.id, release_date: 2021 )
+justice.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/0/08/Justin_Bieber_-_Justice.png"), filename: 'Justin_Bieber_-_Justice.png')
+
+song37 = Song.create!(song_name: "2 Much", album_id: justice.id, duration:"2:32")
+song37.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Justice/Justin+Bieber+-+2+Much+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+-+2+Much+%5Bwww.slider.kz%5D.mp3")
+
+song38 = Song.create!(song_name: "Deserve You", album_id: justice.id, duration:"3:07")
+song38.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Justice/Justin+Bieber+-+Deserve+You+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+-+Deserve+You+%5Bwww.slider.kz%5D.mp3")
+
+song39 = Song.create!(song_name: "Ghost", album_id: justice.id, duration:"2:33")
+song39.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Justice/Justin+Bieber+-+Ghost+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+-+Ghost+%5Bwww.slider.kz%5D.mp3")
+
+song40 = Song.create!(song_name: "Peaches (feat. Daniel Caesar, Giveon)", album_id: justice.id, duration:"3:18")
+song40.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Justice/Justin+Bieber+feat.+Daniel+Caesar%2C+Giveon+-+Peaches+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+feat.+Daniel+Caesar%2C+Giveon+-+Peaches+%5Bwww.slider.kz%5D.mp3")
+
+song41 = Song.create!(song_name: "As I Am (feat. Khalid)", album_id: justice.id, duration:"2:54")
+song41.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Justice/Justin+Bieber+feat.+Khalid+-+As+I+Am+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+feat.+Khalid+-+As+I+Am+%5Bwww.slider.kz%5D.mp3")
+
+song42 = Song.create!(song_name: "Unstable (feat. The Kid LAROI)", album_id: justice.id, duration:"2:38")
+song42.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Justice/Justin+Bieber+feat.+The+Kid+LAROI+-+Unstable+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+feat.+The+Kid+LAROI+-+Unstable+%5Bwww.slider.kz%5D.mp3")
+
+
 
 # Demo Playlist #1
 playlist1 = Playlist.create!(playlist_name: "Demo Playlist #1", user_id: demoUser.id)

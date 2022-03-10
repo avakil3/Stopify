@@ -64,69 +64,79 @@ render(){
                   <img src={artists[0].imageUrl} className='body-section-1-img'/>
                   <p>{artists[0].name}</p>
               </div>
-            </Link>
+              </Link>
          </div>
        </div>
        
        <h2>Recommended for you</h2>
 
       <div className='body-section-2-container'>
-          <div className="body-section-2">
-              <div className='body-section-2-img'>img</div>
-			  <span>
-				<h3>Daily Mix 1</h3>
-				<p>Drake, Dua Lipa, JBalvin and more</p>
-			  </span>
-          </div>
 
-		  <div className="body-section-2">
-              <div className='body-section-2-img'>img</div>
-			  <span>
-              <h3>Daily Mix 2</h3>
-			  <p>Some random artists here</p>
-			  </span>
-          </div>
+        <Link to={`/home/albums/${albums[3].id}`}>
+              <div className="body-section-2">
+                  <img src={albums[3].imageUrl} className='body-section-2-img'/>
+                  <h3>{albums[3].album_name}</h3>
+              </div>
+        </Link>
 
-		  <div className="body-section-2">
-              <div className='body-section-2-img'>img</div>
-			  <span>
-              <h3>Daily Mix 3</h3>
-			  <p>Some random artists here</p>
-			  </span>
-          </div>
+        <Link to={`/home/artists/${artists[4].id}`}>
+              <div className="body-section-2">
+                  <img src={artists[3].imageUrl} className='body-section-2-img'/>
+                  <h3>{artists[4].name}</h3>
+              </div>
+        </Link>
+
+        <Link to={`/home/albums/${albums[4].id}`}>
+              <div className="body-section-2">
+                  <img src={albums[4].imageUrl} className='body-section-2-img'/>
+                  <h3>{albums[4].album_name}</h3>
+              </div>
+        </Link>
+
+        <Link to={`/home/albums/${albums[5].id}`}>
+              <div className="body-section-2">
+                  <img src={albums[5].imageUrl} className='body-section-2-img'/>
+                  <h3>{albums[5].album_name}</h3>
+              </div>
+        </Link>
 		 
-		  <div className="body-section-2">
-              <div className='body-section-2-img'>img</div>
-			  <span>
-              <h3>Daily Mix 4</h3>
-			  <p>Some random artists here</p>
-			  </span>
-          </div>
-
       </div>
 
 	  <h2>Featured Artists</h2>
 
 	  <div className='body-section-3-container'>
-          <div className="body-section-3">
+          {/* <div className="body-section-3">
               <div className='body-section-3-img'>img</div>
-				<h3>Artist 1</h3>
-          </div>
+				      <h3>Artist 1</h3>
+          </div> */}
 
-		  <div className="body-section-3">
-              <div className='body-section-3-img'>img</div>
-              <h3>Artist 2</h3>
-          </div>
+          <Link to={`/home/artists/${artists[0].id}`}>
+              <div className="body-section-3">
+                  <img src={artists[0].imageUrl} className='body-section-3-img'/>
+                  <h3>{artists[0].name}</h3>
+              </div>
+          </Link>
 
-		  <div className="body-section-3">
-              <div className='body-section-3-img'>img</div>
-              <h3>Artist 3</h3>
-          </div>
+          <Link to={`/home/artists/${artists[1].id}`}>
+              <div className="body-section-3">
+                  <img src={artists[1].imageUrl} className='body-section-3-img'/>
+                  <h3>{artists[1].name}</h3>
+              </div>
+          </Link>
+
+          <Link to={`/home/artists/${artists[2].id}`}>
+              <div className="body-section-3">
+                  <img src={artists[2].imageUrl} className='body-section-3-img'/>
+                  <h3>{artists[2].name}</h3>
+              </div>
+          </Link>
 		 
-		  <div className="body-section-3">
-              <div className='body-section-3-img'>img</div>
-              <h3>Artist 4</h3>
-          </div>
+          <Link to={`/home/artists/${artists[3].id}`}>
+              <div className="body-section-3">
+                  <img src={artists[3].imageUrl} className='body-section-3-img'/>
+                  <h3>{artists[3].name}</h3>
+              </div>
+          </Link>
 
       </div>
 
