@@ -12,9 +12,6 @@
               json.artistName playlist_song.song.album.artist.name
             end
           end
-        #   else
-        #     []
-        # end
       end  
     end
   end
