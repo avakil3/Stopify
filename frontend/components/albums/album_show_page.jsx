@@ -26,7 +26,7 @@ class AlbumShowPage extends React.Component {
      const artist = artists[album.artist_id];
      if (!artist) return null;
     return  (
-      <div className=".show-container">
+      // <div className=".show-container">
         <div className="show-body">
           <div className="album-header">
             <img className="album-cover-img" src={album.imageUrl}/>
@@ -45,9 +45,9 @@ class AlbumShowPage extends React.Component {
 
           </div>
           <FontAwesomeIcon icon={this.props.player.playing ? faPauseCircle : faPlayCircle} 
-                              className="album play-btn" size="2xl"
+                              className="show-page play-btn" size="2xl"
                               onClick={()=> this.props.togglePlayback(player.currentSong,album_songs[0])} />
-          <div className="album-content">
+          <div className="show-content">
            <div className="songs-header">
              <div className='header-text-labels'>
                   <p>#</p>
@@ -60,7 +60,7 @@ class AlbumShowPage extends React.Component {
              </ul>
           </div>
         </div>
-      </div>
+      // </div>
     ) 
 
   }

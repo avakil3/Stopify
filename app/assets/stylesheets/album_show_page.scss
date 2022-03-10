@@ -1,12 +1,14 @@
-.show-container{
-display: flex;
-width: 100%;
-}
+// .show-container{
+// // display: grid;
+// // grid-template-columns: 1fr 1fr;
+// width: auto;
+// // border: 1pc solid salmon;
+// }
 
 .show-body{
     background: linear-gradient(rgb(43,12,60), rgb(18,18,18));
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     color: white;
     padding: 30px;
     margin-left: 220px;
@@ -39,7 +41,7 @@ width: 100%;
     
 }
 
-.album-content{
+.show-content{
     // border: 1px solid aqua;
     margin-top: 30px;
     margin-left: 20px;
@@ -67,7 +69,7 @@ width: 100%;
     margin-right: 85px;
 }
 
-.album.play-btn{
+.show-page.play-btn{
     color:var(--spotifygreen);
     margin-top: 20px;
     font-size: 3em;

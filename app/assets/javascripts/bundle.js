@@ -13429,45 +13429,48 @@ var AlbumShowPage = /*#__PURE__*/function (_React$Component) {
       if (!album || !artists) return null;
       var artist = artists[album.artist_id];
       if (!artist) return null;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: ".show-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "show-body"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "album-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "album-cover-img",
-        src: album.imageUrl
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "detail-content"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "ALBUM"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, album.album_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "album-artist-name"
-      }, artist.name), " \u2022 ".concat(album.release_date, " \u2022 ").concat(album_songs.length), " songs,", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, " ".concat((0,_util_helper_functions__WEBPACK_IMPORTED_MODULE_3__.calculateTotalTimeLength)(this.props.album_songs)))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-        icon: this.props.player.playing ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
-        className: "album play-btn",
-        size: "2xl",
-        onClick: function onClick() {
-          return _this2.props.togglePlayback(player.currentSong, album_songs[0]);
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "album-content"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "songs-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "header-text-labels"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "TITLE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-        className: "clock-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faClock
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
-        className: "album-song-list"
-      }, album_songs.map(function (song, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_songs_song_item_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          key: song.id,
-          song: song,
-          queue: album_songs,
-          idx: idx + 1
-        });
-      })))));
+      return (
+        /*#__PURE__*/
+        // <div className=".show-container">
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "show-body"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "album-header"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "album-cover-img",
+          src: album.imageUrl
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "detail-content"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "ALBUM"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, album.album_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "album-artist-name"
+        }, artist.name), " \u2022 ".concat(album.release_date, " \u2022 ").concat(album_songs.length), " songs,", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, " ".concat((0,_util_helper_functions__WEBPACK_IMPORTED_MODULE_3__.calculateTotalTimeLength)(this.props.album_songs)))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+          icon: this.props.player.playing ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
+          className: "show-page play-btn",
+          size: "2xl",
+          onClick: function onClick() {
+            return _this2.props.togglePlayback(player.currentSong, album_songs[0]);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "show-content"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "songs-header"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "header-text-labels"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "TITLE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+          className: "clock-icon",
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faClock
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+          className: "album-song-list"
+        }, album_songs.map(function (song, idx) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_songs_song_item_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            key: song.id,
+            song: song,
+            queue: album_songs,
+            idx: idx + 1
+          });
+        })))) // </div>
+
+      );
     }
   }]);
 
@@ -14416,45 +14419,48 @@ var PlaylistShowPage = /*#__PURE__*/function (_Component) {
 
       if (!playlist) return null;
       var playlist_songs = Object.values(playlist.songs);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: ".show-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "show-body"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "playlist-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "playlist-cover-img",
-        src: playlist.playlistImgUrl
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "detail-content"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "PLAYLIST"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, playlist.playlist_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "playlist-user-name"
-      }, currentUser.username), " \u2022 ".concat(playlist_songs.length), " songs,", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, " ".concat((0,_util_helper_functions__WEBPACK_IMPORTED_MODULE_1__.calculateTotalTimeLength)(playlist_songs)))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "playlist-content"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
-        icon: this.props.player.playing ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
-        className: "playlist play-btn",
-        size: "2xl",
-        onClick: function onClick() {
-          return _this.props.togglePlayback(player.currentSong, playlist_songs[0]);
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "songs-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "header-text-labels"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "TITLE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
-        className: "clock-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faClock
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
-        className: "playlist-song-list"
-      }, playlist_songs.map(function (song, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_songs_song_item_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          key: song.id,
-          song: song,
-          queue: playlist_songs,
-          idx: idx + 1
-        });
-      })))));
+      return (
+        /*#__PURE__*/
+        // <div className=".show-container">
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "show-body"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "playlist-header"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "playlist-cover-img",
+          src: playlist.playlistImgUrl
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "detail-content"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "PLAYLIST"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, playlist.playlist_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "playlist-user-name"
+        }, currentUser.username), " \u2022 ".concat(playlist_songs.length), " songs,", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, " ".concat((0,_util_helper_functions__WEBPACK_IMPORTED_MODULE_1__.calculateTotalTimeLength)(playlist_songs)))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+          icon: this.props.player.playing ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
+          className: "show-page play-btn",
+          size: "2xl",
+          onClick: function onClick() {
+            return _this.props.togglePlayback(player.currentSong, playlist_songs[0]);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "show-content"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "songs-header"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "header-text-labels"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "TITLE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+          className: "clock-icon",
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faClock
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+          className: "playlist-song-list"
+        }, playlist_songs.map(function (song, idx) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_songs_song_item_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            key: song.id,
+            song: song,
+            queue: playlist_songs,
+            idx: idx + 1
+          });
+        })))) // </div>
+
+      );
     }
   }]);
 

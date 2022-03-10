@@ -14,7 +14,7 @@ export class PlaylistShowPage extends Component {
       if (!playlist) return null;  
       const playlist_songs = Object.values(playlist.songs);
     return  (
-        <div className=".show-container">
+        // <div className=".show-container">
           <div className="show-body">
             <div className="playlist-header">
               <img className="playlist-cover-img" src={playlist.playlistImgUrl}/>
@@ -32,10 +32,10 @@ export class PlaylistShowPage extends Component {
               </div>
   
             </div>
-            <div className="playlist-content">
             <FontAwesomeIcon icon={this.props.player.playing ? faPauseCircle : faPlayCircle} 
-                                className="playlist play-btn" size="2xl"
+                                className="show-page play-btn" size="2xl"
                                 onClick={()=> this.props.togglePlayback(player.currentSong,playlist_songs[0])} />
+            <div className="show-content">
              <div className="songs-header">
                <div className='header-text-labels'>
                     <p>#</p>
@@ -48,7 +48,7 @@ export class PlaylistShowPage extends Component {
                </ul>
             </div>
           </div>
-        </div>
+        // </div>
       ) 
   }
 }
