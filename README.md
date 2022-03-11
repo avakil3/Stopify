@@ -13,6 +13,15 @@ Stopify's frontend is built using React.js and Redux to manage the frontend stat
 
 
 ## Home Page
+<p align="center"><img src="/app/assets/images/README pics/home_page.png" width="1000">  </p>
+
+
+## Artist Page
+<p align="center"><img src="/app/assets/images/README pics/artist_page.png" width="1000">  </p>
+
+
+## Playlist Page
+<p align="center"><img src="/app/assets/images/README pics/playlist_page.png" width="1000">  </p>
 
 
 
