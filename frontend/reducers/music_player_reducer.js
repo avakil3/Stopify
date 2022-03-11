@@ -18,7 +18,7 @@ const MusicPlayerReducer = (state=preloadedState, action) =>
         case Actions.SET_CURRENT_SONG:
             newState.currentSong = action.song;
             newState.currentSongIdx = newState.playQueue.findIndex(song => song.id === newState.currentSong.id);
-            newState.playing = true;
+            newState.playing = true; 
             return newState;
         case Actions.TOGGLE_PLAYBACK:
             newState.playing = !newState.playing;
