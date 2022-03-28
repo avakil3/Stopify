@@ -7,6 +7,7 @@ import { togglePlayback } from '../../actions/music_player_actions';
 const mapStateToProps = ({session, entities: {playlists,player}},ownProps) => {
   const playlist = playlists[ownProps.match.params.playlistId];
   return {
+    playlists,
     playlist,
     currentUser: session.currentUser,
     player

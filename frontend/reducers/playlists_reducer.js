@@ -10,6 +10,9 @@ const PlaylistsReducer = (state={}, action) => {
         case Actions.RECEIVE_PLAYLIST:
             newState[action.playlist.id] = action.playlist;
             return newState;
+        case Actions.UPDATE_PLAYLIST:
+            newState[action.playlist.id].playlist_name = action.playlist.playlist_name;
+            return newState;
         case Actions.DELETE_PLAYLIST:
             delete newState[action.playlistId];
             return newState;

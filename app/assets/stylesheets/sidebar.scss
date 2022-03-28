@@ -1,12 +1,15 @@
 .sidebar {
     height: 100%;
-    border: 1px solid black;
+    // border: 1px solid black;
     background-color: black;
     width: 200px;
     padding: 10px;
     color: white;
     position: fixed;
     top:0;
+    margin-bottom: 3em;
+    overflow: auto;
+
 }
 
 .sidebar-logo{
@@ -47,4 +50,8 @@
     &:hover{
     color: white;
     }
+}
+
+.sidebar-playlists{
+    margin-bottom: 150px;
 }

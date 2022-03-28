@@ -35,8 +35,9 @@ const MusicPlayerReducer = (state=preloadedState, action) =>
             newState.playing = false;
             return newState;
         case Actions.SET_QUEUE:
-            newState.playQueue = action.queue;
+            newState.playQueue = (state.shuffle ? shuffleArray(action.queue) : action.queue);
             newState.unshuffledQueue = action.queue.slice();
+            debugger
             return newState;
         case Actions.PREV_SONG:
            if(state.currentSongIdx > 0){
@@ -65,11 +66,12 @@ const MusicPlayerReducer = (state=preloadedState, action) =>
 
 // Fisher-Yates algorithm for array shuffling
   const shuffleArray = array => {
-    for (let i = array.length - 1; i > 0; i--) {
+      const arr = array.slice();
+    for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
+      const temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
     }
-    return array;
+    return arr;
   }

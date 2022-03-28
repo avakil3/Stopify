@@ -11,7 +11,7 @@ export const receiveUserPlaylists = () => (
     $.ajax({
       url: "/api/playlists",
       method: "POST",
-      data: {playlist}
+      data: { playlist }
     })
   );
 
@@ -19,5 +19,13 @@ export const receiveUserPlaylists = () => (
     $.ajax({
       url: `/api/playlists/${playlistId}`,
       method: "DELETE"
+    })
+  );
+
+  export const updatePlaylist = playlist => (
+    $.ajax({
+      url: `/api/playlists/${playlist.id}`,
+      method: "PATCH",
+      data: { playlist }
     })
   );

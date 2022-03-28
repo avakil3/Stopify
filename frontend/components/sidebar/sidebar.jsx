@@ -2,6 +2,8 @@ import React from 'react'
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHome, faSearch, faBookOpen,faHeart,faAdd} from "@fortawesome/free-solid-svg-icons";
+import CreatePlaylistModalContainer from '../playlists/create_playlist_modal/create_playlist_modal_container';
+import { PortalWithState } from 'react-portal';
 
 class Sidebar extends React.Component {
     render(){
@@ -31,10 +33,22 @@ class Sidebar extends React.Component {
                 <span>Your Library</span>
             </Link>
             <br />
-            <div className='create-playlist' onClick={()=> console.log('hi')}>
-                <FontAwesomeIcon icon={faAdd} />
-                <span>Create Playlist</span>
-            </div>
+
+
+            <PortalWithState closeOnOutsideClick closeOnEsc>
+                 {({ openPortal, closePortal, isOpen, portal }) => (
+                  <React.Fragment>                     
+                    <div className='create-playlist' onClick={openPortal}>
+                        <FontAwesomeIcon icon={faAdd} />
+                        <span>Create Playlist</span>
+                    </div>
+                    {portal(
+                      <CreatePlaylistModalContainer closeModal={closePortal} />
+                    )}
+                  </React.Fragment>
+                  )}
+                </PortalWithState>
+
 
             <Link to={'/home/us'}>
             <FontAwesomeIcon icon={faHeart} />

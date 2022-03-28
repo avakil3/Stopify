@@ -8,6 +8,7 @@ class SongItem extends React.Component{
         super(props);
     }
   handleDoubleClick(){
+    debugger
     this.props.setQueue(this.props.queue);
     this.props.setCurrentSong(this.props.song);
   }
