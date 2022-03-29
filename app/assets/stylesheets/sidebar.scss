@@ -21,25 +21,33 @@
     flex-direction: column;
 }
 
-.sidebar-options a, .sidebar-options .create-playlist {
+.sidebar-options a, .sidebar-options div {
     color: rgb(177,177,177);
-    padding: 10px;
+    padding: 13px;
     display: flex;
-    align-items: center;
 }
 
-.sidebar-options a:hover, .sidebar-options .create-playlist:hover {
+.sidebar-options a:hover, .sidebar-options div:hover {
     color: white;
+    transition: color .2s ease-in-out;
 }
 
+.sidebar-options svg {
+    width: 20px;
+    font-size: large;
+}
 .sidebar-options span {
     padding-left: 10px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .sidebar-divider {
     border: .1px solid rgba(177, 177, 177, 0.712);;
+}
+
+.about-me-btn{
+    margin-bottom: 20px;
 }
 
 .sidebar p {
@@ -49,6 +57,7 @@
     font-size: 13px;
     &:hover{
     color: white;
+    transition: color .2s ease-in-out;
     }
 }
 

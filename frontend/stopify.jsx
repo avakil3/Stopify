@@ -26,15 +26,3 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={store} />, root);
 });
 
-window.login = Actions.login;
-window.signup = Actions.signup;
-window.logout = Actions.logout;
-
-window.fetchSongs = SongActions.fetchSongs;
-
-window.fetchAlbums = AlbumActions.fetchAlbums;
-window.fetchAlbum = AlbumActions.fetchAlbum;
-
-window.fetchUserPlaylists = PlaylistActions.fetchUserPlaylists;
-window.removePlaylist = PlaylistActions.removePlaylist;
-window.createPlaylist = PlaylistActions.createPlaylist;

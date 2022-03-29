@@ -11,5 +11,5 @@
     });
     let hours = Math.floor(totalSeconds / 3600); 
     let minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
-    return `${hours === 1 ? `${hours} hr` : hours === 0 ? "": `${hours} hrs, `}${minutes} min`;
+    return `${hours === 1 ? `${hours} hr, ` : hours === 0 ? "": `${hours} hrs, `}${minutes} min`;
   }
