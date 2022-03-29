@@ -37,7 +37,6 @@ const MusicPlayerReducer = (state=preloadedState, action) =>
         case Actions.SET_QUEUE:
             newState.playQueue = (state.shuffle ? shuffleArray(action.queue) : action.queue);
             newState.unshuffledQueue = action.queue.slice();
-            debugger
             return newState;
         case Actions.PREV_SONG:
            if(state.currentSongIdx > 0){

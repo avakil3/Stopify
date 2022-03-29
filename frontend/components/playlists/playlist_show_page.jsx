@@ -10,10 +10,10 @@ export class PlaylistShowPage extends Component {
     
 
   render() {
-      const {playlist,currentUser,player} = this.props;
-
+      const {playlist, currentUser,player} = this.props;
       if (!playlist) return null;  
       const playlist_songs = playlist.songs ? Object.values(playlist.songs) : null;
+
     return  (
           <div className="show-body">
             <div className="show-page-header">
@@ -45,9 +45,7 @@ export class PlaylistShowPage extends Component {
                     )}
                   </React.Fragment>
                   )}
-                </PortalWithState>
-                       
-                       
+                </PortalWithState>   
 
             <div className="show-content">
              <div className="songs-header">
@@ -58,7 +56,7 @@ export class PlaylistShowPage extends Component {
                  <FontAwesomeIcon className='clock-icon' icon={faClock} />
                </div>
                <ul className='playlist-song-list'>
-                  { playlist_songs ? playlist_songs.map((song,idx)=> <SongItemContainer key ={song.id} song={song} queue={playlist_songs} idx={idx+1} />) 
+                  { playlist_songs.length != 0 ? playlist_songs.map((song,idx)=> <SongItemContainer key ={song.id} playlist={playlist} song={song} queue={playlist_songs} idx={idx+1} />) 
                     : 
                     <p className='no-music-in-playlist'>Add music to your playlist</p>
                   }

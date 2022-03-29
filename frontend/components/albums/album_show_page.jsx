@@ -25,7 +25,6 @@ class AlbumShowPage extends React.Component {
     if (!album || !artists) return null;  
      const artist = artists[album.artist_id];
      if (!artist) return null;
-     debugger
     return  (
       // <div className=".show-container">
         <div className="show-body">

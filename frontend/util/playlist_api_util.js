@@ -29,3 +29,20 @@ export const receiveUserPlaylists = () => (
       data: { playlist }
     })
   );
+
+
+export const addSongToPlaylist = (playlistId, songId) => (
+  $.ajax({
+    url: `/api/playlist_songs`,
+    method: "POST",
+    data: {playlist_id: playlistId, song_id: songId } 
+  })
+);
+
+export const deleteSongFromPlaylist = (playlistId, songId) => (
+  $.ajax({
+    url: `/api/playlist_songs/1`,
+    method: "DELETE",
+    data: {playlist_id: playlistId, song_id: songId } 
+  })
+);

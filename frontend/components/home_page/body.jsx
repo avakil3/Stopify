@@ -47,14 +47,14 @@ render(){
 
             <Link to={playlists.length > 0 ? `/home/playlists/${playlists[0].id}` : '/home/us'}>
                 <div className="body-section-1">
-                    <img src={playlists.length > 0 ? playlists[0].playlistImgUrl : ""} className='body-section-1-img'/> 
+                    <img src={playlists.length > 0 ? playlists[0].playlistImgUrl === 'null' ? window.placeholderImg : playlists[0].playlistImgUrl : ""} className='body-section-1-img'/> 
                     <p>{playlists.length > 0 ? playlists[0].playlist_name: "Create a playlist first"}</p>
                 </div>
               </Link>
 
               <Link to={playlists.length > 1 ? `/home/playlists/${playlists[1].id}` : '/home/us'}>
                 <div className="body-section-1">
-                    <img src={playlists.length > 1 ? playlists[1].playlistImgUrl : ""} className='body-section-1-img'/> 
+                    <img src={playlists.length > 1 ? playlists[1].playlistImgUrl === 'null' ? window.placeholderImg : playlists[1].playlistImgUrl : ""} className='body-section-1-img'/> 
                     <p>{playlists.length > 1 ? playlists[1].playlist_name : "Create a playlist first"}</p>
                 </div>
               </Link>

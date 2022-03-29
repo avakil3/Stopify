@@ -16,6 +16,12 @@ const PlaylistsReducer = (state={}, action) => {
         case Actions.DELETE_PLAYLIST:
             delete newState[action.playlistId];
             return newState;
+        case Actions.RECEIVE_PLAYLIST_SONG:
+            newState[action.playlistId].songs[action.song.id] = action.song;
+            return newState;
+        case Actions.REMOVE_PLAYLIST_SONG:
+            delete newState[action.playlistId].songs[action.songId];
+            return newState;
         default:
             return state;
     }

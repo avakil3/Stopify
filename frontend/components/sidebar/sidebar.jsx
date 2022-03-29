@@ -57,7 +57,7 @@ class Sidebar extends React.Component {
             </div>
             <hr className='sidebar-divider'/>
             <div className='sidebar-playlists'>
-                {playlists.map(playlist=> (<Link to={`/home/playlists/${playlist.id}`} key={playlist.id} ><p>{playlist.playlist_name}</p></Link>))}
+                {playlists.map(playlist=> playlist.playlist_name != 'Liked Songs' ? <Link to={`/home/playlists/${playlist.id}`} key={playlist.id} ><p>{playlist.playlist_name}</p></Link> : "")}
             </div>
         </div>
       )

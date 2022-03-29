@@ -10,6 +10,8 @@ class Api::UsersController < ApplicationController
       if @user.save
         login(@user)
         render "api/users/show"
+        @liked_songs_playlist = Playlist.new({playlist_name:'Liked Songs', user_id: @user.id})
+        @liked_songs_playlist.save
       else
         render json: @user.errors.full_messages, status: 422
       end
