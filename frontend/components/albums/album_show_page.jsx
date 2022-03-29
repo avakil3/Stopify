@@ -34,13 +34,13 @@ class AlbumShowPage extends React.Component {
             <div className="detail-content">
                 <p>ALBUM</p>
                 <h1>{album.album_name}</h1>
-                <div>
-                  <span className="album-artist-name">
+                <p>
+                  <span className="album-artist-user-name">
                     {artist.name}
                   </span>
                   {` • ${album.release_date} • ${album_songs.length}`} songs, 
-                  <span>{` ${calculateTotalTimeLength(this.props.album_songs)}`}</span>
-                </div>
+                  {` ${calculateTotalTimeLength(this.props.album_songs)}`}
+                </p>
             </div>
 
           </div>

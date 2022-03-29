@@ -22,12 +22,12 @@ export class PlaylistShowPage extends Component {
               <div className="detail-content">
                   <p>PLAYLIST</p>
                   <h1>{playlist.playlist_name}</h1>
-                  <div>
-                    <span className="playlist-user-name">
+                  <p>
+                    <span className="album-artist-user-name">
                       {currentUser.username}
                     </span>
                     {playlist_songs ? ` • ${playlist_songs.length} songs, ${calculateTotalTimeLength(playlist_songs)}` : ""}
-                  </div>
+                  </p>
               </div>
   
             </div>
