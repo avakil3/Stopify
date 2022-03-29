@@ -7,10 +7,10 @@ import { PortalWithState } from 'react-portal';
 
 class Sidebar extends React.Component {
     render(){
-        // debugger
         if (!this.props.currentUser) return null;
-        // if(Object.values(this.props.playlists).length === 0 && this.props.currentUser.username === "Demo") return null;
         const playlists = Object.values(this.props.playlists);
+        const likedSongsPlaylist = playlists.find(playlist=> playlist.playlist_name==='Liked Songs');
+
       return (
         <div className='sidebar'>
             <Link to="/home/us">
@@ -50,7 +50,7 @@ class Sidebar extends React.Component {
                 </PortalWithState>
 
 
-            <Link to={'/home/us'}>
+            <Link to={`/home/playlists/${likedSongsPlaylist ? likedSongsPlaylist.id : ""}`}>
             <FontAwesomeIcon icon={faHeart} />
                 <span>Liked Songs</span>
             </Link>

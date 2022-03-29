@@ -84,3 +84,11 @@
 .song-dropdown.clicked{
     display: none;
 }
+
+.song-row-like:hover{
+    color: white;
+}
+
+.song-row-like.clicked{
+    color: var(--spotifygreen);
+}
