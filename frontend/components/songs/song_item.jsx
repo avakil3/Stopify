@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHeart,faEllipsis, faPlay,faPause} from "@fortawesome/free-solid-svg-icons";
+import {Link} from 'react-router-dom';
 
 
 class SongItem extends React.Component{
@@ -64,17 +65,20 @@ class SongItem extends React.Component{
 								:
 								<FontAwesomeIcon icon={faPlay} className={currentSong && currentSong.id === song.id ? "song-idx-num playing" : "song-idx-num"} onClick={()=> this.toggleMusicPlayback()} />
 							)
-      return(
+			// debugger
+		return(
           <li className='song-item' onDoubleClick={()=> this.handleDoubleClick()} onMouseEnter={()=> this.toggleHover()} onMouseLeave={()=> this.toggleHover()}> 
                     {
 					this.state.hover ? playPauseBtn : (playing ? <img  id='playingGif' src={window.playingGif} /> 
 						: <div  className={currentSong && currentSong.id === song.id ? "song-idx-num playing" : "song-idx-num"} >{idx}</div>)
 					}
 					
-					<img src={song.albumImgUrl} className="album-image" alt={song.song_name}/>
+					<Link to={`/home/albums/${song.album_id}`}>
+						<img src={song.albumImgUrl} className="album-image" alt={song.song_name}/>
+					</Link>
                     <div className="song-container-left">
                         <h2 className={currentSong && currentSong.id === song.id ? 'playing' : ""}>{song.song_name}</h2>
-						<p>{song.artistName}</p> 
+						<Link to={`/home/artists/${song.artistId}`}><p>{song.artistName}</p> </Link>
                     </div>
                     <div className="song-container-right">
                         <FontAwesomeIcon className={this.state.liked ? 'song-row-like clicked' : 'song-row-like'} onClick={()=> this.toggleLike()} icon={faHeart} />

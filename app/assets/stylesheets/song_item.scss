@@ -46,8 +46,12 @@
         font-size: 15px;
         width: 100%;
     }
-    p{
+    a{
         font-size: small;
+        color: var(--textgrey);
+        &:hover{
+            text-decoration: underline;
+        }
     }
 }
 

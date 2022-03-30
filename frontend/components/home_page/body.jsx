@@ -9,15 +9,15 @@ class Body extends React.Component {
   }
 
   onHoverIn(){
-    const array = ['linear-gradient(rgb(43,12,60) 0 1%, rgb(18,18,18)) 1% 100%',
-                  ];
-    const body = document.getElementById('home-page');
-    body.style.background = array[Math.floor(Math.random() * array.length)];
+    // const array = ['linear-gradient(rgb(43,12,60) 0 1%, rgb(18,18,18)) 1% 100%',
+    //               ];
+    // const body = document.getElementById('home-page');
+    // body.style.background = array[Math.floor(Math.random() * array.length)];
   }
 
   onHoverOut(){
-    const body = document.getElementById('home-page');
-    body.style.background = 'rgb(18,18,18)';
+    // const body = document.getElementById('home-page');
+    // body.style.background = 'rgb(18,18,18)';
   }
 
   
@@ -30,7 +30,7 @@ render(){
   const albums = Object.values(this.props.albums);
   const playlists = Object.values(this.props.playlists);
   const artists = Object.values(this.props.artists);
-  debugger
+
   return ( 
     <div className='body'>
        <h1>Welcome to Stopify</h1>

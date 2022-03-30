@@ -4,7 +4,7 @@ import {faClock} from "@fortawesome/free-solid-svg-icons";
 import SongItemContainer from '../songs/song_item_container';
 import {faPlayCircle,faPauseCircle} from "@fortawesome/free-solid-svg-icons";
 import {calculateTotalTimeLength} from '../../util/helper_functions';
-
+import {Link} from 'react-router-dom'
 
 
 class AlbumShowPage extends React.Component {
@@ -36,7 +36,7 @@ class AlbumShowPage extends React.Component {
                 <h1>{album.album_name}</h1>
                 <p>
                   <span className="album-artist-user-name">
-                    {artist.name}
+                  <Link to={`/home/artists/${artist.id}`}>{artist.name}</Link>
                   </span>
                   {` • ${album.release_date} • ${album_songs.length}`} songs, 
                   {` ${calculateTotalTimeLength(this.props.album_songs)}`}

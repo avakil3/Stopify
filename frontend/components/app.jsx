@@ -9,17 +9,26 @@ import SplashPageContainer from './splash_page/splash_page_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import HomePageContainer from './home_page/home_page_container';
+import { createBrowserHistory } from "history";
+
+export const history = createBrowserHistory();
+
+history.listen((location, action) => {
+    window.scrollTo(0, 0)
+})
+
 
 const App = () => {
- return ( <div>
+ return ( 
+ <div>
     <Switch>
-      <ProtectedRoute path="/home" component={HomePageContainer} />
+      <ProtectedRoute path="/home" component={HomePageContainer} history={history} />
       <Route exact path="/" component={SplashPageContainer}/>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>
-
-  </div>)
+  </div>
+  )
 };
 
 export default App;

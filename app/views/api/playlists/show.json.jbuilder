@@ -10,6 +10,7 @@ else
                 json.url url_for(playlist_song.song.song_file)
                 json.albumImgUrl url_for(playlist_song.song.album.photo)
                 json.artistName playlist_song.song.album.artist.name
+                json.artistId playlist_song.song.album.artist.id
             end
         end
     end

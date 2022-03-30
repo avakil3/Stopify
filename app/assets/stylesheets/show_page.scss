@@ -30,6 +30,9 @@
         span{
             font-weight: 700;
         }
+        a:hover{
+                text-decoration: underline;
+        }
     }
 
     h1{
@@ -43,6 +46,14 @@
     }
 }
 
+
+.section-header{
+    font-weight: 700;
+}
+
+.section-header.songs{
+    margin-bottom: 30px;
+}
 
 .show-content{
     margin-left: 10px;
