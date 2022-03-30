@@ -13,7 +13,6 @@ PlaylistSong.delete_all
 
 demoUser = User.create!(username:"Demo",email: 'demo@demo.com', password: 'password')
 
-
 drake = Artist.create!(name:"Drake")
 drake.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Artist+Pics/drake.jpeg"), filename: 'drake.jpeg')
 
@@ -181,6 +180,9 @@ song42 = Song.create!(song_name: "Unstable (feat. The Kid LAROI)", album_id: jus
 song42.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Justice/Justin+Bieber+feat.+The+Kid+LAROI+-+Unstable+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+feat.+The+Kid+LAROI+-+Unstable+%5Bwww.slider.kz%5D.mp3")
 
 
+
+# Liked Songs Playlist for Demo User
+demoUser_like_songs_playlist = Playlist.create!(playlist_name: "Liked Songs", user_id: demoUser.id)
 
 # Demo Playlist #1
 playlist1 = Playlist.create!(playlist_name: "Demo Playlist #1", user_id: demoUser.id)
