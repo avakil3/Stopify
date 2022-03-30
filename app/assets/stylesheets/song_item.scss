@@ -1,9 +1,10 @@
 
 
 .song-item{
-    // border: 1px solid red;
     display: flex;
     align-items: center;
+    vertical-align: middle;
+    transition: background-color 200ms ease-in-out;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 0%;
@@ -11,6 +12,7 @@
     border-radius: 5px;
     &:hover{
         background-color: rgba(71, 71, 71, 0.336);
+        transition: background-color 200ms ease-in-out;
         cursor: pointer;
     }
     img{
@@ -36,22 +38,27 @@
 
 
 .song-container-left {
+    height: 40px;
+
     h2{ 
         color: white;
         margin-bottom: 5px;
         font-size: 15px;
+        width: 100%;
     }
     p{
         font-size: small;
     }
-    
 }
 
 .song-container-right{
     display: flex;
+    align-items: center;
     margin-left: auto;
     font-size: 15px;
-    .song-row-like, p {
+
+
+    .song-row-like, .song-duration {
         padding-right: 15px;
     }
     margin-right: 50px;
@@ -60,6 +67,9 @@
 
 .song-dropdown-container{
     position: relative;
+    padding: 0;
+    margin: 0;
+    height: 15px;
 }
 .song-dropdown{
     min-width: 150px;
@@ -75,7 +85,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     font-size: small;
 
-    p{
+    div{
         border-bottom: 1px solid grey;
         font-weight: 700;
         padding: 10px 0 10px;

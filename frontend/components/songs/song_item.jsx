@@ -68,7 +68,7 @@ class SongItem extends React.Component{
           <li className='song-item' onDoubleClick={()=> this.handleDoubleClick()} onMouseEnter={()=> this.toggleHover()} onMouseLeave={()=> this.toggleHover()}> 
                     {
 					this.state.hover ? playPauseBtn : (playing ? <img  id='playingGif' src={window.playingGif} /> 
-						: <p  className={currentSong && currentSong.id === song.id ? "song-idx-num playing" : "song-idx-num"} >{idx}</p>)
+						: <div  className={currentSong && currentSong.id === song.id ? "song-idx-num playing" : "song-idx-num"} >{idx}</div>)
 					}
 					
 					<img src={song.albumImgUrl} className="album-image" alt={song.song_name}/>
@@ -78,12 +78,12 @@ class SongItem extends React.Component{
                     </div>
                     <div className="song-container-right">
                         <FontAwesomeIcon className={this.state.liked ? 'song-row-like clicked' : 'song-row-like'} onClick={()=> this.toggleLike()} icon={faHeart} />
-                        <p>{song.duration}</p>
+                        <div className='song-duration'>{song.duration}</div>
 								
 						<div className='song-dropdown-container'>
-							<FontAwesomeIcon icon={faEllipsis} onClick={()=> this.handleDropdownClick()} />
+							<FontAwesomeIcon className='ellipsis' icon={faEllipsis} onClick={()=> this.handleDropdownClick()} />
 							<ul className={this.state.clicked ? 'song-dropdown clicked' : 'song-dropdown'}>
-								<p>Add to Playlist</p>
+								<div>Add to Playlist</div>
 								{
 									Object.values(this.props.playlists).map(playlist => playlist.playlist_name != 'Liked Songs' ? <li key={playlist.id} onClick={()=> this.handleAddSongToPlaylist(playlist.id, song.id)}> {playlist.playlist_name} </li> : "")
 								}

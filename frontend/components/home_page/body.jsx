@@ -7,6 +7,19 @@ class Body extends React.Component {
     super(props)
     this.state={};
   }
+
+  onHoverIn(){
+    const array = ['linear-gradient(rgb(43,12,60) 0 1%, rgb(18,18,18)) 1% 100%',
+                  ];
+    const body = document.getElementById('home-page');
+    body.style.background = array[Math.floor(Math.random() * array.length)];
+  }
+
+  onHoverOut(){
+    const body = document.getElementById('home-page');
+    body.style.background = 'rgb(18,18,18)';
+  }
+
   
 render(){
   
@@ -23,7 +36,7 @@ render(){
        <div className="body-section-1-container">
          <div className='body-section-1-row-1'>
            <Link to={`/home/albums/${albums[0].id}`}>
-            <div className="body-section-1">
+            <div className="body-section-1" onMouseEnter={()=> this.onHoverIn()} onMouseLeave={()=> this.onHoverOut()}>
                 <img src={albums[0].imageUrl} className='body-section-1-img' alt={albums[0].album_name}/>
                 <p>{albums[0].album_name}</p>
             </div>
@@ -81,7 +94,7 @@ render(){
 
         <Link to={`/home/artists/${artists[4].id}`}>
               <div className="body-section-2">
-                  <img src={artists[4].imageUrl} className='body-section-2-img' alt={albums[4].album_name}/>
+                  <img src={artists[4].imageUrl} className='body-section-2-img' alt={artists[4].name}/>
                   <h3>{artists[4].name}</h3>
               </div>
         </Link>
@@ -105,11 +118,7 @@ render(){
 	  <h2>Featured Artists</h2>
 
 	  <div className='body-section-3-container'>
-          {/* <div className="body-section-3">
-              <div className='body-section-3-img'>img</div>
-				      <h3>Artist 1</h3>
-          </div> */}
-
+      
           <Link to={`/home/artists/${artists[0].id}`}>
               <div className="body-section-3">
                   <img src={artists[0].imageUrl} className='body-section-3-img'/>

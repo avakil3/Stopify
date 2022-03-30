@@ -24,7 +24,7 @@ class Sidebar extends React.Component {
                 <span>Home</span>
             </Link>
     
-            <Link to={'/home/us'}>
+            <Link to={'/home/search'}>
             <FontAwesomeIcon icon={faSearch} />
                 <span>Search</span>
             </Link>
