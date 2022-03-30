@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
     return (
       <div className="session-form-container">
          <div className="logo-wrapper">
-          <img src={window.blackLogoURL} alt="logo-black" id='logo-black'/>
+          <img src={window.spotifyLogoURL} alt="logo-black" id='logo-signup'/>
          </div>
         <h1>{this.props.formType==='signup'? "Sign up for free to start listening.": "To continue, log in to Stopify."}</h1>
 

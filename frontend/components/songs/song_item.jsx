@@ -71,7 +71,7 @@ class SongItem extends React.Component{
 						: <p  className={currentSong && currentSong.id === song.id ? "song-idx-num playing" : "song-idx-num"} >{idx}</p>)
 					}
 					
-					<img src={song.albumImgUrl} className="album-image" />
+					<img src={song.albumImgUrl} className="album-image" alt={song.song_name}/>
                     <div className="song-container-left">
                         <h2 className={currentSong && currentSong.id === song.id ? 'playing' : ""}>{song.song_name}</h2>
 						<p>{song.artistName}</p> 

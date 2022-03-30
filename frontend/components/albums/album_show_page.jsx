@@ -29,7 +29,7 @@ class AlbumShowPage extends React.Component {
       // <div className=".show-container">
         <div className="show-body">
           <div className="show-page-header">
-            <img className="show-page-cover-img" src={album.imageUrl}/>
+            <img className="show-page-cover-img" src={album.imageUrl} alt={album.album_name}/>
 
             <div className="detail-content">
                 <p>ALBUM</p>

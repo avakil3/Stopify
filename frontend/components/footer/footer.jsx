@@ -66,7 +66,7 @@ class Footer extends React.Component {
 		return (
 		<div className='footer'>
 			{ currentSong ? (<div className="song-details">
-				<img src="" id='album-img'></img>
+				<img src="" id='album-img' alt=""></img>
 				<div className='track-info'>
 					<p id="current-song-name">{currentSong.song_name}</p>
 					<p id="current-artist-name">{currentSong.artistName}</p>

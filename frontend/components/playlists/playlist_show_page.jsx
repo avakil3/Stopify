@@ -17,7 +17,7 @@ export class PlaylistShowPage extends Component {
     return  (
           <div className="show-body">
             <div className="show-page-header">
-              <img className="show-page-cover-img" src={playlist.playlistImgUrl === 'null' ? window.placeholderImg : playlist.playlistImgUrl}/>
+              <img className="show-page-cover-img" src={playlist.playlistImgUrl === 'null' ? window.placeholderImg : playlist.playlistImgUrl} alt={playlist.playlist_name}/>
   
               <div className="detail-content">
                   <p>PLAYLIST</p>

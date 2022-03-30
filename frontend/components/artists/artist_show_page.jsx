@@ -26,18 +26,17 @@ class ArtistShowPage extends React.Component {
     return  (
         <div className="show-body">
           <div className="show-page-header">
-            <img className="show-page-cover-img" src={artist.imageUrl}/>
+            <img className="show-page-cover-img" src={artist.imageUrl} alt={artist.name}/>
 
             <div className="detail-content">
                 <p>ARTIST</p>
                 <h1>{artist.name}</h1>
-                <div>
+                <p>
                   <span className="album-artist-name">
                     {artist.name}
                   </span>
-                  {` • ${artist_songs.length}`} songs, 
-                  <span>{` ${calculateTotalTimeLength(artist_songs)}`}</span>
-                </div>
+                  {` • ${artist_songs.length} songs, ${calculateTotalTimeLength(artist_songs)}`}
+                </p>
             </div>
 
           </div>
