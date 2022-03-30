@@ -36,7 +36,7 @@ song5.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drak
 song6 = Song.create!(song_name: "Fair Trade (feat. Travis Scott)", album_id: certifiedLoverBoy.id, duration:"4:51")
 song6.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Certified+Lover+Boy/06+Fair+Trade+(feat.+Travis+Scott).mp3"), filename: "06+Fair+Trade+(feat.+Travis+Scott).mp3")
 
-song7 = Song.create!(song_name: "Way 2 Sexy (feat. Future & Young", album_id: certifiedLoverBoy.id, duration:"4:17")
+song7 = Song.create!(song_name: "Way 2 Sexy (feat. Future & Young)", album_id: certifiedLoverBoy.id, duration:"4:17")
 song7.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Certified+Lover+Boy/07+Way+2+Sexy+(feat.+Future+%26+Young.mp3"), filename: "07+Way+2+Sexy+(feat.+Future+%26+Young.mp3")
 
 song8 = Song.create!(song_name: "TSU", album_id: certifiedLoverBoy.id, duration:"5:08")

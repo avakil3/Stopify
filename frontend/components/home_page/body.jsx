@@ -30,6 +30,7 @@ render(){
   const albums = Object.values(this.props.albums);
   const playlists = Object.values(this.props.playlists);
   const artists = Object.values(this.props.artists);
+  debugger
   return ( 
     <div className='body'>
        <h1>Welcome to Stopify</h1>
@@ -58,26 +59,27 @@ render(){
          </div>
           <div className='body-section-1-row-2'>
 
-            <Link to={playlists.length > 0 ? `/home/playlists/${playlists[0].id}` : '/home/us'}>
-                <div className="body-section-1">
-                    <img src={playlists.length > 0 ? playlists[0].playlistImgUrl === 'null' ? window.placeholderImg : playlists[0].playlistImgUrl : ""} className='body-section-1-img' alt={playlists[0].playlist_name}/> 
-                    <p>{playlists.length > 0 ? playlists[0].playlist_name: "Create a playlist first"}</p>
-                </div>
-              </Link>
-
-              <Link to={playlists.length > 1 ? `/home/playlists/${playlists[1].id}` : '/home/us'}>
-                <div className="body-section-1">
-                    <img src={playlists.length > 1 ? playlists[1].playlistImgUrl === 'null' ? window.placeholderImg : playlists[1].playlistImgUrl : ""} className='body-section-1-img' alt={playlists[1].playlist_name}/> 
-                    <p>{playlists.length > 1 ? playlists[1].playlist_name : "Create a playlist first"}</p>
-                </div>
-              </Link>
-
               <Link to={`/home/artists/${artists[0].id}`}>
               <div className="body-section-1">
                   <img src={artists[0].imageUrl} className='body-section-1-img' alt={artists[0].name}/>
                   <p>{artists[0].name}</p>
               </div>
               </Link>
+
+             <Link to={playlists.length > 1 ? `/home/playlists/${playlists[1].id}` : '/home/us'}>
+                <div className="body-section-1">
+                    <img src={(!playlists[1] || playlists[1].playlistImgUrl === 'null' ? window.placeholderImg : playlists[1].playlistImgUrl)} className='body-section-1-img' /> 
+                    <p>{playlists.length > 1 ? playlists[1].playlist_name: "Create a playlist first"}</p>
+                </div>
+              </Link>
+
+              <Link to={playlists.length > 2 ? `/home/playlists/${playlists[2].id}` : '/home/us'}>
+                <div className="body-section-1">
+                    <img src={(!playlists[2] || playlists[2].playlistImgUrl === 'null' ? window.placeholderImg : playlists[2].playlistImgUrl)} className='body-section-1-img'/> 
+                    <p>{playlists.length > 2 ? playlists[2].playlist_name : "Create a playlist first"}</p>
+                </div>
+              </Link>
+
          </div>
        </div>
        

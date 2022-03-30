@@ -17692,6 +17692,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
       var albums = Object.values(this.props.albums);
       var playlists = Object.values(this.props.playlists);
       var artists = Object.values(this.props.artists);
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Welcome to Stopify"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -17731,22 +17732,6 @@ var Body = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, albums[2].album_name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1-row-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-        to: playlists.length > 0 ? "/home/playlists/".concat(playlists[0].id) : '/home/us'
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "body-section-1"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: playlists.length > 0 ? playlists[0].playlistImgUrl === 'null' ? window.placeholderImg : playlists[0].playlistImgUrl : "",
-        className: "body-section-1-img",
-        alt: playlists[0].playlist_name
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists.length > 0 ? playlists[0].playlist_name : "Create a playlist first"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-        to: playlists.length > 1 ? "/home/playlists/".concat(playlists[1].id) : '/home/us'
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "body-section-1"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: playlists.length > 1 ? playlists[1].playlistImgUrl === 'null' ? window.placeholderImg : playlists[1].playlistImgUrl : "",
-        className: "body-section-1-img",
-        alt: playlists[1].playlist_name
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists.length > 1 ? playlists[1].playlist_name : "Create a playlist first"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/home/artists/".concat(artists[0].id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1"
@@ -17754,7 +17739,21 @@ var Body = /*#__PURE__*/function (_React$Component) {
         src: artists[0].imageUrl,
         className: "body-section-1-img",
         alt: artists[0].name
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, artists[0].name))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Recommended for you"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, artists[0].name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        to: playlists.length > 1 ? "/home/playlists/".concat(playlists[1].id) : '/home/us'
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "body-section-1"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: !playlists[1] || playlists[1].playlistImgUrl === 'null' ? window.placeholderImg : playlists[1].playlistImgUrl,
+        className: "body-section-1-img"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists.length > 1 ? playlists[1].playlist_name : "Create a playlist first"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        to: playlists.length > 2 ? "/home/playlists/".concat(playlists[2].id) : '/home/us'
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "body-section-1"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: !playlists[2] || playlists[2].playlistImgUrl === 'null' ? window.placeholderImg : playlists[2].playlistImgUrl,
+        className: "body-section-1-img"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, playlists.length > 2 ? playlists[2].playlist_name : "Create a playlist first"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Recommended for you"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-2-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/home/albums/".concat(albums[3].id)
