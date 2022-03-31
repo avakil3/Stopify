@@ -16,7 +16,8 @@
 .show-page-cover-img{
     width: 220px;
     align-self: flex-end;
-    padding-right: 20px;
+    margin-right: 20px;
+    box-shadow: 5px 5px 10px black;
 }
 
 .detail-content{
@@ -87,8 +88,9 @@
 .show-page.play-btn{
     color:var(--spotifygreen);
     margin-top: 20px;
-    font-size: 3em;
+    font-size: 3.5em;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 .no-music-in-playlist{

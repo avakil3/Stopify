@@ -16866,63 +16866,78 @@ var AlbumShowPage = /*#__PURE__*/function (_React$Component) {
       this.props.fetchArtists();
     }
   }, {
+    key: "playSong",
+    value: function playSong(song, queue) {
+      this.props.setCurrentSong(song);
+      this.props.setQueue(queue);
+    }
+  }, {
+    key: "handlePlayback",
+    value: function handlePlayback() {
+      var _this$props = this.props,
+          album_songs = _this$props.album_songs,
+          player = _this$props.player,
+          togglePlayback = _this$props.togglePlayback;
+
+      if (album_songs.includes(player.currentSong)) {
+        togglePlayback();
+      } else {
+        this.playSong(album_songs[0], album_songs.slice(1));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var _this$props = this.props,
-          album = _this$props.album,
-          artists = _this$props.artists,
-          album_songs = _this$props.album_songs,
-          player = _this$props.player;
+      var _this$props2 = this.props,
+          album = _this$props2.album,
+          artists = _this$props2.artists,
+          album_songs = _this$props2.album_songs,
+          player = _this$props2.player;
       if (!album || !artists) return null;
       var artist = artists[album.artist_id];
       if (!artist) return null;
-      return (
-        /*#__PURE__*/
-        // <div className=".show-container">
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "show-body"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "show-page-header"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          className: "show-page-cover-img",
-          src: album.imageUrl,
-          alt: album.album_name
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "detail-content"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "ALBUM"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, album.album_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-          className: "album-artist-user-name"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-          to: "/home/artists/".concat(artist.id)
-        }, artist.name)), " \u2022 ".concat(album.release_date, " \u2022 ").concat(album_songs.length), " songs,", " ".concat((0,_util_helper_functions__WEBPACK_IMPORTED_MODULE_3__.calculateTotalTimeLength)(this.props.album_songs))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-          icon: this.props.player.playing ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPlayCircle,
-          className: "show-page play-btn",
-          size: "2xl",
-          onClick: function onClick() {
-            return _this2.props.togglePlayback(player.currentSong, album_songs[0]);
-          }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "show-content"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "songs-header"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "header-text-labels"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "TITLE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-          className: "clock-icon",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faClock
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
-          className: "album-song-list"
-        }, album_songs.map(function (song, idx) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_songs_song_item_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            key: song.id,
-            song: song,
-            queue: album_songs,
-            idx: idx + 1
-          });
-        })))) // </div>
-
-      );
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "show-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "show-page-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "show-page-cover-img",
+        src: album.imageUrl,
+        alt: album.album_name
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "detail-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "ALBUM"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, album.album_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        className: "album-artist-user-name"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+        to: "/home/artists/".concat(artist.id)
+      }, artist.name)), " \u2022 ".concat(album.release_date, " \u2022 ").concat(album_songs.length), " songs,", " ".concat((0,_util_helper_functions__WEBPACK_IMPORTED_MODULE_3__.calculateTotalTimeLength)(album_songs))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+        icon: player.playing && album_songs.includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPlayCircle,
+        className: "show-page play-btn",
+        size: "2xl",
+        onClick: function onClick() {
+          return _this2.handlePlayback();
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "show-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "songs-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "header-text-labels"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "TITLE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+        className: "clock-icon",
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faClock
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+        className: "album-song-list"
+      }, album_songs.map(function (song, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_songs_song_item_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          key: song.id,
+          song: song,
+          queue: album_songs,
+          idx: idx + 1
+        });
+      }))));
     }
   }]);
 
@@ -16981,8 +16996,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchArtists: function fetchArtists() {
       return dispatch((0,_actions_artist_actions__WEBPACK_IMPORTED_MODULE_3__.fetchArtists)());
     },
-    togglePlayback: function togglePlayback(currentSong, firstSongInAlbum) {
-      !currentSong ? dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_5__.setCurrentSong)(firstSongInAlbum)) : dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_5__.togglePlayback)());
+    togglePlayback: function togglePlayback() {
+      return dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_5__.togglePlayback)());
+    },
+    setCurrentSong: function setCurrentSong(song) {
+      return dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_5__.setCurrentSong)(song));
+    },
+    setQueue: function setQueue(queue) {
+      return dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_5__.setQueue)(queue));
     }
   };
 };
@@ -17113,19 +17134,38 @@ var ArtistShowPage = /*#__PURE__*/function (_React$Component) {
   _createClass(ArtistShowPage, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // this.props.fetchAlbums();
       this.props.fetchArtists();
+    }
+  }, {
+    key: "playSong",
+    value: function playSong(song, queue) {
+      this.props.setCurrentSong(song);
+      this.props.setQueue(queue);
+    }
+  }, {
+    key: "handlePlayback",
+    value: function handlePlayback() {
+      var _this$props = this.props,
+          artist_songs = _this$props.artist_songs,
+          player = _this$props.player,
+          togglePlayback = _this$props.togglePlayback;
+
+      if (artist_songs.includes(player.currentSong)) {
+        togglePlayback();
+      } else {
+        this.playSong(artist_songs[0], artist_songs.slice(1));
+      }
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var _this$props = this.props,
-          albums = _this$props.albums,
-          artist = _this$props.artist,
-          artist_songs = _this$props.artist_songs,
-          player = _this$props.player;
+      var _this$props2 = this.props,
+          albums = _this$props2.albums,
+          artist = _this$props2.artist,
+          artist_songs = _this$props2.artist_songs,
+          player = _this$props2.player;
       if (!albums || !artist) return null;
       var artistAlbums = Object.values(albums).filter(function (album) {
         return album.artist_id === artist.id;
@@ -17143,11 +17183,11 @@ var ArtistShowPage = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "ARTIST"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, artist.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "album-artist-name"
       }, artist.name), " \u2022 ".concat(artist_songs.length, " songs, ").concat((0,_util_helper_functions__WEBPACK_IMPORTED_MODULE_3__.calculateTotalTimeLength)(artist_songs))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-        icon: this.props.player.playing ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
+        icon: player.playing && artist_songs.includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "show-page play-btn",
         size: "2xl",
         onClick: function onClick() {
-          return _this2.props.togglePlayback(player.currentSong, artist_songs[0]);
+          return _this2.handlePlayback();
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "albums-section-container"
@@ -17245,8 +17285,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchArtists: function fetchArtists() {
       return dispatch((0,_actions_artist_actions__WEBPACK_IMPORTED_MODULE_3__.fetchArtists)());
     },
-    togglePlayback: function togglePlayback(currentSong, firstSongonPage) {
-      !currentSong ? dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_5__.setCurrentSong)(firstSongonPage)) : dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_5__.togglePlayback)());
+    togglePlayback: function togglePlayback() {
+      return dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_5__.togglePlayback)());
+    },
+    setCurrentSong: function setCurrentSong(song) {
+      return dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_5__.setCurrentSong)(song));
+    },
+    setQueue: function setQueue(queue) {
+      return dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_5__.setQueue)(queue));
     }
   };
 };
@@ -17314,6 +17360,23 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Footer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var musicPlayer = document.getElementById("music-player");
+      musicPlayer.volume = 0.75;
+      var volumeBar = document.getElementById("vol-slider");
+      volumeBar.style.background = "linear-gradient(to right, var(--spotifygreen) 0%, var(--spotifygreen) " + musicPlayer.volume * 100 + '%, rgb(83,83,83) ' + musicPlayer.volume * 100 + '%, rgb(83,83,83) 100%)';
+      document.body.addEventListener("keydown", function (e) {
+        e.preventDefault();
+
+        if (e.code === "Space" && e.target === document.body && _this2.props.player.currentSong) {
+          _this2.props.togglePlayback();
+        }
+      });
+    }
+  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
       var _this$props = this.props,
@@ -17325,7 +17388,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "playSong",
     value: function playSong() {
-      var _this2 = this;
+      var _this3 = this;
 
       var currentSong = this.props.player.currentSong;
       var playbackTimeBar = document.getElementById("music-duration-slider");
@@ -17338,14 +17401,16 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         playerAlbumImage.src = currentSong.albumImgUrl;
         var timer = setInterval(function () {
           // start playback timer for music playback control bar
-          playbackTimeBar.value = musicPlayer.currentTime / musicPlayer.duration * 1000;
+          playbackTimeBar.value = musicPlayer.currentTime / musicPlayer.duration * 1000; //set music scrub bar background color to match current location of song playback
 
-          if (playbackTimeBar.value < 1000 || _this2.state.loop) {
-            _this2.forceUpdate();
+          playbackTimeBar.style.background = "linear-gradient(to right, var(--spotifygreen) 0%, var(--spotifygreen) " + musicPlayer.currentTime / musicPlayer.duration * 100 + '%, rgb(83,83,83) ' + musicPlayer.currentTime / musicPlayer.duration * 100 + '%, rgb(83,83,83) 100%)';
+
+          if (playbackTimeBar.value < 1000 || _this3.state.loop) {
+            _this3.forceUpdate();
           } else {
             clearInterval(timer);
 
-            _this2.props.nextSong();
+            _this3.props.nextSong();
           }
         }, 100);
       }
@@ -17354,6 +17419,8 @@ var Footer = /*#__PURE__*/function (_React$Component) {
     key: "changeVolume",
     value: function changeVolume(e) {
       this.props.musicPlayer.volume = e.target.value;
+      var volumeBar = document.getElementById("vol-slider");
+      volumeBar.style.background = "linear-gradient(to right, var(--spotifygreen) 0%, var(--spotifygreen) " + e.target.value * 100 + '%, rgb(83,83,83) ' + e.target.value * 100 + '%, rgb(83,83,83) 100%)';
     }
   }, {
     key: "toggleLoop",
@@ -17385,7 +17452,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var currentSong = this.props.player.currentSong;
       var _this$props2 = this.props,
@@ -17445,7 +17512,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faRepeat,
         className: this.state.loop ? "loop-btn clicked" : "loop-btn",
         onClick: function onClick() {
-          return _this3.toggleLoop();
+          return _this4.toggleLoop();
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "scroll-bar-container"
@@ -17457,7 +17524,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         min: "0",
         max: "1000",
         onChange: function onChange(e) {
-          return _this3.scrubMusicPlayback(e);
+          return _this4.scrubMusicPlayback(e);
         },
         defaultValue: "0",
         id: "music-duration-slider",
@@ -17472,10 +17539,12 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         min: "0",
         max: "1",
         step: ".01",
+        defaultValue: "0.75",
         onChange: function onChange(e) {
-          return _this3.changeVolume(e);
+          return _this4.changeVolume(e);
         },
-        className: "slider"
+        className: "slider",
+        id: "vol-slider"
       })));
     }
   }]);
@@ -18371,7 +18440,7 @@ var EditPlaylistModal = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Edit Playlist"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, " Playlist Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         id: "name",
         type: "text",
-        placeholder: " Playlist Name",
+        placeholder: "Edit your playlist's name",
         value: this.state.name,
         onChange: this.update('playlist_name')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
@@ -18499,14 +18568,35 @@ var PlaylistShowPage = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(PlaylistShowPage, [{
+    key: "playSong",
+    value: function playSong(song, queue) {
+      this.props.setCurrentSong(song);
+      this.props.setQueue(queue);
+    }
+  }, {
+    key: "handlePlayback",
+    value: function handlePlayback() {
+      var _this$props = this.props,
+          playlist = _this$props.playlist,
+          player = _this$props.player,
+          togglePlayback = _this$props.togglePlayback;
+      var playlist_songs = playlist.songs ? Object.values(playlist.songs) : null;
+
+      if (playlist_songs.includes(player.currentSong)) {
+        togglePlayback();
+      } else {
+        this.playSong(playlist_songs[0], playlist_songs.slice(1));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
 
-      var _this$props = this.props,
-          playlist = _this$props.playlist,
-          currentUser = _this$props.currentUser,
-          player = _this$props.player;
+      var _this$props2 = this.props,
+          playlist = _this$props2.playlist,
+          currentUser = _this$props2.currentUser,
+          player = _this$props2.player;
       if (!playlist) return null;
       var playlist_songs = playlist.songs ? Object.values(playlist.songs) : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -18515,18 +18605,18 @@ var PlaylistShowPage = /*#__PURE__*/function (_Component) {
         className: "show-page-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "show-page-cover-img",
-        src: playlist.playlistImgUrl === 'null' ? window.placeholderImg : playlist.playlistImgUrl,
+        src: playlist.playlist_name === 'Liked Songs' ? window.likedSongsImg : playlist.playlistImgUrl === 'null' ? window.placeholderImg : playlist.playlistImgUrl,
         alt: playlist.playlist_name
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "detail-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "PLAYLIST"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, playlist.playlist_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "album-artist-user-name"
       }, currentUser.username), playlist_songs ? " \u2022 ".concat(playlist_songs.length, " songs, ").concat((0,_util_helper_functions__WEBPACK_IMPORTED_MODULE_1__.calculateTotalTimeLength)(playlist_songs)) : ""))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
-        icon: this.props.player.playing ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPlayCircle,
+        icon: player.playing && playlist_songs.includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPlayCircle,
         className: "show-page play-btn",
         size: "2xl",
         onClick: function onClick() {
-          return playlist_songs ? _this.props.togglePlayback(player.currentSong, playlist_songs[0]) : null;
+          return _this.handlePlayback();
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_portal__WEBPACK_IMPORTED_MODULE_6__["default"], {
         closeOnOutsideClick: true,
@@ -18610,11 +18700,14 @@ var mapStateToProps = function mapStateToProps(_ref, ownProps) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    togglePlayback: function togglePlayback() {
+      return dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_2__.togglePlayback)());
+    },
     setCurrentSong: function setCurrentSong(song) {
       return dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_2__.setCurrentSong)(song));
     },
-    togglePlayback: function togglePlayback(currentSong, firstSongInPlaylist) {
-      !currentSong ? dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_2__.setCurrentSong)(firstSongInPlaylist)) : dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_2__.togglePlayback)());
+    setQueue: function setQueue(queue) {
+      return dispatch((0,_actions_music_player_actions__WEBPACK_IMPORTED_MODULE_2__.setQueue)(queue));
     }
   };
 };

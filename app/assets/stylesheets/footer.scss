@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 180px;
+    max-width: 200px;
     color: var(--textgrey);
 }
 
@@ -69,28 +69,35 @@
 
 .slider {
     -webkit-appearance: none;
-    background: var(--textgrey);
+    background: rgb(83,83,83);
     border-radius: 30px;
     outline: none;
     width: 150px;
-    height: 6px;
+    height: 4px;
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         -moz-appearance: none;
-        height: 14px;
-        width: 14px;
-        background: var(--spotifygreen);
-        border: 1px solid rgb(226, 226, 226);
+        height: 12px;
+        width: 12px;
+        opacity: 0;
+        background: white;
+        // border: 1px solid rgb(226, 226, 226);
         border-radius: 50%;
     }
+    &:hover{
+        &::-webkit-slider-thumb {
+            opacity: 1;
+        }
+    }
 }
+
 
 #music-duration-slider{
     border-radius: 30px;
     margin-left: 10px;
     margin-right: 10px;
     outline: none;;
-    height: 6px;
+    height: 4px;
     width: 500px;
 }
 

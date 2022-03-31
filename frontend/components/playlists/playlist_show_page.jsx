@@ -9,6 +9,23 @@ import { PortalWithState } from 'react-portal';
 export class PlaylistShowPage extends Component {
     
 
+  playSong(song, queue){
+    this.props.setCurrentSong(song);
+    this.props.setQueue(queue);
+  }
+
+  handlePlayback(){
+    const {playlist,player,togglePlayback} = this.props;
+    const playlist_songs = playlist.songs ? Object.values(playlist.songs) : null;
+    if(playlist_songs.includes(player.currentSong)){
+      togglePlayback(); 
+    }else{
+      this.playSong(playlist_songs[0], playlist_songs.slice(1));
+    }
+  }
+
+
+
   render() {
       const {playlist, currentUser,player} = this.props;
       if (!playlist) return null;  
@@ -17,7 +34,8 @@ export class PlaylistShowPage extends Component {
     return  (
           <div className="show-body">
             <div className="show-page-header">
-              <img className="show-page-cover-img" src={playlist.playlistImgUrl === 'null' ? window.placeholderImg : playlist.playlistImgUrl} alt={playlist.playlist_name}/>
+              <img className="show-page-cover-img" src={ playlist.playlist_name === 'Liked Songs' ? window.likedSongsImg :
+                (playlist.playlistImgUrl === 'null' ? window.placeholderImg : playlist.playlistImgUrl)} alt={playlist.playlist_name}/>
   
               <div className="detail-content">
                   <p>PLAYLIST</p>
@@ -31,10 +49,9 @@ export class PlaylistShowPage extends Component {
               </div>
   
             </div>
-            <FontAwesomeIcon icon={this.props.player.playing ? faPauseCircle : faPlayCircle} 
-                                className="show-page play-btn" size="2xl"
-                                onClick={()=> playlist_songs ? this.props.togglePlayback(player.currentSong,playlist_songs[0]) : null} />
-                       
+            <FontAwesomeIcon icon={player.playing && playlist_songs.includes(player.currentSong) ? faPauseCircle : faPlayCircle} 
+                              className="show-page play-btn" size="2xl"
+                              onClick={()=> this.handlePlayback()} />     
                        
             <PortalWithState closeOnOutsideClick closeOnEsc>
                  {({ openPortal, closePortal, isOpen, portal }) => (

@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 
 const mapStateToProps = ({entities: { player } }) => {
   return {
-    player: player,
+    player,
     musicPlayer: document.getElementById("music-player"),
   };
 };

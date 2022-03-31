@@ -9,11 +9,30 @@ class Footer extends React.Component {
 	this.state ={loop:false, playbackQueue:[]};
   }
 
-  componentDidUpdate(prevProps){
-    const {musicPlayer,player} = this.props;
-    if (prevProps.player.currentSong !== player.currentSong) this.playSong();
-	player.playing ? musicPlayer.play() : musicPlayer.pause();
-  }
+  	componentDidMount(){
+		const musicPlayer = document.getElementById("music-player");
+		musicPlayer.volume = 0.75;
+
+		const volumeBar = document.getElementById("vol-slider");
+		volumeBar.style.background = `linear-gradient(to right, var(--spotifygreen) 0%, var(--spotifygreen) ` 
+			+ (musicPlayer.volume * 100) + '%, rgb(83,83,83) ' 
+			+ (musicPlayer.volume * 100) + '%, rgb(83,83,83) 100%)';
+
+		document.body.addEventListener("keydown", (e) => {
+			e.preventDefault();
+			if (e.code === "Space" && e.target === document.body && this.props.player.currentSong) { 
+				this.props.togglePlayback();
+			}
+		});
+
+	}
+
+
+	componentDidUpdate(prevProps){
+		const {musicPlayer,player} = this.props;
+		if (prevProps.player.currentSong !== player.currentSong) this.playSong();
+		player.playing ? musicPlayer.play() : musicPlayer.pause();
+	}
 
 	playSong(){
 		const currentSong = this.props.player.currentSong;
@@ -28,6 +47,12 @@ class Footer extends React.Component {
 
 			const timer = setInterval(() => { // start playback timer for music playback control bar
 			playbackTimeBar.value = (musicPlayer.currentTime/musicPlayer.duration) * 1000;
+
+			//set music scrub bar background color to match current location of song playback
+			playbackTimeBar.style.background = `linear-gradient(to right, var(--spotifygreen) 0%, var(--spotifygreen) ` 
+			+ ((musicPlayer.currentTime/musicPlayer.duration) * 100) + '%, rgb(83,83,83) ' 
+			+ ((musicPlayer.currentTime/musicPlayer.duration) * 100) + '%, rgb(83,83,83) 100%)';
+
 			if (playbackTimeBar.value < 1000 || this.state.loop) {
 				this.forceUpdate();
 			}else{
@@ -38,7 +63,13 @@ class Footer extends React.Component {
 		} 
 	}
 
-	changeVolume(e){ this.props.musicPlayer.volume = e.target.value;}
+	changeVolume(e){ 
+		this.props.musicPlayer.volume = e.target.value;
+		const volumeBar = document.getElementById("vol-slider");
+		volumeBar.style.background = `linear-gradient(to right, var(--spotifygreen) 0%, var(--spotifygreen) ` 
+			+ (e.target.value * 100) + '%, rgb(83,83,83) ' 
+			+ (e.target.value * 100) + '%, rgb(83,83,83) 100%)';
+	}
 
 	toggleLoop(){this.state.loop = !this.state.loop;}
 
@@ -94,7 +125,7 @@ class Footer extends React.Component {
 
 			<div className="volume-controls">
 				<FontAwesomeIcon icon={faVolumeHigh} className="mute-btn" />
-				<input type="range" min="0" max="1" step=".01" onChange={e=> this.changeVolume(e)} className="slider" ></input>
+				<input type="range" min="0" max="1" step=".01" defaultValue="0.75" onChange={e=> this.changeVolume(e)} className="slider" id='vol-slider'></input>
 			</div>
 		
 		</div>

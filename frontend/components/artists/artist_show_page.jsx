@@ -14,10 +14,23 @@ class ArtistShowPage extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchAlbums();
     this.props.fetchArtists();
   }
  
+  playSong(song, queue){
+    this.props.setCurrentSong(song);
+    this.props.setQueue(queue);
+  }
+
+  handlePlayback(){
+    const {artist_songs,player,togglePlayback} = this.props;
+    if(artist_songs.includes(player.currentSong)){
+      togglePlayback(); 
+    }else{
+      this.playSong(artist_songs[0], artist_songs.slice(1));
+    }
+  }
+
 
   render(){
     const {albums,artist,artist_songs,player} = this.props;
@@ -41,9 +54,9 @@ class ArtistShowPage extends React.Component {
             </div>
 
           </div>
-          <FontAwesomeIcon icon={this.props.player.playing ? faPauseCircle : faPlayCircle} 
+          <FontAwesomeIcon icon={player.playing && artist_songs.includes(player.currentSong) ? faPauseCircle : faPlayCircle} 
                               className="show-page play-btn" size="2xl"
-                              onClick={()=> this.props.togglePlayback(player.currentSong,artist_songs[0])} />
+                              onClick={()=> this.handlePlayback()} />
           
           <div className='albums-section-container'>
             <h1 className='section-header'>Albums</h1>

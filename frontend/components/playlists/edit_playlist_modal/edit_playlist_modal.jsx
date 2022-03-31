@@ -47,7 +47,7 @@ render() {
                 <input
                 id="name"
                 type='text'
-                placeholder=" Playlist Name"
+                placeholder="Edit your playlist's name"
                 value={this.state.name}
                 onChange={this.update('playlist_name')}  
                 />

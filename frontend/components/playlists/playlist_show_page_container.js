@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PlaylistShowPage from './playlist_show_page'
-import { setCurrentSong } from '../../actions/music_player_actions';
 import { togglePlayback } from '../../actions/music_player_actions';
+import { setCurrentSong, setQueue } from '../../actions/music_player_actions';
 
 
 const mapStateToProps = ({session, entities: {playlists,player}},ownProps) => {
@@ -15,10 +15,9 @@ const mapStateToProps = ({session, entities: {playlists,player}},ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    setCurrentSong: song => dispatch(setCurrentSong(song)),
-    togglePlayback: (currentSong,firstSongInPlaylist)=> {
-      !currentSong ? dispatch(setCurrentSong(firstSongInPlaylist)) : dispatch(togglePlayback());
-    },
+  togglePlayback: ()=> dispatch(togglePlayback()),
+  setCurrentSong: (song) => dispatch(setCurrentSong(song)),
+  setQueue: queue => dispatch(setQueue(queue))
 });
 
 export default connect(
