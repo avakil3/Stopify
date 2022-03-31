@@ -18,13 +18,6 @@ class Footer extends React.Component {
 			+ (musicPlayer.volume * 100) + '%, rgb(83,83,83) ' 
 			+ (musicPlayer.volume * 100) + '%, rgb(83,83,83) 100%)';
 
-		document.body.addEventListener("keydown", (e) => {
-			e.preventDefault();
-			if (e.code === "Space" && e.target === document.body && this.props.player.currentSong) { 
-				this.props.togglePlayback();
-			}
-		});
-
 	}
 
 

@@ -6,10 +6,10 @@ import {faPlayCircle,faPauseCircle} from "@fortawesome/free-solid-svg-icons";
 
 
 class Body extends React.Component {
-  constructor(props){
-    super(props)
-    this.state={};
-  }
+//   constructor(props){
+//     super(props)
+//     this.state={};
+//   }
 
 
   playSong(song, queue){

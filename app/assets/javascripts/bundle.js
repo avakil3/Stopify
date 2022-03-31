@@ -17362,19 +17362,10 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   _createClass(Footer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
       var musicPlayer = document.getElementById("music-player");
       musicPlayer.volume = 0.75;
       var volumeBar = document.getElementById("vol-slider");
       volumeBar.style.background = "linear-gradient(to right, var(--spotifygreen) 0%, var(--spotifygreen) " + musicPlayer.volume * 100 + '%, rgb(83,83,83) ' + musicPlayer.volume * 100 + '%, rgb(83,83,83) 100%)';
-      document.body.addEventListener("keydown", function (e) {
-        e.preventDefault();
-
-        if (e.code === "Space" && e.target === document.body && _this2.props.player.currentSong) {
-          _this2.props.togglePlayback();
-        }
-      });
     }
   }, {
     key: "componentDidUpdate",
@@ -17388,7 +17379,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "playSong",
     value: function playSong() {
-      var _this3 = this;
+      var _this2 = this;
 
       var currentSong = this.props.player.currentSong;
       var playbackTimeBar = document.getElementById("music-duration-slider");
@@ -17405,12 +17396,12 @@ var Footer = /*#__PURE__*/function (_React$Component) {
 
           playbackTimeBar.style.background = "linear-gradient(to right, var(--spotifygreen) 0%, var(--spotifygreen) " + musicPlayer.currentTime / musicPlayer.duration * 100 + '%, rgb(83,83,83) ' + musicPlayer.currentTime / musicPlayer.duration * 100 + '%, rgb(83,83,83) 100%)';
 
-          if (playbackTimeBar.value < 1000 || _this3.state.loop) {
-            _this3.forceUpdate();
+          if (playbackTimeBar.value < 1000 || _this2.state.loop) {
+            _this2.forceUpdate();
           } else {
             clearInterval(timer);
 
-            _this3.props.nextSong();
+            _this2.props.nextSong();
           }
         }, 100);
       }
@@ -17452,7 +17443,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this3 = this;
 
       var currentSong = this.props.player.currentSong;
       var _this$props2 = this.props,
@@ -17512,7 +17503,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faRepeat,
         className: this.state.loop ? "loop-btn clicked" : "loop-btn",
         onClick: function onClick() {
-          return _this4.toggleLoop();
+          return _this3.toggleLoop();
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "scroll-bar-container"
@@ -17524,7 +17515,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         min: "0",
         max: "1000",
         onChange: function onChange(e) {
-          return _this4.scrubMusicPlayback(e);
+          return _this3.scrubMusicPlayback(e);
         },
         defaultValue: "0",
         id: "music-duration-slider",
@@ -17541,7 +17532,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         step: ".01",
         defaultValue: "0.75",
         onChange: function onChange(e) {
-          return _this4.changeVolume(e);
+          return _this3.changeVolume(e);
         },
         className: "slider",
         id: "vol-slider"
@@ -17768,19 +17759,19 @@ var Body = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Body);
 
-  function Body(props) {
-    var _this;
-
+  function Body() {
     _classCallCheck(this, Body);
 
-    _this = _super.call(this, props);
-    _this.state = {};
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(Body, [{
     key: "playSong",
-    value: function playSong(song, queue) {
+    value: //   constructor(props){
+    //     super(props)
+    //     this.state={};
+    //   }
+    function playSong(song, queue) {
       this.props.setCurrentSong(song);
       this.props.setQueue(queue);
     }
@@ -17811,7 +17802,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this = this;
 
       var _this$props2 = this.props,
           currentUser = _this$props2.currentUser,
@@ -17839,7 +17830,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.AlbumSongsSelector)(this.props.songs, albums[0].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(albums[0], 'album');
+          return _this.handlePlayback(albums[0], 'album');
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1"
@@ -17853,7 +17844,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.AlbumSongsSelector)(this.props.songs, albums[1].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(albums[1], 'album');
+          return _this.handlePlayback(albums[1], 'album');
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1"
@@ -17867,7 +17858,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.AlbumSongsSelector)(this.props.songs, albums[2].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(albums[2], 'album');
+          return _this.handlePlayback(albums[2], 'album');
         }
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1-row-2"
@@ -17883,7 +17874,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.ArtistSongsSelector)(this.props.songs, artists[0].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(artists[0], 'artist');
+          return _this.handlePlayback(artists[0], 'artist');
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1"
@@ -17896,7 +17887,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && Object.values(playlists[1].songs).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(playlists[1], 'playlist');
+          return _this.handlePlayback(playlists[1], 'playlist');
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-1"
@@ -17909,7 +17900,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && Object.values(playlists[2].songs).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(playlists[2], 'playlist');
+          return _this.handlePlayback(playlists[2], 'playlist');
         }
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Recommended for you"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-2-container"
@@ -17927,7 +17918,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.AlbumSongsSelector)(this.props.songs, albums[3].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(albums[3], 'album');
+          return _this.handlePlayback(albums[3], 'album');
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-2"
@@ -17943,7 +17934,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.ArtistSongsSelector)(this.props.songs, artists[4].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(artists[4], 'artist');
+          return _this.handlePlayback(artists[4], 'artist');
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-2"
@@ -17959,7 +17950,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.AlbumSongsSelector)(this.props.songs, albums[4].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(albums[4], 'album');
+          return _this.handlePlayback(albums[4], 'album');
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-2"
@@ -17975,7 +17966,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.AlbumSongsSelector)(this.props.songs, albums[5].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(albums[5], 'album');
+          return _this.handlePlayback(albums[5], 'album');
         }
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Featured Artists"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-3-container"
@@ -17992,7 +17983,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.ArtistSongsSelector)(this.props.songs, artists[0].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(artists[0], 'artist');
+          return _this.handlePlayback(artists[0], 'artist');
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-3"
@@ -18007,7 +17998,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.ArtistSongsSelector)(this.props.songs, artists[1].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(artists[1], 'artist');
+          return _this.handlePlayback(artists[1], 'artist');
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-3"
@@ -18022,7 +18013,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.ArtistSongsSelector)(this.props.songs, artists[2].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(artists[2], 'artist');
+          return _this.handlePlayback(artists[2], 'artist');
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body-section-3"
@@ -18037,7 +18028,7 @@ var Body = /*#__PURE__*/function (_React$Component) {
         icon: player.playing && (0,_util_selectors__WEBPACK_IMPORTED_MODULE_1__.ArtistSongsSelector)(this.props.songs, artists[3].id).includes(player.currentSong) ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPauseCircle : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlayCircle,
         className: "body play-btn",
         onClick: function onClick() {
-          return _this2.handlePlayback(artists[3], 'artist');
+          return _this.handlePlayback(artists[3], 'artist');
         }
       }))));
     }
