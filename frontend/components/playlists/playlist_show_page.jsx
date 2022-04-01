@@ -56,7 +56,10 @@ export class PlaylistShowPage extends Component {
             <PortalWithState closeOnOutsideClick closeOnEsc>
                  {({ openPortal, closePortal, isOpen, portal }) => (
                   <React.Fragment>                     
-                      <FontAwesomeIcon className='playlist-options' onClick={openPortal} icon={faEllipsis} />  
+                     {
+                        playlist.playlist_name != "Liked Songs" ? 
+                        <FontAwesomeIcon className='playlist-options' onClick={openPortal} icon={faEllipsis} />  : ""
+                     }
                     {portal(
                       <EditPlaylistModalContainer closeModal={closePortal} playlist={playlist}/>
                     )}

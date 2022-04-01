@@ -38,7 +38,7 @@ class SessionForm extends React.Component {
 
   demoLogin(){
     const demoUser = {
-      username: "Demo",
+      email: "demo@demo.com",
       password: 'password'
     }
     this.props.login(demoUser);
@@ -64,6 +64,10 @@ class SessionForm extends React.Component {
           
           <div className="form-elements">
             <br/>
+
+            {
+             this.props.formType ==='signup' ?   
+           
             <label className='form-input-titles'><strong>{this.props.formType ==='signup' ? "What should we call you?" : "Username"}</strong>
               <input type="text"
                placeholder="Enter your username."
@@ -72,9 +76,9 @@ class SessionForm extends React.Component {
                 className="form-input"
               />
             </label>
+            : ""
+            }
             <br/>
-            {
-             this.props.formType ==='signup' ?   
              <label className='form-input-titles'>What's your email?
                     <input type="text"
                         placeholder="Enter your email."
@@ -83,8 +87,6 @@ class SessionForm extends React.Component {
                         className="form-input"
                     />
              </label> 
-             : ""
-            }
             <br/>
 
             <label className='form-input-titles'>Password

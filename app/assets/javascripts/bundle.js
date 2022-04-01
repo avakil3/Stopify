@@ -18755,11 +18755,11 @@ var PlaylistShowPage = /*#__PURE__*/function (_Component) {
             closePortal = _ref.closePortal,
             isOpen = _ref.isOpen,
             portal = _ref.portal;
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, playlist.playlist_name != "Liked Songs" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
           className: "playlist-options",
           onClick: openPortal,
           icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faEllipsis
-        }), portal( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_edit_playlist_modal_edit_playlist_modal_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }) : "", portal( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_edit_playlist_modal_edit_playlist_modal_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
           closeModal: closePortal,
           playlist: playlist
         })));
@@ -19228,7 +19228,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     key: "demoLogin",
     value: function demoLogin() {
       var demoUser = {
-        username: "Demo",
+        email: "demo@demo.com",
         password: 'password'
       };
       this.props.login(demoUser);
@@ -19260,7 +19260,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         className: "form-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "form-elements"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), this.props.formType === 'signup' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "form-input-titles"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.props.formType === 'signup' ? "What should we call you?" : "Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
@@ -19268,7 +19268,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.username,
         onChange: this.update('username'),
         className: "form-input"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), this.props.formType === 'signup' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+      })) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "form-input-titles"
       }, "What's your email?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
@@ -19276,7 +19276,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.email,
         onChange: this.update('email'),
         className: "form-input"
-      })) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "form-input-titles"
       }, "Password", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "password",
