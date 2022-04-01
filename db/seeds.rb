@@ -158,6 +158,7 @@ song36.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua
 justin_bieber = Artist.create!(name:"Justin Bieber")
 justin_bieber.photo.attach(io: open("https://stopify-dev.s3.amazonaws.com/Artist+Pics/justin_bieber.jpeg"), filename: 'justin_bieber.jpeg')
 
+# Justin Bieber - Justice
 justice = Album.create!(album_name:"Justice", artist_id:justin_bieber.id, release_date: 2021 )
 justice.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/0/08/Justin_Bieber_-_Justice.png"), filename: 'Justin_Bieber_-_Justice.png')
 
@@ -178,6 +179,104 @@ song41.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Jus
 
 song42 = Song.create!(song_name: "Unstable (feat. The Kid LAROI)", album_id: justice.id, duration:"2:38")
 song42.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Justice/Justin+Bieber+feat.+The+Kid+LAROI+-+Unstable+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+feat.+The+Kid+LAROI+-+Unstable+%5Bwww.slider.kz%5D.mp3")
+
+
+
+# Justin Bieber - Changes
+changes = Album.create!(album_name:"Changes", artist_id:justin_bieber.id, release_date: 2020 )
+changes.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/1/16/Justin_Bieber_-_Changes.png"), filename: 'Justin_Bieber_-_Changes.png')
+
+song43 = Song.create!(song_name: "Yummy", album_id: changes.id, duration:"3:28")
+song43.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Changes/Justin+Bieber+-+Yummy+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+-+Yummy+%5Bwww.slider.kz%5D.mp3")
+
+song44 = Song.create!(song_name: "Get Me (feat. Kehlani)", album_id: changes.id, duration:"3:05")
+song44.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Changes/Justin+Bieber+feat.+Kehlani+-+Get+Me+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+feat.+Kehlani+-+Get+Me+%5Bwww.slider.kz%5D.mp3")
+
+song45 = Song.create!(song_name: "Intentions (feat. Quavo)", album_id: changes.id, duration:"3:32")
+song45.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Changes/Justin+Bieber+feat.+Quavo+-+Intentions+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+feat.+Quavo+-+Intentions+%5Bwww.slider.kz%5D.mp3")
+
+
+
+# Glass Animals - How to be a human being
+human_being = Album.create!(album_name:"How to Be a Human Being", artist_id:glass_animals.id, release_date: 2016 )
+human_being.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/2/2f/How_To_Be_A_Human_Being_cover_art.jpg"), filename: 'How_To_Be_A_Human_Being_cover_art.jpg')
+
+song46 = Song.create!(song_name: "Life Itself", album_id: human_being.id, duration:"4:41")
+song46.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Glass+Animals+-+How+to+be+a+Human+Being+/Glass+Animals+-+Life+Itself+%5Bwww.slider.kz%5D.mp3"), filename: "Glass+Animals+-+Life+Itself+%5Bwww.slider.kz%5D.mp3")
+
+song47 = Song.create!(song_name: "Take A Slice", album_id: human_being.id, duration:"3:49")
+song47.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Glass+Animals+-+How+to+be+a+Human+Being+/Glass+Animals+-+Take+A+Slice+%5Bwww.slider.kz%5D.mp3"), filename: "Glass+Animals+-+Take+A+Slice+%5Bwww.slider.kz%5D.mp3")
+
+song48 = Song.create!(song_name: "The Other Side Of Paradise", album_id: human_being.id, duration:"5:20")
+song48.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Glass+Animals+-+How+to+be+a+Human+Being+/Glass+Animals+-+The+Other+Side+Of+Paradise+%5Bwww.slider.kz%5D.mp3"), filename: "Glass+Animals+-+The+Other+Side+Of+Paradise+%5Bwww.slider.kz%5D.mp3")
+
+
+
+# Ed Sheeran - Divide
+divide = Album.create!(album_name:"÷", artist_id:ed_sheeran.id, release_date: 2017 )
+divide.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/4/45/Divide_cover.png"), filename: 'Divide_cover.png')
+
+song49 = Song.create!(song_name: "Castle on the Hill", album_id: divide.id, duration:"4:21")
+song49.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Ed+Sheeran+-+Divide/Ed+Sheeran+-+Castle+on+the+Hill+%5Bwww.slider.kz%5D.mp3"), filename: "Ed+Sheeran+-+Castle+on+the+Hill+%5Bwww.slider.kz%5D.mp3")
+
+song50 = Song.create!(song_name: "Perfect", album_id: divide.id, duration:"4:23")
+song50.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Ed+Sheeran+-+Divide/Ed+Sheeran+-+Perfect+%5Bwww.slider.kz%5D.mp3"), filename: "Ed+Sheeran+-+Perfect+%5Bwww.slider.kz%5D.mp3")
+
+song51 = Song.create!(song_name: "Shape of You", album_id: divide.id, duration:"3:53")
+song51.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Ed+Sheeran+-+Divide/Ed+Sheeran+-+Shape+of+You+%5Bwww.slider.kz%5D.mp3"), filename: "Ed+Sheeran+-+Shape+of+You+%5Bwww.slider.kz%5D.mp3")
+
+
+# Dua Lipa - Dua Lipa (Deluxe)
+dua_lipa_album = Album.create!(album_name:"Dua Lipa (Deluxe)", artist_id:dua_lipa.id, release_date: 2017 )
+dua_lipa_album.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/2/20/Dua_Lipa_%28album%29.png"), filename: 'Dua_Lipa_%28album%29.png')
+
+song52 = Song.create!(song_name: "IDGAF", album_id: dua_lipa_album.id, duration:"3:37")
+song52.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua+Lipa+-+Dua+Lipa+(Deluxe)/Dua+Lipa+-+IDGAF+%5Bwww.slider.kz%5D.mp3"), filename: "Dua+Lipa+-+IDGAF+%5Bwww.slider.kz%5D.mp3")
+
+song53 = Song.create!(song_name: "New Rules", album_id: dua_lipa_album.id, duration:"3:29")
+song53.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua+Lipa+-+Dua+Lipa+(Deluxe)/Dua+Lipa+-+New+Rules+%5Bwww.slider.kz%5D.mp3"), filename: "Dua+Lipa+-+New+Rules+%5Bwww.slider.kz%5D.mp3")
+
+song54 = Song.create!(song_name: "Thinking 'Bout You", album_id: dua_lipa_album.id, duration:"2:51")
+song54.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Dua+Lipa+-+Dua+Lipa+(Deluxe)/Dua+Lipa+-+Thinking+'Bout+You+%5Bwww.slider.kz%5D.mp3"), filename: "Dua+Lipa+-+Thinking+'Bout+You+%5Bwww.slider.kz%5D.mp3")
+
+
+# Drake - Views
+views = Album.create!(album_name:"Views", artist_id:drake.id, release_date: 2016 )
+views.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/a/af/Drake_-_Views_cover.jpg"), filename: 'Drake_-_Views_cover.jpg')
+
+
+song55 = Song.create!(song_name: "Controlla", album_id: views.id, duration:"4:05")
+song55.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Views/Drake+-+Controlla+%5Bwww.slider.kz%5D.mp3"), filename: "Drake+-+Controlla+%5Bwww.slider.kz%5D.mp3")
+
+song56 = Song.create!(song_name: "Hotline Bling", album_id: views.id, duration:"4:27")
+song56.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Views/Drake+-+Hotline+Bling+%5Bwww.slider.kz%5D.mp3"), filename: "Drake+-+Hotline+Bling+%5Bwww.slider.kz%5D.mp3")
+
+song57 = Song.create!(song_name: "Hype", album_id: views.id, duration:"3:29")
+song57.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Views/Drake+-+Hype+%5Bwww.slider.kz%5D.mp3"), filename: "Drake+-+Views/Drake+-+Hype+%5Bwww.slider.kz%5D.mp3")
+
+song58 = Song.create!(song_name: "One Dance (feat. WizKid, Kyla)", album_id: views.id, duration:"2:53")
+song58.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Drake+-+Views/Drake+feat.+WizKid%2C+Kyla+-+One+Dance+%5Bwww.slider.kz%5D.mp3"), filename: "Drake+feat.+WizKid%2C+Kyla+-+One+Dance+%5Bwww.slider.kz%5D.mp3")
+
+
+# Justin Bieber - Purpose
+purpose = Album.create!(album_name:"Purpose", artist_id:justin_bieber.id, release_date: 2015 )
+purpose.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/2/27/Justin_Bieber_-_Purpose_%28Official_Album_Cover%29.png"), filename: 'Justin_Bieber_-_Purpose_%28Official_Album_Cover%29.png')
+
+song59 = Song.create!(song_name: "Sorry", album_id: purpose.id, duration:"3:20")
+song59.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Purpose/Justin+Bieber+-+Sorry+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+-+Sorry+%5Bwww.slider.kz%5D.mp3")
+
+song60 = Song.create!(song_name: "What Do You Mean?", album_id: purpose.id, duration:"3:25")
+song60.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Justin+Bieber+-+Purpose/Justin+Bieber+-+What+Do+You+Mean_+%5Bwww.slider.kz%5D.mp3"), filename: "Justin+Bieber+-+What+Do+You+Mean_+%5Bwww.slider.kz%5D.mp3")
+
+# Glass Animals - ZABA
+zaba = Album.create!(album_name:"Zaba", artist_id:glass_animals.id, release_date: 2014 )
+zaba.photo.attach(io: open("https://upload.wikimedia.org/wikipedia/en/3/32/Glass_animals_zaba.jpg"), filename: 'Glass_animals_zaba.jpg')
+
+song61 = Song.create!(song_name: "Black Mambo", album_id: zaba.id, duration:"4:08")
+song61.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Glass+Animals+-+ZABA/Glass+Animals+-+Black+Mambo+%5Bwww.slider.kz%5D.mp3"), filename: "Glass+Animals+-+Black+Mambo+%5Bwww.slider.kz%5D.mp3")
+
+song62 = Song.create!(song_name: "Flip", album_id: zaba.id, duration:"3:42")
+song62.song_file.attach(io: open("https://stopify-dev.s3.amazonaws.com/Songs/Glass+Animals+-+ZABA/Glass+Animals+-+Flip+%5Bwww.slider.kz%5D.mp3"), filename: "Glass+Animals+-+Flip+%5Bwww.slider.kz%5D.mp3")
 
 
 
