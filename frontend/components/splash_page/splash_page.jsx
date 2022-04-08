@@ -2,15 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SplashPage = () => {
-
     return (
           <div className="splash-container">
             <div className="splash-header">
-              <div className="splash-logo-container">
-                <Link to="/" className="header-link">
-                  <img id="logo" src={window.spotifyLogoURL} alt="logo" />
-                </Link>
-              </div>
+              <img id="logo" src={window.spotifyLogoURL} alt="logo" />
               <ul className="splash-nav-bar">
                 <li className="links"><a className="links" href='https://github.com/avakil3' target="_blank" >GitHub</a></li>
                 <li className="links"> <a className="links" href='https://www.linkedin.com/in/aagamvakil/' target="_blank" >LinkedIn</a> </li>
@@ -31,7 +26,6 @@ const SplashPage = () => {
               </Link>
               </div>
             </div>
- 
           </div>
       )
 
