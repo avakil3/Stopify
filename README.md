@@ -73,11 +73,13 @@ const MusicPlayerReducer = (state=preloadedState, action) =>
 
 ## Search Functionality
 * Built search functionality to quickly find songs, albums, and artists
-* Challenge: Originally, the search functionality would only search songs that started with the search input, but this would leave out some results
+* Challenge: Originally, the search functionality would only search songs that started with the search input, but this would leave out some results. 
 * Solution: I used .includes() to search for the search input in the entire song name, helping catch searches of songs with longer, multi-word names
+* Note that when searching for an artist or album, the search functionality will also show an the artist's albums, the album's artist, as well as the cumulative song list. This provides for a more holistic search experience.
 
 <p align="center"><img src="/app/assets/images/README pics/search_page.png" width="1000">  </p>
 
+Implementation:
 ```JavaScript
 handleChange(e) {
 		const {songs,albums,artists} = this.props;
