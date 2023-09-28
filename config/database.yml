@@ -83,3 +83,4 @@ production:
   database: stopify_production
   username: stopify
   password: <%= ENV['STOPIFY_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
